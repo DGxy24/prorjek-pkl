@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -22,6 +23,29 @@ class UserController extends Controller
     {
         //
     }
+
+    //Function Login
+    public function authenticate(Request $request){
+        $credentials =  $request->validate([
+              'email' => 'required|email:dns',
+              'password' => 'required'
+          ]);
+  
+        //   if(Auth::attempt($credentials)){
+        //       $request->session()->regenerate();
+        //       if(auth()->guest() || !auth()->user()->is_admin){
+                     
+        //       return redirect()->intended('/dashboard');
+        //       }
+        //       return redirect()->intended('/dashboard/categories');
+        //   }
+                    if(Auth::attempt($credentials)){
+              $request->session()->regenerate();
+              return redirect()->intended('/dashboard-user/index');
+
+                    }
+          return back()->with('loginError' , 'Login failed!');
+      }
 
     /**
      * Store a newly created resource in storage.

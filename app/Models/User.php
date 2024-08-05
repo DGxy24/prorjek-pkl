@@ -9,6 +9,11 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+
+    public function bagian()
+    {
+        return $this->hasMany(Bagian::class);
+    }
     use HasFactory, Notifiable;
 
     /**
