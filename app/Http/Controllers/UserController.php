@@ -14,7 +14,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('/Daftar/index');
+        return view('/Daftar/index',[
+            'bagian' =>Bagian::all()
+        ]);
     }
 
     public function login()
