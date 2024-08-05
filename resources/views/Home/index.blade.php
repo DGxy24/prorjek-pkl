@@ -8,12 +8,13 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <title>Hello, world!</title>
+    <link rel="icon" href="img/logo.png">
+    <title>Pengadilan Negeri Medan</title>
   </head>
   <body class="color">
   
     <div class="px-4 py-5 my-5 text-center"style="color:#ffffff">
-      <img class="d-block mx-auto mb-4" src="img/logo.png" alt="" width="120" height="180">
+      <img class="d-block mx-auto mb-4" src="img/logo.png" alt="" width="13%">
       <h1 class="display-5 fw-bold">SELAMAT DATANG DI APLIKASI
         <br> PENGELOLAAN KELUHAN IT
         <br>PENGADILAN NEGERI MEDAN</h1>
