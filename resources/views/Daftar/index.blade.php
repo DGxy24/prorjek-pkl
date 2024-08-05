@@ -23,6 +23,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-12 col-lg-9">
                     <form>
+                        @csrf
                         <div class="text-center mt-3">
                             <img class="mb-4" src="/img/logo.png" alt="Logo" width="10%">
                             <h1 class="h3 mb-3 fw-normal">Silahkan Daftar</h1>
@@ -38,12 +39,13 @@
                         </div>
                         <div class="form-floating mb-3">
                             <select class="form-select" aria-label="Default select example">
-
+                                {{-- Menampilkan nama bagian berdasarkan tabel bagian --}}
                                 <option selected>Pilih Bidang/Bagian</option>
                                 @foreach ($bagian as $item)
                                 <option value="{{ $item->id }}" >{{ $item ->nama_bagian }}</option>
                                 @endforeach
                             </select>
+                            {{--  --}}
                         </div>
                         <div class="form-floating mb-3">
                             <input type="email" class="form-control" id="floatingEmail"
