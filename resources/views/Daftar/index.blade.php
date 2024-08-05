@@ -38,7 +38,8 @@
                         </div>
                         <div class="form-floating mb-3">
                             <select class="form-select" aria-label="Default select example">
-
+ 
+                                
                                 <option selected>Pilih Bidang/Bagian</option>
                                 @foreach ($bagian as $item)
                                 <option value="{{ $item->id }}" >{{ $item ->nama_bagian }}</option>
