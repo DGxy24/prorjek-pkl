@@ -3,22 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bagian;
-use App\Models\User;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class BagianController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('/Daftar/index');
-    }
-
-    public function login()
-    {
-        return view('/Login/index');
+        // Membuat dynamic selection untuk bagian/bidang akun
+        $bagian = Bagian::all();
+        return response()->view('daftar.index', compact('bagians'));
     }
 
     /**
@@ -40,7 +36,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show(Bagian $bagian)
     {
         //
     }
@@ -48,7 +44,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit(Bagian $bagian)
     {
         //
     }
@@ -56,7 +52,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Bagian $bagian)
     {
         //
     }
@@ -64,7 +60,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy(Bagian $bagian)
     {
         //
     }
