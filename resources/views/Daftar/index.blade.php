@@ -67,40 +67,7 @@
                         <button class="w-100 btn btn-lg btn-primary" type="submit">DAFTAR</button>
                     </form>
 
-            <form>
-                <div class="container text-center mt-3">
-                    <img class="mb-4" src="/img/logo.png" alt="" width="10%">
-                    <h1 class="h3 mb-3 fw-normal">Silahkan Daftar</h1>
-
-                </div>
-
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingFullName" placeholder="Nama Lengkap">
-                    <label for="floatingFullName">Nama Lengkap</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingUsername" placeholder="Username">
-                    <label for="floatingUsername">Username</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Pilih Bidang/Bagian</option>
-                        <option value="1">Magang</option>
-                    </select>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
-                    <label for="floatingEmail">Email address</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
-                </div>
-
-
-
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-            </form>
+      
         </main>
 
 
