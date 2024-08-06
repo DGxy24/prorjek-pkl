@@ -36,8 +36,11 @@ class UserController extends Controller
     //Function Login
     public function authenticate(Request $request){
         $credentials =  $request->validate([
-              'email' => 'required|email:dns',
+              'username' => 'required',
               'password' => 'required'
+          ],messages : [
+            'username.required' => 'Username harus diisi',
+            'password.required' => 'Password harus diisi'
           ]);
   
         //   if(Auth::attempt($credentials)){
@@ -50,8 +53,7 @@ class UserController extends Controller
         //   }
                     if(Auth::attempt($credentials)){
               $request->session()->regenerate();
-              return redirect()->intended('/dashboard-user/index');
-
+              return redirect()->intended('/dashboard/index');
                     }
           return back()->with('loginError' , 'Login failed!');
       }
