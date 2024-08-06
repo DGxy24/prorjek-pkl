@@ -42,13 +42,13 @@
                             <input type="text" class="form-control" id="floatingUsername" placeholder="Username">
                             <label for="floatingUsername">Username</label>
                         </div>
-                        
+
                         <div class="form-floating mb-3">
                             <select class="form-select" aria-label="Default select example">
                                 {{-- Menampilkan nama bagian berdasarkan tabel bagian --}}
                                 <option selected>Pilih Bidang/Bagian</option>
                                 @foreach ($bagian as $item)
-                                <option value="{{ $item->id }}" >{{ $item ->nama_bagian }}</option>
+                                    <option value="{{ $item->id }}">{{ $item->nama_bagian }}</option>
                                 @endforeach
                             </select>
                             {{--  --}}
@@ -67,7 +67,7 @@
                         <button class="w-100 btn btn-lg btn-primary" type="submit">DAFTAR</button>
                     </form>
 
-      
+
         </main>
 
 
