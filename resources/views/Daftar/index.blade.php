@@ -26,6 +26,7 @@
 
             <div class="row justify-content-center">
                 <div class="col-md-12 col-lg-9">
+                    {{-- Form Daftar --}}
                     <form>
                         @csrf
                         <div class="text-center mt-3">
@@ -41,6 +42,7 @@
                             <input type="text" class="form-control" id="floatingUsername" placeholder="Username">
                             <label for="floatingUsername">Username</label>
                         </div>
+                        
                         <div class="form-floating mb-3">
                             <select class="form-select" aria-label="Default select example">
                                 {{-- Menampilkan nama bagian berdasarkan tabel bagian --}}
@@ -61,10 +63,15 @@
                             <label for="floatingPassword">Password</label>
                         </div>
 
+
+                        <button class="w-100 btn btn-lg btn-primary" type="submit">DAFTAR</button>
+                    </form>
+
             <form>
                 <div class="container text-center mt-3">
                     <img class="mb-4" src="/img/logo.png" alt="" width="10%">
                     <h1 class="h3 mb-3 fw-normal">Silahkan Daftar</h1>
+
                 </div>
 
                 <div class="form-floating mb-3">
