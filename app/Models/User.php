@@ -10,6 +10,8 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
 
+    
+    
     public function bagian()
     {
         return $this->hasMany(Bagian::class);
@@ -24,6 +26,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'username',
+        'bagian_id',
         'email',
         'password',
     ];

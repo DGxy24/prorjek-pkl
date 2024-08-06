@@ -13,9 +13,14 @@ return new class extends Migration
     {
         Schema::create('tikets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('bagian_id');
-            $table->foreignId('permasalahan_id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+
+            $table->unsignedBigInteger('bagian_id');
+            $table->foreign('bagian_id')->references('id')->on('bagians');
+
+            $table->unsignedBigInteger('permasalahan_id');
+            $table->foreign('permasalahan_id')->references('id')->on('permasalahans');
             $table->date('tgl_permasalahan');
             $table->string('penjelasan');
             $table->string('tindakan');

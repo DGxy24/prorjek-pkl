@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name',35);
             $table->string('username',15);
-            $table->foreignId('bagian_id');
+            // $table->foreignId('bagian_id');
+            $table->unsignedBigInteger('bagian_id');
+            $table->foreign('bagian_id')->references('id')->on('bagians');
             $table->string('email',35)->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password',35);
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });

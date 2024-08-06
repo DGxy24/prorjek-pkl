@@ -16,6 +16,12 @@
 
 <body class="color">
 
+    @if(session()->has('success'))
+    <div class="alert alert-success" role="alert">
+      {{ session('success')}}
+    </div>
+    @endif
+    
     <div class="px-4 py-5 my-5 text-center"style="color:#ffffff">
         <img class="d-block mx-auto mb-4" src="img/logo.png" alt="" width="13%">
         <h1 class="display-5 fw-bold">SELAMAT DATANG DI APLIKASI
