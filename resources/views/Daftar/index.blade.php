@@ -30,7 +30,7 @@
                     <form action="{{ route('daftar') }}" method="POST">
                         @csrf
 
-                                {{--  <input type="telp" class="form-control @error('no_hp') is-invalid
+                        {{--  <input type="telp" class="form-control @error('no_hp') is-invalid
                         @enderror" id="no_hp" name="no_hp" value="{{ old('no_hp') }}">
                         @error('no_hp')
                         <div class="invalid-feedback">
@@ -43,52 +43,75 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control @error('name') is-invalid
-                        @enderror" id="name" name="name" value="{{ old('name') }}" id="floatingFullName" placeholder="Nama Lengkap">
+                            <input type="text"
+                                class="form-control @error('name') is-invalid
+                        @enderror"
+                                id="name" name="name" value="{{ old('name') }}" id="floatingFullName"
+                                placeholder="Nama Lengkap">
                             <label for="floatingFullName">Nama Lengkap</label>
                             {{-- Proses Validasi --}}
                             @error('name')
-                            <div class="invalid-feedback">
-                            {{ $message }}
-                            </div>
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
                             @enderror
                         </div>
 
+                        {{-- tes --}}
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control @error('username') is-invalid
-                        @enderror" id="username" name="username" value="{{ old('username') }}" id="floatingUsername" placeholder="Username">
+                            <input type="text"
+                                class="form-control @error('username') is-invalid
+                        @enderror"
+                                id="username" name="username" value="{{ old('username') }}" id="floatingUsername"
+                                placeholder="Username">
                             <label for="floatingUsername">Username</label>
                             @error('username')
-                            <div class="invalid-feedback">
-                            {{ $message }}
-                            </div>
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
                             @enderror
                         </div>
 
                         <div class="form-floating mb-3">
-                            <select class="form-select  @error('bagian_id') is-invalid
-                        @enderror" id="bagian_id" name="bagian_id" aria-label="Default select example">
+                            <select
+                                class="form-select  @error('bagian_id') is-invalid
+                            @enderror"
+                                id="bagian_id" name="bagian_id" aria-label="Default select example">
                                 {{-- Menampilkan nama bagian berdasarkan tabel bagian --}}
-                                <option selected>Pilih Bidang/Bagian</option>
+                                <option value="">Pilih Bidang/Bagian</option>
                                 @foreach ($bagian as $item)
                                     <option value="{{ $item->id }}">{{ $item->nama_bagian }}</option>
-                                @endforeach
-                                @error('bagian_id')
-                                <div class="invalid-feedback">
-                                {{ $message }}
-                                </div>
-                                @enderror
+                                @endforeach                            
                             </select>
-                            {{--  --}}
+                            @error('bagian_id')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                         </div>
+
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingEmail"
+                            <input type="email" class="form-control  @error('email') is-invalid
+                        @enderror"
+                                id="email" name="email" value="{{ old('email') }}" id="floatingEmail"
                                 placeholder="name@example.com">
                             <label for="floatingEmail">Email address</label>
+                            @error('email')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <input type="password" class="form-control @error('password') is-invalid
+                        @enderror"
+                                id="password" name="password" value="{{ old('password') }}" id="floatingPassword" placeholder="Password">
                             <label for="floatingPassword">Password</label>
+                            @error('password')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                         </div>
 
 
