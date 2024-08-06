@@ -6,6 +6,7 @@ use App\Models\Bagian;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -60,7 +61,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'username' => ['required' , 'min:3' , 'max:255' , 'unique:users'],
+            'bagian_id' => 'required',
+            'email' => 'required|email:dns|unique:users',
+            'password' => 'required|min:5|max:255'
+            ]);
+            $validatedData['password'] = Hash::make($validatedData['password']);
+
+            User::create($validatedData);
+            return redirect('/')->with('success', 'Akun Berhasil Ditambahkan');
+      
     }
 
     /**
