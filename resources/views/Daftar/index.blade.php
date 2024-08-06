@@ -81,7 +81,9 @@
                                 <option value="">Pilih Bidang/Bagian</option>
                                 @foreach ($bagian as $item)
                                     <option value="{{ $item->id }}">{{ $item->nama_bagian }}</option>
+
                                 @endforeach                            
+
                             </select>
                             @error('bagian_id')
                             <div class="invalid-feedback">
