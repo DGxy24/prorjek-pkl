@@ -12,7 +12,7 @@
     <title>Dashboard</title>
 
 
-
+    <link rel="icon" href="img/logo.png">
 
 
     <!-- Bootstrap core CSS -->

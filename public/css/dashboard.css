@@ -55,17 +55,14 @@ body {
   color: #2470dc;
 }
 
-.sidebar .nav-link:hover .feather,
-.sidebar .nav-link.active .feather {
-  color: inherit;
-}
+
 
 .sidebar-heading {
   font-size: .75rem;
   text-transform: uppercase;
 }
 
-
+/* Style untuk button sidebar */
 .container .nav .nav-link:hover{
   background-color: white !important;
   color: #374750 !important;
@@ -75,6 +72,9 @@ body {
   background-color: white !important;
   color: #374750 !important;
 }
+
+
+/* Akhir style button sidebar */
 
 /*
  * Navbar
