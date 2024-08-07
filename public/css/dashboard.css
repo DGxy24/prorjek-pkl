@@ -65,6 +65,17 @@ body {
   text-transform: uppercase;
 }
 
+
+.container .nav .nav-link:hover{
+  background-color: white !important;
+  color: #374750 !important;
+}
+
+.container .nav .active{
+  background-color: white !important;
+  color: #374750 !important;
+}
+
 /*
  * Navbar
  */
