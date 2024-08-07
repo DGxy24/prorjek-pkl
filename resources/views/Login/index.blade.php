@@ -54,7 +54,9 @@
                         @enderror --}}
 
                         <div class="text-center mt-3">
+                            <a href="/">
                             <img class="mb-4" src="/img/logo.png" alt="Logo" width="20%">
+                        </a>
                             <h1 class="h3 mb-3 fw-normal">Silahkan Login</h1>
                         </div>
 

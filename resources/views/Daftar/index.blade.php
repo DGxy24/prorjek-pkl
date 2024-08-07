@@ -38,7 +38,9 @@
                     </div>
                         @enderror --}}
                         <div class="text-center mt-3">
+                            <a href="/">
                             <img class="mb-4" src="/img/logo.png" alt="Logo" width="10%">
+                        </a>
                             <h1 class="h3 mb-3 fw-normal">Silahkan Daftar</h1>
                         </div>
 
@@ -71,20 +73,21 @@
                                 </div>
                             @enderror
                         </div>
-
+                        
                         <div class="form-floating mb-3">
                             <select
                                 class="form-select  @error('bagian_id') is-invalid
                             @enderror"
                                 id="bagian_id" name="bagian_id" aria-label="Default select example">
                                 {{-- Menampilkan nama bagian berdasarkan tabel bagian --}}
-                                <option value="">Pilih Bidang/Bagian</option>
+                                <option value="">Pilih</option>
                                 @foreach ($bagian as $item)
                                     <option value="{{ $item->id }}">{{ $item->nama_bagian }}</option>
 
                                 @endforeach                            
 
                             </select>
+                            <label for="floatingSelectGrid">Pilih Bidang/Bagian</label>
                             @error('bagian_id')
                             <div class="invalid-feedback">
                                 {{ $message }}
