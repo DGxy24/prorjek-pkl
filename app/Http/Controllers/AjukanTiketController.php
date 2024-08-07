@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\permasalahan;
 use App\Models\Tiket;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,9 @@ class AjukanTiketController extends Controller
     public function index()
     {
         //
-        return view('Dashboard.Ajukan-tiket.index');
+        return view('Dashboard.Ajukan-tiket.index',[
+            'masalah'=> permasalahan::all()
+        ]);
     }
 
     /**
