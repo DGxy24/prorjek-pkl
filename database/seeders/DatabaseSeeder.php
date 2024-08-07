@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
+       
         //Menambah data nama bagian
        Bagian::create([
         'nama_bagian' => 'PHI'
@@ -75,5 +76,25 @@ class DatabaseSeeder extends Seeder
        permasalahan::create([
         'jenis_masalah' => 'Permasalahan Sinkronisasi'
        ]);
+
+
+        //Membuat akun Admin default
+        User::create([
+            'name'=>'Admin',
+            'username' => 'admin',
+            'bagian_id'=> '2',
+            'email' => 'admin@admin.com',
+            'password'=> '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',//password
+            'level' => 1
+        ]);
+            //membuat akun user Default
+        User::create([
+            'name'=>'Doly Boan Tua Gurning',
+            'username' => 'user',
+            'bagian_id'=> '2',
+            'email' => 'user@user.com',
+            'password'=> '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',//password
+            'level' => 0
+        ]);
     }
 }
