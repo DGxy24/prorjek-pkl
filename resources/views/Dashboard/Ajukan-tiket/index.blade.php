@@ -33,6 +33,10 @@
                         <div class="form-floating mb-3">
                             <select class="form-select" id="floatingSelectGrid" aria-label="Default select example">
                                 <option selected>Pilih</option>
+                                @foreach ($masalah as $item)
+                                <option value="{{ $item->id }}">{{ $item->jenis_masalah }}</option>
+
+                            @endforeach
                             </select>
                             <label for="floatingSelectGrid">Jenis Permasalahan</label>
                         </div>
