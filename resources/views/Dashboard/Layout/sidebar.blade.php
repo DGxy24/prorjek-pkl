@@ -34,7 +34,7 @@
             <ul class="nav flex-column">
                 <li class="nav-item mb-3">
                     <a class="nav-link text-center {{ Request::is('dashboard/logout*') ? 'active' : '' }}"
-                        style="background-color: #374750; border-radius:50px; color:white" href="#">
+                        style="background-color: #374750; border-radius:50px; color:white" href="{{ route('logout') }}">
                         <span data-feather="log-out"></span>
                         Logout
                     </a>

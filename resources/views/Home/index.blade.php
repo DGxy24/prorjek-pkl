@@ -30,9 +30,9 @@
         </h1>
         <div class="col-lg-6 mx-auto mt-5">
 
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <div class="tombol d-grid gap-2 d-sm-flex justify-content-sm-center">
                 <a href="/login"class="btn  btn-lg px-4 gap-3 me-3 " style="background:#324851; color:white">LOGIN</a>
-                <a href="/daftar" class="btn  btn-lg px-4 "style="background:#324851; color:white">SIGN UP</a>
+                <a href="/daftar" class="btn  btn-lg px-4 gap-3 me-3"style="background:#324851; color:white">SIGN UP</a>
             </div>
         </div>
     </div>

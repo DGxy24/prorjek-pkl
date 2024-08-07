@@ -32,3 +32,7 @@ Route::get('dashboard/tiket-selesai', [TiketSelesaiController::class, 'index']);
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/daftar', [UserController::class, 'index']);
 Route::get('/login', [UserController::class, 'login']);
+
+
+//rute logout
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
