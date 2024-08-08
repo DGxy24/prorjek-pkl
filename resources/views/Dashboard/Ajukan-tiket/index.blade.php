@@ -5,7 +5,6 @@
         <h1 class="h2">Ajukan Tiket</h1>
 
     </div>
-
     {{-- form ajukan tiket --}}
 
     <div class="container">
@@ -22,11 +21,13 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingFullName" placeholder="ID Tiket">
-                            <label for="floatingFullName">ID Tiket</label>
+                            <input type="text" class="form-control" id="floatingFullName" placeholder="ID Tiket" readonly
+                            value="{{ auth()->user()->id }}">
+                            <label for="floatingFullName">User ID </label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingUsername" placeholder="Nama Bagian">
+                            <input type="text" class="form-control" id="floatingUsername" placeholder="Nama Bagian" readonly 
+                            value="{{ $bagian[0]->nama_bagian }}">
                             <label for="floatingUsername">Nama Bagian</label>
                         </div>
 
@@ -50,7 +51,7 @@
                             <textarea class="form-control" id="tindakan" rows="3"></textarea>
                         </div>
 
-                        <button class="w-100 btn btn-lg btn-primary" type="submit">SUBMIT</button>
+                        <button class="w-100 btn btn-lg btn-primary mb-4" type="submit">SUBMIT</button>
                     </form>
 
 
