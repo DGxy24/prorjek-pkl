@@ -32,9 +32,7 @@ Route::group(['middleware' => ['auth']], function () {
   // akhir membuat route tiket proses 
 });
 
-Route::get('/dashboard-admin', function () {
-  return view('Dashboard-admin.index');
-});
+
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/daftar', [UserController::class, 'index']);

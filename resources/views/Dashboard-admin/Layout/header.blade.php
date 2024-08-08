@@ -13,7 +13,7 @@
     <div class="navbar-nav">
         <div class="nav-item text-nowrap">
             <a href="#" type="submit" class="nav-link px-3 border-none">
-                <span class="mr-2 d-none d-lg-inline text-black me-2" style="color: black">admin</span>
+                <span class="mr-2 d-none d-lg-inline text-black me-2" style="color: black">{{ auth()->user()->name }}</span>
                 <img src="/img/profile-user.png" alt="" width="35px" height="35px">
             </a>
         </div>
