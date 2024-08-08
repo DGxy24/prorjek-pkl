@@ -22,7 +22,7 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/dashboard.css" rel="stylesheet">
-    
+
 
     {{-- Trix Editor --}}
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
@@ -62,6 +62,25 @@
     </script>
 
     <script src="/js/dashboard.js"></script>
+    {{-- untuk mengambil data dari tabel --}}
+    <script>
+        function showTicketDetails(id, bagian, masalah, penjelasan, tindakan) {
+            document.getElementById('modalTicketId').textContent = id;
+            document.getElementById('modalNamaBagian').textContent = bagian;
+            document.getElementById('modalPermasalah').textContent = masalah;
+            document.getElementById('modalPenjelasan').textContent = penjelasan;
+            document.getElementById('modalTindakan').textContent = tindakan;
+        }
+
+        function showTicketSelesai(id, bagian, masalah, tindakan, bukti) {
+            document.getElementById('modalTicketId').textContent = id;
+            document.getElementById('modalNamaBagian').textContent = bagian;
+            document.getElementById('modalPermasalah').textContent = masalah;
+            document.getElementById('modalTindakan').textContent = tindakan;
+            document.getElementById('modalBukti').textContent = bukti;
+
+        }
+    </script>
 </body>
 
 </html>
