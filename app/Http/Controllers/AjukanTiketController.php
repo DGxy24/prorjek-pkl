@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bagian;
 use App\Models\permasalahan;
 use App\Models\Tiket;
 use Illuminate\Http\Request;
@@ -15,7 +16,8 @@ class AjukanTiketController extends Controller
     {
         //
         return view('Dashboard.Ajukan-tiket.index',[
-            'masalah'=> permasalahan::all()
+            'masalah'=> permasalahan::all(),
+            'bagian' =>Bagian::where('id', auth()->user()->bagian_id)->get()
         ]);
     }
 
