@@ -55,31 +55,32 @@ body {
     color: #2470dc;
 }
 
-
 .sidebar .nav-link:hover .feather,
 .sidebar .nav-link.active .feather {
     color: inherit;
 }
-
 
 .sidebar-heading {
     font-size: 0.75rem;
     text-transform: uppercase;
 }
 
-
 /* Style untuk button sidebar */
-.container .nav .nav-link:hover{
-  background-color: white !important;
-  color: #374750 !important;
-
+.container .nav .nav-link:hover {
+    background-color: white !important;
+    color: #374750 !important;
 }
 
 .container .nav .active {
     background-color: white !important;
     color: #374750 !important;
 }
-
+/* css menu admin */
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: #4a5a62;
+    color: white;
+}
 
 /* Akhir style button sidebar */
 
