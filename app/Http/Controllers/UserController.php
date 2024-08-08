@@ -42,6 +42,18 @@ class UserController extends Controller
             'username.required' => 'Username harus diisi',
             'password.required' => 'Password harus diisi'
           ]);
+
+        //   dd(auth()->user()->id);
+          if(Auth::attempt($credentials)){
+       
+
+            $request->session()->regenerate();
+            if(auth()->user()->level==0){
+                   
+            return redirect()->intended('/dashboard');
+            }
+            return redirect()->intended('/dashboard-admin');
+        }
   
         //   if(Auth::attempt($credentials)){
         //       $request->session()->regenerate();
