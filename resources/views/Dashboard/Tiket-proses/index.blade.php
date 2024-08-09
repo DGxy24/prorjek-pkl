@@ -1,8 +1,15 @@
 {{-- membuat menu tabel tiket dan modal tiket --}}
-
+{{-- {{ dd($tiket) }} --}}
 @extends('dashboard.layout.main')
 
 @section('container')
+
+
+@if(session()->has('success'))
+    <div class="alert alert-success" role="alert">
+      {{ session('success')}}
+    </div>
+    @endif
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Tiket Proses</h1>
     </div>
@@ -11,8 +18,9 @@
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                  
                     <th scope="col">ID Tiket</th>
+                    <th scope="col">Tanggal Lapor</th>
                     <th scope="col">Nama Bagian</th>
                     <th scope="col">Permasalah</th>
                     <th scope="col">Penjelasan</th>
@@ -21,18 +29,22 @@
                 </tr>
             </thead>
             <tbody>
+               
                 <tr>
-                    <td>1</td>
-                    <td>1234</td>
-                    <td>IT</td>
-                    <td>System Down</td>
-                    <td>Server is not responding</td>
-                    <td>Restarted server</td>
+                    @foreach ($tiket as $item)
+                    <td>{{ $item->id }}</td>
+                    <td>{{ $item->created_at }}</td>
+                    <td>{{ $item->bagian_id }}</td>
+                    <td>{{ $item->permasalahan_id }}</td>
+                    <td>{{ $item->penjelasan }}</td>
+                    <td>{{ $item->tindakan }}</td>
+                   
                     <td>
                         <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
                             onclick="showTicketDetails('1234', 'IT', 'System Down', 'Server is not responding', 'Restarted server')">
                             <span data-feather="eye">Lihat</span>
                         </button>
+                     
                         {{-- <a href="#" class="badge bg-warning"><span data-feather="edit">Edit</span></a>
                         <form class="d-inline" action="" method="POST">
                             @csrf
@@ -40,7 +52,9 @@
                                     data-feather="x-circle"></span></button>
                         </form> --}}
                     </td>
+                  
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

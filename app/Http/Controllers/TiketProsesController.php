@@ -13,7 +13,9 @@ class TiketProsesController extends Controller
     public function index()
     {
         //
-        return view('Dashboard.tiket-proses.index');
+        return view('Dashboard.tiket-proses.index',[
+        'tiket'=>tiket::all()
+    ]);
     }
 
     /**

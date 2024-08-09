@@ -34,7 +34,20 @@ class AjukanTiketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'user_id' => 'required',
+            'bagian_id' => 'required',
+            'permasalahan_id' => 'required',
+            'penjelasan' => 'required',
+            'tindakan' => 'required',
+        ],messages : [
+            'permasalahan_id.required' => 'Jenis Permasalahan Harus di Pilih!',
+            'penjelasan.required' => 'Penjelasan masalah harus di isi!',
+            'tindakan.required' => 'Tindakan harus di isi!',
+        ]);
+        $validatedData['bagian_id'] = auth()->user()->bagian_id;
+        Tiket::create($validatedData);
+        return redirect('/dashboard/tiket-proses')->with('success', 'Laporan Berhasil Dikirim');
     }
 
     /**
