@@ -32,6 +32,10 @@ Route::group(['middleware' => ['auth']], function () {
   // akhir membuat route tiket proses 
 });
 
+// route admin menejement user
+Route::get('dashboard-admin/users', function () {
+  return view('Dashboard-admin.Users.index');
+});
 
 
 Route::get('/', [HomeController::class, 'index']);

@@ -1,0 +1,89 @@
+{{-- membuat menu menejemen users --}}
+
+@extends('dashboard-admin.layout.main')
+
+@section('container')
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Menejemen User</h1>
+    </div>
+
+    <a class="btn btn-primary" href="#" role="button">Add</a>
+    <div class="table-responsive table-bordered w-100 mt-3">
+        <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Bagian</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Akun User</td>
+                    <td>akunuser</td>
+                    <td>PTIP</td>
+                    <td>User@email.com</td>
+                    <td>********</td>
+                    <td>
+                        <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            onclick="showUsers('Akun User', 'akunuser', 'PTIP', 'User@email.com', '********')">
+                            <span data-feather="eye">Lihat</span>
+                        </button>
+                        {{-- <a href="#" class="badge bg-warning"><span data-feather="edit">Edit</span></a>
+                        <form class="d-inline" action="" method="POST">
+                            @csrf
+                            <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')">Delete<span
+                                    data-feather="x-circle"></span></button>
+                        </form> --}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Data User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-sm">
+                        <tr>
+                            <th>Nama</th>
+                            <td id="modalNama"></td>
+                        </tr>
+                        <tr>
+                            <th>Username</th>
+                            <td id="modalUsername"></td>
+                        </tr>
+                        <tr>
+                            <th>Bagian</th>
+                            <td id="modalBagian"></td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td id="modalEmail"></td>
+                        </tr>
+                        <tr>
+                            <th>Password</th>
+                            <td id="modalPassword"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Edit</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
