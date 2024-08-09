@@ -68,20 +68,20 @@
     <script src="/js/dashboard.js"></script>
     {{-- untuk mengambil data dari tabel --}}
     <script>
-        function showTicketDetails(id, bagian, masalah, penjelasan, tindakan) {
-            document.getElementById('modalTicketId').textContent = id;
-            document.getElementById('modalNamaBagian').textContent = bagian;
-            document.getElementById('modalPermasalah').textContent = masalah;
-            document.getElementById('modalPenjelasan').textContent = penjelasan;
-            document.getElementById('modalTindakan').textContent = tindakan;
+        function showUsers(nama, username, bagian, email, password) {
+            document.getElementById('modalNama').textContent = nama;
+            document.getElementById('modalUsername').textContent = username;
+            document.getElementById('modalBagian').textContent = bagian;
+            document.getElementById('modalEmail').textContent = email;
+            document.getElementById('modalPassword').textContent = password;
         }
 
-        function showTicketSelesai(id, bagian, masalah, tindakan, bukti) {
-            document.getElementById('modalTicketId').textContent = id;
-            document.getElementById('modalNamaBagian').textContent = bagian;
-            document.getElementById('modalPermasalah').textContent = masalah;
-            document.getElementById('modalTindakan').textContent = tindakan;
-            document.getElementById('modalBukti').textContent = bukti;
+        function showAdmins(nama, username, bagian, email, password) {
+            document.getElementById('modalNama').textContent = nama;
+            document.getElementById('modalUsername').textContent = username;
+            document.getElementById('modalBagian').textContent = bagian;
+            document.getElementById('modalEmail').textContent = email;
+            document.getElementById('modalPassword').textContent = password;
 
         }
     </script>
