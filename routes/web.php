@@ -38,6 +38,15 @@ Route::get('dashboard-admin/users', function () {
   return view('Dashboard-admin.Users.index');
 });
 
+// route tiket masuk & tindak
+Route::get('dashboard-admin/tiket-masuk', function () {
+  return view('Dashboard-admin.Tiket-masuk.index');
+});
+
+Route::get('dashboard-admin/tiket-masuk/tindak', function () {
+  return view('Dashboard-admin.Tiket-masuk.Tindak.index');
+});
+
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/daftar', [UserController::class, 'index']);
