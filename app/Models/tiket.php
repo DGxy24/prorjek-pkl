@@ -9,4 +9,13 @@ class tiket extends Model
 {
     use HasFactory;
     //tes
+
+    protected $fillable = [
+        'user_id',
+        'bagian_id',
+        'permasalahan_id',
+        'penjelasan',
+        'tindakan',
+
+    ];
 }

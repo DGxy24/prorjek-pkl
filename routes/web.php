@@ -23,6 +23,7 @@ Route::group(['middleware' => ['auth']], function () {
   // akhir membuat route dashboard
   // membuat route ajukan tiket
   Route::get('dashboard/ajukan-tiket', [AjukanTiketController::class, 'index']);
+  Route::post('dashboard/ajukan-tiket', [AjukanTiketController::class, 'store'])->name('tiket.simpan');
   // akhir membuat route ajukan tiket
   // membuat route tiket proses
   Route::get('dashboard/tiket-proses', [TiketProsesController::class, 'index']);
