@@ -21,7 +21,7 @@ return new class extends Migration
 
             $table->unsignedBigInteger('permasalahan_id');
             $table->foreign('permasalahan_id')->references('id')->on('permasalahans');
-            $table->date('tgl_permasalahan');
+            // $table->date('tgl_permasalahan');
             $table->text('penjelasan');
             $table->text('tindakan');
             $table->timestamps('');

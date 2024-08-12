@@ -15,9 +15,9 @@ class AjukanTiketController extends Controller
     public function index()
     {
         //
-        return view('Dashboard.Ajukan-tiket.index',[
-            'masalah'=> permasalahan::all(),
-            'bagian' =>Bagian::where('id', auth()->user()->bagian_id)->get()
+        return view('Dashboard.Ajukan-tiket.index', [
+            'masalah' => permasalahan::all(),
+            'bagian' => Bagian::where('id', auth()->user()->bagian_id)->get()
         ]);
     }
 
@@ -26,7 +26,10 @@ class AjukanTiketController extends Controller
      */
     public function create()
     {
-        //
+        return view('Dashboard.Ajukan-tiket.create', [
+            'masalah' => permasalahan::all(),
+            'bagian' => Bagian::where('id', auth()->user()->bagian_id)->get(),
+        ]);
     }
 
     /**
@@ -40,7 +43,7 @@ class AjukanTiketController extends Controller
             'permasalahan_id' => 'required',
             'penjelasan' => 'required',
             'tindakan' => 'required',
-        ],messages : [
+        ], messages: [
             'permasalahan_id.required' => 'Jenis Permasalahan Harus di Pilih!',
             'penjelasan.required' => 'Penjelasan masalah harus di isi!',
             'tindakan.required' => 'Tindakan harus di isi!',
