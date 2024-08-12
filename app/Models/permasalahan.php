@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class permasalahan extends Model
 {
     use HasFactory;
+    public function tiket()
+    {
+        return $this->hasMany(tiket::class);
+    
+    }
 }

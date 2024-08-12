@@ -18,7 +18,7 @@
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
-                  
+                  {{-- <th>#</th> --}}
                     <th scope="col">ID Tiket</th>
                     <th scope="col">Tanggal Lapor</th>
                     <th scope="col">Nama Bagian</th>
@@ -29,19 +29,20 @@
                 </tr>
             </thead>
             <tbody>
-               
+            
                 <tr>
                     @foreach ($tiket as $item)
+                    {{-- <td>{{ $loop->iteration }}</td> --}}
                     <td>{{ $item->id }}</td>
-                    <td>{{ $item->created_at }}</td>
-                    <td>{{ $item->bagian_id }}</td>
-                    <td>{{ $item->permasalahan_id }}</td>
+                    <td>{{ $item->created_at->translatedformat('l-d-m-Y') }}</td>
+                    <td>{{ $item->bagian->nama_bagian}}</td>
+                    <td>{{ $item->permasalahan->jenis_masalah }}</td>
                     <td>{{ $item->penjelasan }}</td>
                     <td>{{ $item->tindakan }}</td>
                    
                     <td>
                         <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                            onclick="showTicketDetails('1234', 'IT', 'System Down', 'Server is not responding', 'Restarted server')">
+                            onclick="showTicketDetails('{{ $item->id }}','{{ $item->created_at }}','{{ $item->bagian->nama_bagian }}', '{{ $item->permasalahan->jenis_masalah }}', '{{ $item->penjelasan }}', '{{ $item->tindakan }}')">
                             <span data-feather="eye">Lihat</span>
                         </button>
                      
@@ -54,6 +55,7 @@
                     </td>
                   
                 </tr>
+
                 @endforeach
             </tbody>
         </table>
@@ -72,6 +74,10 @@
                         <tr>
                             <th>ID Tiket</th>
                             <td id="modalTicketId"></td>
+                        </tr>
+                        <tr>
+                            <th>Tanggal Lapor</th>
+                            <td id="modalTanggalLapor"></td>
                         </tr>
                         <tr>
                             <th>Nama Bagian</th>

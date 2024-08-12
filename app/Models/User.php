@@ -16,6 +16,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Bagian::class);
     }
+    public function tiket()
+    {
+        return $this->hasMany(tiket::class);
+    }
     use HasFactory, Notifiable;
 
     /**

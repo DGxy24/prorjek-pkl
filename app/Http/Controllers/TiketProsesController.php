@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bagian;
+use App\Models\permasalahan;
 use App\Models\tiket;
 use Illuminate\Http\Request;
 
@@ -12,10 +14,10 @@ class TiketProsesController extends Controller
      */
     public function index()
     {
-        //
+
         return view('Dashboard.tiket-proses.index',[
-        'tiket'=>tiket::all()
-    ]);
+        'tiket'=>tiket::where('user_id', auth()->user()->id)->get(),
+        ]);
     }
 
     /**

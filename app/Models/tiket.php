@@ -18,4 +18,19 @@ class tiket extends Model
         'tindakan',
 
     ];
+    public function permasalahan()
+    {
+        return $this->belongsTo(permasalahan::class);
+    }
+
+    public function bagian()
+    {
+        return $this->belongsTo(Bagian::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    
+    }
 }
