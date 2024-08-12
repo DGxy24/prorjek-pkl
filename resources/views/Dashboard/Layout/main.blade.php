@@ -8,8 +8,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="author" content="Doly Gurning">
+    <style>
+        /* Menyembunyikan toolbar pada editor */
+        trix-toolbar {
+            display: none;
+        }
 
+        /* Menyembunyikan bagian lain dari editor jika diperlukan */
+        trix-editor {
+            border: none;
+            /* Menyembunyikan border jika tidak diinginkan */
+            padding: 0;
+            /* Menyembunyikan padding jika tidak diinginkan */
+        }
+    </style>
     <title>Dashboard</title>
+
 
 
     <link rel="icon" href="img/logo.png">
