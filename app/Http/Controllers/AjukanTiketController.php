@@ -15,10 +15,10 @@ class AjukanTiketController extends Controller
     public function index()
     {
         //
-        return view('Dashboard.Ajukan-tiket.index', [
-            'masalah' => permasalahan::all(),
-            'bagian' => Bagian::where('id', auth()->user()->bagian_id)->get()
-        ]);
+        // return view('Dashboard.Ajukan-tiket.index', [
+            return view('Dashboard.Ajukan-tiket.index',[
+                'tiket'=>tiket::where('user_id', auth()->user()->id)->get(),
+                ]);
     }
 
     /**
@@ -50,7 +50,7 @@ class AjukanTiketController extends Controller
         ]);
         $validatedData['bagian_id'] = auth()->user()->bagian_id;
         Tiket::create($validatedData);
-        return redirect('/dashboard/tiket-proses')->with('success', 'Laporan Berhasil Dikirim');
+        return redirect('/dashboard/ajukan-tiket')->with('success', 'Laporan Berhasil Dikirim');
     }
 
     /**
