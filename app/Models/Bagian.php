@@ -14,4 +14,9 @@ class Bagian extends Model
     return $this->belongsTo(User::class);
 
 }
+public function tiket()
+{
+    return $this->hasMany(tiket::class);
+
+}
 }

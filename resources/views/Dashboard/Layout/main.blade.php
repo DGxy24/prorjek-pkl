@@ -64,16 +64,18 @@
     <script src="/js/dashboard.js"></script>
     {{-- untuk mengambil data dari tabel --}}
     <script>
-        function showTicketDetails(id, bagian, masalah, penjelasan, tindakan) {
+        function showTicketDetails(id,tanggal , bagian, masalah, penjelasan, tindakan) {
             document.getElementById('modalTicketId').textContent = id;
+            document.getElementById('modalTanggalLapor').textContent = tanggal;
             document.getElementById('modalNamaBagian').textContent = bagian;
             document.getElementById('modalPermasalah').textContent = masalah;
             document.getElementById('modalPenjelasan').textContent = penjelasan;
             document.getElementById('modalTindakan').textContent = tindakan;
         }
 
-        function showTicketSelesai(id, bagian, masalah, tindakan, bukti) {
+        function showTicketSelesai(id, tanggal, bagian, masalah, tindakan, bukti) {
             document.getElementById('modalTicketId').textContent = id;
+            document.getElementById('modalTanggalLapor').textContent = tanggal;
             document.getElementById('modalNamaBagian').textContent = bagian;
             document.getElementById('modalPermasalah').textContent = masalah;
             document.getElementById('modalTindakan').textContent = tindakan;
