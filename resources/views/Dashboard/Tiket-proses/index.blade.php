@@ -3,12 +3,10 @@
 @extends('dashboard.layout.main')
 
 @section('container')
-
-
-@if(session()->has('success'))
-    <div class="alert alert-success" role="alert">
-      {{ session('success')}}
-    </div>
+    @if (session()->has('success'))
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
     @endif
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Tiket Proses</h1>
@@ -18,7 +16,7 @@
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
-                  {{-- <th>#</th> --}}
+                    {{-- <th>#</th> --}}
                     <th scope="col">ID Tiket</th>
                     <th scope="col">Tanggal Lapor</th>
                     <th scope="col">Nama Bagian</th>
@@ -29,33 +27,32 @@
                 </tr>
             </thead>
             <tbody>
-            
+
                 <tr>
                     @foreach ($tiket as $item)
-                    {{-- <td>{{ $loop->iteration }}</td> --}}
-                    <td>{{ $item->id }}</td>
-                    <td>{{ $item->created_at->translatedformat('l-d-m-Y') }}</td>
-                    <td>{{ $item->bagian->nama_bagian}}</td>
-                    <td>{{ $item->permasalahan->jenis_masalah }}</td>
-                    <td>{{ $item->penjelasan }}</td>
-                    <td>{{ $item->tindakan }}</td>
-                   
-                    <td>
-                        <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                            onclick="showTicketDetails('{{ $item->id }}','{{ $item->created_at }}','{{ $item->bagian->nama_bagian }}', '{{ $item->permasalahan->jenis_masalah }}', '{{ $item->penjelasan }}', '{{ $item->tindakan }}')">
-                            <span data-feather="eye">Lihat</span>
-                        </button>
-                     
-                        {{-- <a href="#" class="badge bg-warning"><span data-feather="edit">Edit</span></a>
+                        {{-- <td>{{ $loop->iteration }}</td> --}}
+                        <td>{{ $item->id }}</td>
+                        <td>{{ $item->created_at->translatedformat('l-d-m-Y') }}</td>
+                        <td>{{ $item->bagian->nama_bagian }}</td>
+                        <td>{{ $item->permasalahan->jenis_masalah }}</td>
+                        <td>{{ $item->penjelasan }}</td>
+                        <td>{{ $item->tindakan }}</td>
+
+                        <td>
+                            <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                onclick="showTicketDetails('{{ $item->id }}','{{ $item->created_at }}','{{ $item->bagian->nama_bagian }}', '{{ $item->permasalahan->jenis_masalah }}', '{{ $item->penjelasan }}', '{{ $item->tindakan }}')">
+                                <span data-feather="eye">Lihat</span>
+                            </button>
+
+                            {{-- <a href="#" class="badge bg-warning"><span data-feather="edit">Edit</span></a>
                         <form class="d-inline" action="" method="POST">
                             @csrf
                             <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')">Delete<span
                                     data-feather="x-circle"></span></button>
                         </form> --}}
-                    </td>
-                  
-                </tr>
+                        </td>
 
+                </tr>
                 @endforeach
             </tbody>
         </table>

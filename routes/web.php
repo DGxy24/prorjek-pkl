@@ -22,6 +22,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
   // akhir membuat route dashboard
   // membuat route ajukan tiket
+  Route::resource('dashboard/ajukan-tiket', AjukanTiketController::class);
   Route::get('dashboard/ajukan-tiket', [AjukanTiketController::class, 'index']);
   Route::post('dashboard/ajukan-tiket', [AjukanTiketController::class, 'store'])->name('tiket.simpan');
   // akhir membuat route ajukan tiket
