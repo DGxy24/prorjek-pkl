@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminAkunController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminTiketMasukController;
 use App\Http\Controllers\AjukanTiketController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
@@ -56,6 +57,8 @@ Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 Route::group(['middleware' => [IsAdmin::class]], function () {
 Route::get('/dashboard-admin', [AdminController::class, 'index']);
 Route::resource('/dashboard-admin/user', AdminAkunController::class);
+
+Route::get('/dashboard-admin/tiket/masuk', [AdminTiketMasukController::class,'index']);
 });
 
 
