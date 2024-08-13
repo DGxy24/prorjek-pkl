@@ -80,8 +80,10 @@ class AdminAkunController extends Controller
      */
     public function update(Request $request, User $user)
     {
+       
         $validatedData = $request->validate([
             'name' => 'required|max:255',
+            'bagian_id' => 'required',
             'password' => 'required|min:8|max:255'
         ], messages: [
             'name.required' => 'Nama Wajib Diisi',
@@ -90,7 +92,7 @@ class AdminAkunController extends Controller
         ]);
         $validatedData['password'] = Hash::make($validatedData['password']);
 
-        User::where('username', $request->username)->update($validatedData);
+        User::where('id', $user->id)->update($validatedData);
         return redirect('/dashboard-admin/user')->with('success', 'Akun Berhasil DI Edit');
         // User::where('email',$request->email)->update($validatedData);
 

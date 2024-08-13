@@ -4,7 +4,8 @@
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Edit Profil</h1>
-
+        <a class="btn btn-danger" href="/dashboard-admin/user" role="button"> <i class="bi bi-arrow-left-square-fill"></i> </a>
+        
     </div>
 
 
@@ -14,7 +15,8 @@
             <div class="row justify-content-center">
                 <div class="col-md-12 col-lg-9">
                     {{-- Form Daftar --}}
-                    <form action="{{ route('daftar') }}" method="POST">
+                    <form action="/dashboard-admin/user/{{ $user[0]->id }}" method="POST">
+                        @method('PUT')
                         @csrf
 
                         {{--  <input type="telp" class="form-control @error('no_hp') is-invalid
@@ -32,7 +34,7 @@
                             <input type="text"
                                 class="form-control @error('name') is-invalid
                         @enderror"
-                                id="name" name="name" value="{{ old('name') }}" id="floatingFullName"
+                                id="name" name="name" value="{{ old('name',$user[0]->name) }}" id="floatingFullName"
                                 placeholder="Nama Lengkap">
                             <label for="floatingFullName">Nama Lengkap</label>
                             {{-- Proses Validasi --}}
@@ -43,12 +45,11 @@
                             @enderror
                         </div>
 
-                        {{-- tes --}}
                         <div class="form-floating mb-3">
                             <input type="text"
                                 class="form-control @error('username') is-invalid
                         @enderror"
-                                id="username" name="username" value="{{ old('username') }}" id="floatingUsername"
+                                id="username" name="username" value="{{ old('username',$user[0]->username) }}" id="floatingUsername"
                                 placeholder="Username" readonly>
                             <label for="floatingUsername">Username</label>
                             @error('username')
@@ -64,7 +65,7 @@
                             @enderror"
                                 id="bagian_id" name="bagian_id" aria-label="Default select example">
                                 {{-- Menampilkan nama bagian berdasarkan tabel bagian --}}
-                                <option value="">Pilih</option>
+                                <option value="{{  $user[0]->bagian->bagian_id }}" selected>{{ $user[0]->bagian->nama_bagian }}</option>
                                 @foreach ($bagian as $item)
                                     <option value="{{ $item->id }}">{{ $item->nama_bagian }}</option>
                                 @endforeach
@@ -82,8 +83,8 @@
                             <input type="email"
                                 class="form-control  @error('email') is-invalid
                         @enderror"
-                                id="email" name="email" value="{{ old('email') }}" id="floatingEmail"
-                                placeholder="name@example.com">
+                                id="email" name="email" value="{{ old('email',$user[0]->email) }}" id="floatingEmail"
+                                placeholder="name@example.com" readonly>
                             <label for="floatingEmail">Email address</label>
                             @error('email')
                                 <div class="invalid-feedback">
