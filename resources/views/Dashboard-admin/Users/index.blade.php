@@ -5,7 +5,7 @@
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Menejemen User</h1>
-        <a class="btn btn-primary" href="/dashboard/ajukan-tiket/create" role="button">Buat</a>
+        <a class="btn btn-primary" href="/dashboard-admin/user/create" role="button">Buat</a>
     </div>
 
     <div class="table-responsive table-bordered w-100 mt-3">

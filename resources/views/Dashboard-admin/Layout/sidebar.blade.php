@@ -7,7 +7,7 @@
         <div class="sidebar-content flex-grow-1">
             <ul class="nav flex-column">
                 <li class="nav-item dropdown">
-                    <a class="nav-link text-center dropdown-toggle {{ Request::is('dashboard/ajukan-tiket*') ? 'active' : '' }}"
+                    <a class="nav-link text-center dropdown-toggle {{ Request::is('dashboard-admin/user*') ? 'active' : '' }}"
                         style="background-color: #374750; border-radius:50px; color:white" id="userDropdown"
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <span data-feather="home"></span>
@@ -19,17 +19,17 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown mt-3 mb-3">
-                    <a class="nav-link text-center dropdown-toggle {{ Request::is('dashboard/tiket-proses*') ? 'active' : '' }}"
+                    <a class="nav-link text-center dropdown-toggle {{ Request::is('dashboard-admin/tiket*') ? 'active' : '' }}"
                         style="background-color: #374750; border-radius:50px; color:white" id="ticketDropdown"
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <span data-feather="file"></span>
                         Tiket
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="ticketDropdown">
-                        <li><a class="dropdown-item" href="#">Tiket Masuk</a></li>
-                        <li><a class="dropdown-item" href="#">Tiket Proses</a></li>
-                        <li><a class="dropdown-item" href="#">Tiket Ditolak</a></li>
-                        <li><a class="dropdown-item" href="#">Tiket Selesai</a></li>
+                        <li><a class="dropdown-item" href="/dashboard-admin/tiket/masuk">Tiket Masuk</a></li>
+                        <li><a class="dropdown-item" href="/dashboard-admin/tiket/proses">Tiket Proses</a></li>
+                        <li><a class="dropdown-item" href="/dashboard-admin/tiket/ditolak">Tiket Ditolak</a></li>
+                        <li><a class="dropdown-item" href="/dashboard-admin/tiket/selesai">Tiket Selesai</a></li>
                     </ul>
                 </li>
             </ul>

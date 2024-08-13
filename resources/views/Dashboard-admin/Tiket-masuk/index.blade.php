@@ -24,21 +24,21 @@
                 </tr>
             </thead>
             <tbody>
-               
+               @foreach ($tiket as $item)
                 <tr>
                     
-                    <td>sda</td>
-                    <td>dfsf</td>
-                    <td>fdgd</td>
-                    <td>dfssf</td>
-                    <td>dfsfs</td>
-                    <td>fdsfs</td>
+                    <td>{{ $item->id }}</td>
+                    <td>{{ $item->created_at->translatedformat('l-d-M-Y') }}</td>
+                    <td>{{ $item->bagian->nama_bagian }}</td>
+                    <td>{{ $item->permasalahan->jenis_masalah }}</td>
+                    <td>{{ $item->penjelasan }}</td>
+                    <td>{{ $item->tindakan }}</td>
                    
                     <td>
                         <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                            onclick="showTicketDetails('1234', 'IT', 'System Down', 'Server is not responding', 'Restarted server')">
-                            <span data-feather="eye">Lihat</span>
-                        </button>
+                        onclick="showTicketDetails('{{ $item->id }}','{{ $item->created_at->translatedformat('l-d F Y') }}','{{ $item->bagian->nama_bagian }}', '{{ $item->permasalahan->jenis_masalah }}', '{{ $item->penjelasan }}', '{{ $item->tindakan }}')">
+                        <span data-feather="eye">Lihat</span>
+                    </button>
                      
                         <!-- <a href="#" class="badge bg-warning"><span data-feather="edit">Edit</span></a>
                         <form class="d-inline" action="" method="POST">
@@ -49,6 +49,7 @@
                     </td>
                   
                 </tr>
+                @endforeach
                 
             </tbody>
         </table>
@@ -67,6 +68,10 @@
                         <tr>
                             <th>ID Tiket</th>
                             <td id="modalTicketId"></td>
+                        </tr>
+                        <tr>
+                            <th>Tanggal Lapor</th>
+                            <td id="modalTanggalLapor"></td>
                         </tr>
                         <tr>
                             <th>Nama Bagian</th>
