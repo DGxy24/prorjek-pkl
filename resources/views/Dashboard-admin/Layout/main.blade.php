@@ -35,6 +35,8 @@
             display: none;
         }
     </style>
+    <link rel="icon" href="/img/logo.png">
+
 </head>
 
 <body>
