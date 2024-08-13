@@ -43,7 +43,7 @@
                         <td>
                             <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
                                 onclick="showTicketDetails('{{ $item->id }}','{{ $item->created_at->translatedformat('l-d F Y') }}','{{ $item->bagian->nama_bagian }}', '{{ $item->permasalahan->jenis_masalah }}', '{{ $item->penjelasan }}', '{{ $item->tindakan }}')">
-                                <span data-feather="eye">Lihat</span>
+                                <span data-feather="eye"><i class="bi bi-eye-fill"></i></span>
                             </button>
 
                             {{-- <a href="#" class="badge bg-warning"><span data-feather="edit">Edit</span></a>

@@ -32,7 +32,7 @@
                         <td>********</td>
                         <td>
                             <a href="/dashboard-admin/user/{{ $item->id }}/edit " class="btn btn-warning"
-                                role="button"><span data-feather="edit">Edit</span></a>
+                                role="button"><span data-feather="edit"><i class="bi bi-pencil-square"></i></span></a>
                         </td>
                     </tr>
                 @endforeach
