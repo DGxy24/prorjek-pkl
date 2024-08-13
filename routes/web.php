@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminAkunController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AjukanTiketController;
 use App\Http\Controllers\DashboardController;
@@ -33,12 +34,6 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('dashboard/tiket-selesai', [TiketSelesaiController::class, 'index']);
   // akhir membuat route tiket proses 
 });
-
-// route admin menejement user
-Route::get('dashboard-admin/users', function () {
-  return view('Dashboard-admin.Users.index');
-});
-
 // route tiket masuk & tindak
 Route::get('dashboard-admin/tiket-masuk', function () {
   return view('Dashboard-admin.Tiket-masuk.index');
@@ -57,5 +52,10 @@ Route::get('/login', [UserController::class, 'login']);
 //rute logout
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
+//Rute Admin
+Route::group(['middleware' => [IsAdmin::class]], function () {
+Route::get('/dashboard-admin', [AdminController::class, 'index']);
+Route::resource('/dashboard-admin/user', AdminAkunController::class);
+});
 
-Route::get('/dashboard-admin', [AdminController::class, 'index'])->name('admin')->middleware(IsAdmin::class);
+

@@ -14,7 +14,7 @@ class User extends Authenticatable
     
     public function bagian()
     {
-        return $this->hasMany(Bagian::class);
+        return $this->belongsTo(Bagian::class);
     }
     public function tiket()
     {
