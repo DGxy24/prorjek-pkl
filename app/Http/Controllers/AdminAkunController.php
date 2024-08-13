@@ -14,7 +14,7 @@ class AdminAkunController extends Controller
      */
     public function index()
     {
-        return view('Dashboard-admin.Users.index', [
+        return view('Dashboard-admin.Users.index',[
             'akun' => User::all()
         ]);
     }
@@ -22,7 +22,12 @@ class AdminAkunController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create() {}
+    public function create()
+    {
+        return view('Dashboard-admin.Users.create',[
+           
+        ]);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -57,7 +62,7 @@ class AdminAkunController extends Controller
      */
     public function show(User $user)
     {
-        //
+       
     }
 
     /**
@@ -65,7 +70,9 @@ class AdminAkunController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('Dashboard-admin.Users.edit',[
+            'user' => User::where('username', $user )->get()
+        ]);
     }
 
     /**
@@ -73,7 +80,20 @@ class AdminAkunController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'password' => 'required|min:8|max:255'
+            ],messages:[
+            'name.required' => 'Nama Wajib Diisi',
+            'password.required' => 'Password wajib diisi',
+            'password.min' => 'Password minimal 8',
+            ]);
+            $validatedData['password'] = Hash::make($validatedData['password']);
+
+            User::where('username',$request->username)->update($validatedData);
+            return redirect('/dashboard-admin/user')->with('success', 'Akun Berhasil DI Edit');
+            // User::where('email',$request->email)->update($validatedData);
+
     }
 
     /**
