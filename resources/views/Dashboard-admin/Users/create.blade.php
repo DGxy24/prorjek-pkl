@@ -3,7 +3,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Edit Profil</h1>
+        <h1 class="h2">Buat Akun</h1>
 
     </div>
 
@@ -25,7 +25,7 @@
                     </div>
                         @enderror --}}
                         <div class="text-center mt-3">
-                            <h1 class="h3 mb-3 fw-normal">Form Edit Profil</h1>
+                            <h1 class="h3 mb-3 fw-normal">Form Buat Akun</h1>
                         </div>
 
                         <div class="form-floating mb-3">
@@ -49,7 +49,7 @@
                                 class="form-control @error('username') is-invalid
                         @enderror"
                                 id="username" name="username" value="{{ old('username') }}" id="floatingUsername"
-                                placeholder="Username" readonly>
+                                placeholder="Username">
                             <label for="floatingUsername">Username</label>
                             @error('username')
                                 <div class="invalid-feedback">

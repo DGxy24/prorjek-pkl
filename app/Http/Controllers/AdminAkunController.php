@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bagian;
 use App\Models\User;
 use GuzzleHttp\Psr7\Message;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ class AdminAkunController extends Controller
      */
     public function index()
     {
-        return view('Dashboard-admin.Users.index',[
+        return view('Dashboard-admin.Users.index', [
             'akun' => User::all()
         ]);
     }
@@ -24,8 +25,8 @@ class AdminAkunController extends Controller
      */
     public function create()
     {
-        return view('Dashboard-admin.Users.create',[
-           
+        return view('Dashboard-admin.Users.create', [
+            'bagian' => Bagian::all()
         ]);
     }
 
@@ -60,18 +61,17 @@ class AdminAkunController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
-    {
-       
-    }
+    public function show(User $user) {}
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(User $user)
     {
-        return view('Dashboard-admin.Users.edit',[
-            'user' => User::where('username', $user )->get()
+
+        return view('Dashboard-admin.Users.edit', [
+            'user' => User::where('username', $user->username)->get(),
+            'bagian' => Bagian::all()
         ]);
     }
 
@@ -83,16 +83,16 @@ class AdminAkunController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'password' => 'required|min:8|max:255'
-            ],messages:[
+        ], messages: [
             'name.required' => 'Nama Wajib Diisi',
             'password.required' => 'Password wajib diisi',
             'password.min' => 'Password minimal 8',
-            ]);
-            $validatedData['password'] = Hash::make($validatedData['password']);
+        ]);
+        $validatedData['password'] = Hash::make($validatedData['password']);
 
-            User::where('username',$request->username)->update($validatedData);
-            return redirect('/dashboard-admin/user')->with('success', 'Akun Berhasil DI Edit');
-            // User::where('email',$request->email)->update($validatedData);
+        User::where('username', $request->username)->update($validatedData);
+        return redirect('/dashboard-admin/user')->with('success', 'Akun Berhasil DI Edit');
+        // User::where('email',$request->email)->update($validatedData);
 
     }
 
