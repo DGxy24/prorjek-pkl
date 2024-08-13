@@ -16,9 +16,9 @@ class AjukanTiketController extends Controller
     {
         //
         // return view('Dashboard.Ajukan-tiket.index', [
-            return view('Dashboard.Ajukan-tiket.index',[
-                'tiket'=>tiket::where('user_id', auth()->user()->id)->get(),
-                ]);
+        return view('Dashboard.Ajukan-tiket.index', [
+            'tiket' => tiket::where('user_id', auth()->user()->id)->get(),
+        ]);
     }
 
     /**
@@ -48,6 +48,11 @@ class AjukanTiketController extends Controller
             'penjelasan.required' => 'Penjelasan masalah harus di isi!',
             'tindakan.required' => 'Tindakan harus di isi!',
         ]);
+
+        // membersihkan string
+        $validatedData['tindakan'] = strip_tags($request->input('tindakan'));
+        $validatedData['penjelasan'] = strip_tags($request->input('penjelasan'));
+
         $validatedData['bagian_id'] = auth()->user()->bagian_id;
         Tiket::create($validatedData);
         return redirect('/dashboard/ajukan-tiket')->with('success', 'Laporan Berhasil Dikirim');

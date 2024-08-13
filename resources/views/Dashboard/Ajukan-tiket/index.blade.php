@@ -1,10 +1,8 @@
 @extends('dashboard.layout.main')
 
 @section('container')
-   
-
     {{-- membuat menu tabel tiket dan modal tiket --}}
-{{-- {{ dd($tiket) }} --}}
+    {{-- {{ dd($tiket) }} --}}
 
     @if (session()->has('success'))
         <div class="alert alert-success" role="alert">
@@ -99,7 +97,7 @@
                     </table>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Selesai</button>
+                    {{-- <button type="button" class="btn btn-primary">Selesai</button> --}}
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
                 </div>

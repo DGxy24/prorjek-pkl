@@ -58,7 +58,7 @@
                             @enderror
                         </div>
 
-                        <div class="mb-3">
+                        {{-- <div class="mb-3">
                             <label for="penjelasan" class="form-label">Penjelasan Permasalah</label>
                             <textarea class="form-control @error('penjelasan') is-invalid
                         @enderror" id="penjelasan"
@@ -69,8 +69,18 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-                        </div>
+                        </div> --}}
+
                         <div class="mb-3">
+                            <label for="penjelasan" class="form-label">Penjelasan Permasalah</label>
+                            @error('penjelasan')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                            <input id="penjelasan" type="hidden" name="penjelasan" value="{{ old('penjelasan') }}">
+                            <trix-editor input="penjelasan"></trix-editor>
+                        </div>
+
+                        {{-- <div class="mb-3">
                             <label for="tindakan" class="form-label">Tindakan yang sudah dilakukan</label>
                             <textarea class="form-control @error('tindakan') is-invalid
                         @enderror" id="tindakan"
@@ -80,6 +90,15 @@
                                     {{ $message }}
                                 </div>
                             @enderror
+                        </div> --}}
+
+                        <div class="mb-3">
+                            <label for="tindakan" class="form-label">Tindakan yang sudah dilakukan</label>
+                            @error('tindakan')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                            <input id="tindakan" type="hidden" name="tindakan" value="{{ old('tindakan') }}">
+                            <trix-editor input="tindakan"></trix-editor>
                         </div>
                 </div>
 
