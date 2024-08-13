@@ -22,12 +22,13 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($akun as $item)
                 <tr>
-                    <td>1</td>
-                    <td>Akun User</td>
-                    <td>akunuser</td>
-                    <td>PTIP</td>
-                    <td>User@email.com</td>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->username }}</td>
+                    <td>{{ $item->bagian->nama_bagian }}</td>
+                    <td>{{ $item->email }}</td>
                     <td>********</td>
                     <td>
                         <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
@@ -42,6 +43,7 @@
                         </form> --}}
                     </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
