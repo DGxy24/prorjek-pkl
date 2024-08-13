@@ -5,9 +5,9 @@
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Menejemen User</h1>
+        <a class="btn btn-primary" href="/dashboard/ajukan-tiket/create" role="button">Buat</a>
     </div>
 
-    <a class="btn btn-primary" href="#" role="button">Add</a>
     <div class="table-responsive table-bordered w-100 mt-3">
         <table class="table table-striped table-sm">
             <thead>
@@ -23,26 +23,18 @@
             </thead>
             <tbody>
                 @foreach ($akun as $item)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $item->name }}</td>
-                    <td>{{ $item->username }}</td>
-                    <td>{{ $item->bagian->nama_bagian }}</td>
-                    <td>{{ $item->email }}</td>
-                    <td>********</td>
-                    <td>
-                        <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                            onclick="showUsers('Akun User', 'akunuser', 'PTIP', 'User@email.com', '********')">
-                            <span data-feather="eye">Lihat</span>
-                        </button>
-                        {{-- <a href="#" class="badge bg-warning"><span data-feather="edit">Edit</span></a>
-                        <form class="d-inline" action="" method="POST">
-                            @csrf
-                            <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')">Delete<span
-                                    data-feather="x-circle"></span></button>
-                        </form> --}}
-                    </td>
-                </tr>
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->username }}</td>
+                        <td>{{ $item->bagian->nama_bagian }}</td>
+                        <td>{{ $item->email }}</td>
+                        <td>********</td>
+                        <td>
+                            <a href="/dashboard-admin/users/{{ $item->username }}/edit" class="btn btn-warning"
+                                role="button"><span data-feather="edit">Edit</span></a>
+                        </td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>
