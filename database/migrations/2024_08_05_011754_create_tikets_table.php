@@ -24,6 +24,7 @@ return new class extends Migration
             // $table->date('tgl_permasalahan');
             $table->text('penjelasan');
             $table->text('tindakan');
+            $table->integer('proses')->default(0);
             $table->timestamps('');
         });
     }

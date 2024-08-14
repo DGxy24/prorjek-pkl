@@ -65,7 +65,7 @@
                             @enderror"
                                 id="bagian_id" name="bagian_id" aria-label="Default select example">
                                 {{-- Menampilkan nama bagian berdasarkan tabel bagian --}}
-                                <option value="{{  $user[0]->bagian->bagian_id }}" selected>{{ $user[0]->bagian->nama_bagian }}</option>
+                                <option value="{{  $user[0]->bagian->id }}">{{ $user[0]->bagian->nama_bagian }}</option>
                                 @foreach ($bagian as $item)
                                     <option value="{{ $item->id }}">{{ $item->nama_bagian }}</option>
                                 @endforeach

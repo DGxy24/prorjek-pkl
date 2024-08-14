@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Bagian;
 use App\Models\permasalahan;
+use App\Models\tiket;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -95,6 +96,40 @@ class DatabaseSeeder extends Seeder
             'email' => 'user@user.com',
             'password'=> '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',//password
             'level' => 0
+        ]);
+        
+        tiket::create([
+            'user_id' => '1',
+            'bagian_id' => '2',
+            'permasalahan_id' => '2',
+            'penjelasan' => 'lah',
+            'tindakan' => 'lah',
+        ]);
+        tiket::create([
+            'user_id' => '1',
+            'bagian_id' => '2',
+            'permasalahan_id' => '2',
+            'penjelasan' => 'wdokawod',
+            'tindakan' => 'wdokawod',
+        ]);    tiket::create([
+            'user_id' => '1',
+            'bagian_id' => '2',
+            'permasalahan_id' => '2',
+            'penjelasan' => 'satu',
+            'tindakan' => 'dua',
+        ]);    tiket::create([
+            'user_id' => '1',
+            'bagian_id' => '2',
+            'permasalahan_id' => '2',
+            'penjelasan' => 'tiga',
+            'tindakan' => 'tiga',
+        ]);
+        tiket::create([
+            'user_id' => '1',
+            'bagian_id' => '3',
+            'permasalahan_id' => '8',
+            'penjelasan' => 'empat',
+            'tindakan' => 'empat',
         ]);
     }
 }

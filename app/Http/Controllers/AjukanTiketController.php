@@ -17,7 +17,7 @@ class AjukanTiketController extends Controller
         //
         // return view('Dashboard.Ajukan-tiket.index', [
         return view('Dashboard.Ajukan-tiket.index', [
-            'tiket' => tiket::where('user_id', auth()->user()->id)->get(),
+            'tiket' => tiket::where('proses','=',0)->where('user_id', auth()->user()->id)->get(),
         ]);
     }
 
@@ -28,7 +28,7 @@ class AjukanTiketController extends Controller
     {
         return view('Dashboard.Ajukan-tiket.create', [
             'masalah' => permasalahan::all(),
-            'bagian' => Bagian::where('id', auth()->user()->bagian_id)->get(),
+            'bagian' => Bagian::where('id', auth()->user()->bagian_id)->get()
         ]);
     }
 

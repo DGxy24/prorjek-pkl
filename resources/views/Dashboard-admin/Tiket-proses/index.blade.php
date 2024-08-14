@@ -4,7 +4,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Tiket Masuk</h1>
+        <h1 class="h2">Tiket Proses</h1>
     </div>
 
     <div class="table-responsive table-bordered w-100">
@@ -107,18 +107,13 @@
                         @csrf
                     <button  class="btn btn-success" type="submit">Setuju</button>
                 </form>
-
-                <form id="link_tolak" method="POST">
-                   
-                    @csrf
-                <button  class="btn btn-danger" type="submit">Tolak</button>
-            </form>
-{{-- 
-                    <a id="link_tolak" href="#" type="button" class="btn btn-danger">Tolak</a>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
+                    <a href="/" type="button" class="btn btn-danger">Tolak</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
                 </div>
-         
+                <script>
+                    document.getElementById('link_terima').action=link_t;
+                   </script>
             </div>
         </div>
     </div>
