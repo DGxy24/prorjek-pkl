@@ -15,8 +15,8 @@ class TiketProsesController extends Controller
     public function index()
     {
 
-        return view('Dashboard.tiket-proses.index',[
-        'tiket'=>tiket::where('user_id', auth()->user()->id)->get(),
+        return view('Dashboard.tiket-proses.index', [
+            'tiket' => tiket::where('user_id', auth()->user()->id)->get(),
         ]);
     }
 
