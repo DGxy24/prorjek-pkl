@@ -46,6 +46,10 @@ Route::get('dashboard-admin/tiket-masuk/tindak', function () {
   return view('Dashboard-admin.Tiket-masuk.Tindak.index');
 });
 
+Route::get('dashboard/tiket-proses/selesai', function () {
+  return view('Dashboard.Tiket-proses.selesai');
+});
+
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/daftar', [UserController::class, 'index']);
@@ -57,13 +61,13 @@ Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 //Rute Admin
 Route::group(['middleware' => [IsAdmin::class]], function () {
-Route::get('/dashboard-admin', [AdminController::class, 'index']);
-Route::resource('/dashboard-admin/user', AdminAkunController::class);
+  Route::get('/dashboard-admin', [AdminController::class, 'index']);
+  Route::resource('/dashboard-admin/user', AdminAkunController::class);
+
 
 Route::resource('/dashboard-admin/tiket/masuk',AdminTiketMasukController::class);
 Route::resource('/dashboard-admin/tiket/ditolak',AdminTiketTolakController::class);
 Route::resource('/dashboard-admin/tiket/proses',AdminTiketProsesController::class);
 Route::post('dashboard-admin/tiket/masuk/{id}/tolak',[AdminTiketMasukController::class,'tolak']);
+
 });
-
-
