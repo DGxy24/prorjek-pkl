@@ -70,6 +70,7 @@
     <script src="/js/dashboard.js"></script>
     {{-- untuk mengambil data dari tabel --}}
     <script>
+        var tiket;
         function showUsers(nama, username, bagian, email, password) {
             document.getElementById('modalNama').textContent = nama;
             document.getElementById('modalUsername').textContent = username;
@@ -87,13 +88,28 @@
         }
 
         function showTicketDetails(id, tanggal, bagian, masalah, penjelasan, tindakan) {
+          tiket = id;
             document.getElementById('modalTicketId').textContent = id;
             document.getElementById('modalTanggalLapor').textContent = tanggal;
             document.getElementById('modalNamaBagian').textContent = bagian;
             document.getElementById('modalPermasalah').textContent = masalah;
             document.getElementById('modalPenjelasan').textContent = penjelasan;
             document.getElementById('modalTindakan').textContent = tindakan;
+          
+            // var id;
+            // document.getElementById('modalTicketId').textContent = id;
         }
+        function status(){
+         
+            var terima ="/dashboard-admin/tiket/masuk/"+tiket;
+            var tolak ="/dashboard-admin/tiket/masuk/"+tiket+"/tolak";
+            document.getElementById('link_terima').action = terima; 
+            document.getElementById('link_tolak').action = tolak; 
+        }
+      
+        
+
+      
     </script>
 </body>
 

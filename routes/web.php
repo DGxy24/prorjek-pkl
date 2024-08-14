@@ -3,6 +3,8 @@
 use App\Http\Controllers\AdminAkunController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminTiketMasukController;
+use App\Http\Controllers\AdminTiketProsesController;
+use App\Http\Controllers\AdminTiketTolakController;
 use App\Http\Controllers\AjukanTiketController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
@@ -62,5 +64,10 @@ Route::group(['middleware' => [IsAdmin::class]], function () {
   Route::get('/dashboard-admin', [AdminController::class, 'index']);
   Route::resource('/dashboard-admin/user', AdminAkunController::class);
 
-  Route::get('/dashboard-admin/tiket/masuk', [AdminTiketMasukController::class, 'index']);
+
+Route::resource('/dashboard-admin/tiket/masuk',AdminTiketMasukController::class);
+Route::resource('/dashboard-admin/tiket/ditolak',AdminTiketTolakController::class);
+Route::resource('/dashboard-admin/tiket/proses',AdminTiketProsesController::class);
+Route::post('dashboard-admin/tiket/masuk/{id}/tolak',[AdminTiketMasukController::class,'tolak']);
+
 });
