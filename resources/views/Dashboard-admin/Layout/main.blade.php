@@ -9,6 +9,21 @@
 
     <meta name="author" content="Doly Gurning">
 
+    <style>
+        /* Menyembunyikan toolbar pada editor */
+        trix-toolbar {
+            display: none;
+        }
+
+        /* Menyembunyikan bagian lain dari editor jika diperlukan */
+        trix-editor {
+            border: none;
+            /* Menyembunyikan border jika tidak diinginkan */
+            padding: 0;
+            /* Menyembunyikan padding jika tidak diinginkan */
+        }
+    </style>
+
     <title>Dashboard</title>
 
 
@@ -71,6 +86,7 @@
     {{-- untuk mengambil data dari tabel --}}
     <script>
         var tiket;
+
         function showUsers(nama, username, bagian, email, password) {
             document.getElementById('modalNama').textContent = nama;
             document.getElementById('modalUsername').textContent = username;
@@ -88,28 +104,39 @@
         }
 
         function showTicketDetails(id, tanggal, bagian, masalah, penjelasan, tindakan) {
-          tiket = id;
+            tiket = id;
             document.getElementById('modalTicketId').textContent = id;
             document.getElementById('modalTanggalLapor').textContent = tanggal;
             document.getElementById('modalNamaBagian').textContent = bagian;
             document.getElementById('modalPermasalah').textContent = masalah;
             document.getElementById('modalPenjelasan').textContent = penjelasan;
             document.getElementById('modalTindakan').textContent = tindakan;
-          
+
             // var id;
             // document.getElementById('modalTicketId').textContent = id;
         }
-        function status(){
-         
-            var terima ="/dashboard-admin/tiket/masuk/"+tiket;
-            var tolak ="/dashboard-admin/tiket/masuk/"+tiket+"/tolak";
-            document.getElementById('link_terima').action = terima; 
-            document.getElementById('link_tolak').action = tolak; 
-        }
-      
-        
 
-      
+        function status() {
+
+            var terima = "/dashboard-admin/tiket/masuk/" + tiket;
+            var tolak = "/dashboard-admin/tiket/masuk/" + tiket + "/tolak";
+            document.getElementById('link_terima').action = terima;
+            document.getElementById('link_tolak').action = tolak;
+        }
+    </script>
+    <script>
+        document.getElementById('formFile').addEventListener('change', function(event) {
+            const fileInput = event.target;
+            const viewPdfBtn = document.getElementById('viewPdfBtn');
+
+            if (fileInput.files.length > 0) {
+                const fileUrl = URL.createObjectURL(fileInput.files[0]);
+                viewPdfBtn.href = fileUrl;
+                viewPdfBtn.style.display = 'inline-block';
+            } else {
+                viewPdfBtn.style.display = 'none';
+            }
+        });
     </script>
 </body>
 

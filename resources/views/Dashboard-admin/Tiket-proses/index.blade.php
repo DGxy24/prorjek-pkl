@@ -14,7 +14,7 @@
 
                     <th scope="col">ID Tiket</th>
                     <th scope="col">Tanggal Lapor</th>
-                    <th scope="col">Nama Bagian</th>
+                    <th scope="col">Bagian</th>
                     <th scope="col">Permasalah</th>
                     <th scope="col">Penjelasan</th>
                     <th scope="col">Tindakan</th>
@@ -37,84 +37,15 @@
                             var link_t = "/dashboard-admin/tiket/"+id_tiket+"/edit";
                         </script> --}}
                         <td>
-                            <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                onclick="showTicketDetails('{{ $item->id }}','{{ $item->created_at->translatedformat('l-d F Y') }}','{{ $item->bagian->nama_bagian }}', '{{ $item->permasalahan->jenis_masalah }}', '{{ $item->penjelasan }}', '{{ $item->tindakan }}');
-                                status();
-                                "
-                                
-                                >
-                              
-                                <span data-feather="eye"><i class="bi bi-eye-fill"></i></span>
-                            </button>
-                       
+                            {{-- menuju form tindak lanjut  --}}
+                            <a href="/dashboard-admin/tiket-proses/tindak " class="btn btn-danger btn-sm"
+                                role="button"><span data-feather="edit"><i class="bi bi-pencil-square"></i></span></a>
 
-                           
-                            <!-- <a href="#" class="badge bg-warning"><span data-feather="edit">Edit</span></a>
-                            <form class="d-inline" action="" method="POST">
-                                {{-- @csrf --}}
-                                <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')">Delete<span
-                                        data-feather="x-circle"></span></button>
-                            </form> -->
                         </td>
-
                     </tr>
                 @endforeach
 
             </tbody>
         </table>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ticket Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <table class="table table-sm">
-                        <tr>
-                            <th>ID Tiket</th>
-                            <td id="modalTicketId"></td>
-                        </tr>
-                        <tr>
-                            <th>Tanggal Lapor</th>
-                            <td id="modalTanggalLapor"></td>
-                        </tr>
-                        <tr>
-                            <th>Nama Bagian</th>
-                            <td id="modalNamaBagian"></td>
-                        </tr>
-                        <tr>
-                            <th>Permasalah</th>
-                            <td id="modalPermasalah"></td>
-                        </tr>
-                        <tr>
-                            <th>Penjelasan</th>
-                            <td id="modalPenjelasan"></td>
-                        </tr>
-                        <tr>
-                            <th>Tindakan</th>
-                            <td id="modalTindakan"></td>
-                        </tr>
-                    </table>
-                </div>
-               
-                <div class="modal-footer">
-                    <form id="link_terima" method="POST">
-                        @method('PUT')
-                        @csrf
-                    <button  class="btn btn-success" type="submit">Setuju</button>
-                </form>
-                    <a href="/" type="button" class="btn btn-danger">Tolak</a>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
-                </div>
-                <script>
-                    document.getElementById('link_terima').action=link_t;
-                   </script>
-            </div>
-        </div>
     </div>
 @endsection

@@ -31,7 +31,7 @@
                         <td>{{ $item->email }}</td>
                         <td>********</td>
                         <td>
-                            <a href="/dashboard-admin/user/{{ $item->id }}/edit " class="btn btn-warning"
+                            <a href="/dashboard-admin/user/{{ $item->id }}/edit " class="btn btn-warning btn-sm"
                                 role="button"><span data-feather="edit"><i class="bi bi-pencil-square"></i></span></a>
                         </td>
                     </tr>
