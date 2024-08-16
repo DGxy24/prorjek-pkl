@@ -11,6 +11,7 @@
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
+                    {{-- {{ dd($tiket[0]->proses) }} --}}
 
                     <th scope="col">ID Tiket</th>
                     <th scope="col">Tanggal Lapor</th>
@@ -22,9 +23,9 @@
                 </tr>
             </thead>
             <tbody>
+               
                 @foreach ($tiket as $item)
                     <tr>
-
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->created_at->translatedformat('l-d-M-Y') }}</td>
                         <td>{{ $item->bagian->nama_bagian }}</td>
@@ -36,12 +37,22 @@
                             id_tiket={{ $item->id }};
                             var link_t = "/dashboard-admin/tiket/"+id_tiket+"/edit";
                         </script> --}}
+
+                        @if ($item->proses_table == null )
                         <td>
                             {{-- menuju form tindak lanjut  --}}
-                            <a href="/dashboard-admin/tiket-proses/tindak " class="btn btn-danger btn-sm"
+                            <a href="/dashboard-admin/tiket/proses/{{ $item->id }} " class="btn btn-danger btn-sm"
                                 role="button"><span data-feather="edit"><i class="bi bi-pencil-square"></i></span></a>
 
                         </td>
+                        @else
+                        <td>
+                            {{-- menuju form view modal --}}
+                            <a href="/dashboard-admin/tiket/proses " class="btn btn-success btn-sm"
+                                role="button"><span data-feather="edit"><i class="bi bi-pencil-square"></i></span></a>
+
+                        </td>
+                        @endif
                     </tr>
                 @endforeach
 

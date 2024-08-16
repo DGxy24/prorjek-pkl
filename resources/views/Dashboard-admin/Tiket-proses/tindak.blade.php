@@ -14,7 +14,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-12 col-lg-9">
                     {{-- Form Tindak Lanjut --}}
-                    <form action="{{ route('tiket.simpan') }}" method="POST">
+                    <form action="/dashboard-admin/tiket/proses" method="POST">
                         @csrf
                         <div class="text-center mt-3">
 
@@ -22,22 +22,33 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="user_id" name="user_id" placeholder="ID User"
-                                readonly value="{{ auth()->user()->id }}">
-                            <label for="floatingFullName">User ID </label>
+                            <input type="text" class="form-control" id="tiket_id" name="tiket_id" placeholder="ID User"
+                                readonly value="{{ $tiket[0]->id}}">
+                            <label for="floatingFullName">ID Tiket </label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="bagian_id" name="bagian_id" readonly>
-                            {{-- placeholder="Nama Bagian" readonly value="{{ $bagian[0]->nama_bagian }}" --}}
+                            <input type="text" class="form-control" id="bagian_id" name="bagian_id" 
+                            value="{{ $tiket[0]->bagian->nama_bagian }}" readonly>
                             <label for="floatingUsername">Bagian</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="permasalahan_id" name="permasalahan_id" readonly>
-                            {{-- placeholder="Nama permasalahan" readonly value="{{ $permasalahan[0]->nama_permasalahan }}" --}} <label for="floatingUsername">Permasalahan</label>
+                            <input type="text" class="form-control" id="permasalahan_id"
+                            value="{{ $tiket[0]->permasalahan->jenis_masalah }}" name="permasalahan_id" readonly>
+                        <label for="floatingUsername">Permasalahan</label>
                         </div>
-
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="permasalahan_id"
+                            value="{{ $tiket[0]->penjelasan }}" name="permasalahan_id" readonly>
+                        <label for="floatingUsername">Penjelasan</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="permasalahan_id"
+                            value="{{ $tiket[0]->tindakan }}" name="permasalahan_id" readonly>
+                        
+                            <label for="floatingUsername">Tindakan</label>
+                        </div>
                         {{-- pakai ini di conttrolernya agar input tindakkanya bersih --}}
                         {{-- $validatedData['tindakan'] = strip_tags($request->input('tindakan')); --}}
                         <div class="mb-3">
@@ -54,13 +65,23 @@
                             <input class="form-control" type="file" id="formFile">
                         </div> --}}
 
+
                         <div class="mb-3">
+                            
                             <label for="formFile" class="form-label">Upload File Pdf</label>
                             <div class="d-flex align-items-center mt-2">
-                                <input class="form-control" type="file" id="formFile" accept="application/pdf">
+                                <input class="form-control  @error('bukti') is-invalid
+                        @enderror" value="{{ old('bukti') }}" type="file" id="formFile" accept="application/pdf" name="bukti">
                                 <a href="#" id="viewPdfBtn" class="btn btn-warning ms-3" style="display: none;"
-                                    target="_blank"><i class="bi bi-filetype-pdf"></i></a>
+                                    target="_blank" ><i class="bi bi-filetype-pdf"></i></a>
+
+                                    @error('bukti')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
+                        
                         </div>
 
                 </div>
