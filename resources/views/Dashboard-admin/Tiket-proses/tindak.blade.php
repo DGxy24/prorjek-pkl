@@ -72,7 +72,8 @@
                               
                               <button id="viewPdfBtn" class="btn btn-warning ms-3" style="display: none;"
                                     data-bs-toggle="modal" data-bs-target="#pdfModal1">
-
+                                  <i class="bi bi-filetype-pdf"></i>
+                              </button>
                                     @error('bukti')
                                     <div class="invalid-feedback">
                                         {{ $message }}
