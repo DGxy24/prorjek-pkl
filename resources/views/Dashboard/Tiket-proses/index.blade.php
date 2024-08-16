@@ -22,36 +22,29 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($tiket as $item)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $item->id }}</td>
+                @foreach ($tiket as $item)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $item->id }}</td>
                         <td>{{ $item->created_at->translatedformat('l-d-M-Y') }}</td>
                         <td>{{ $item->bagian->nama_bagian }}</td>
                         <td>{{ $item->permasalahan->jenis_masalah }}</td>
                         <td>{{ $item->penjelasan }}</td>
                         <td>{{ $item->tindakan }}</td>
-               @if ($item->proses_table == null)
-                    <td>
-                        <a  class="btn btn-danger btn-sm"><span data-feather="eye"><i
-                                    class="bi bi-envelope-open"></i></span></a>
+                        @if ($item->proses_table == null)
+                            <td>
+                                <a class="btn btn-danger btn-sm"><span data-feather="eye"><i
+                                            class="bi bi-envelope-open"></i></span></a>
 
-                        {{-- <a href="#" class="badge bg-warning"><span data-feather="edit">Edit</span></a>
-                  <form class="d-inline" action="" method="POST">
-                      @csrf
-                      <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')">Delete<span
-                              data-feather="x-circle"></span></button>
-                  </form> --}}
-                    </td>
 
-                    @else
-                    <td>
-                        <a href="/dashboard/tiket-proses/{{ $item->id }}" class="btn btn-success btn-sm"><span data-feather="eye"><i
-                                    class="bi bi-envelope-open"></i></span></a>
-                    </td>
-
-                    @endif
-                </tr>
+                            </td>
+                        @else
+                            <td>
+                                <a href="/dashboard/tiket-proses/{{ $item->id }}" class="btn btn-success btn-sm"><span
+                                        data-feather="eye"><i class="bi bi-envelope-open"></i></span></a>
+                            </td>
+                        @endif
+                    </tr>
                 @endforeach
             </tbody>
         </table>

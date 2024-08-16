@@ -1,5 +1,4 @@
-{{-- membuat menu tabel tiket dan modal tiket selesai --}}
-
+{{-- menu tiket selesai setelah user klik button Selesai  --}}
 @extends('dashboard.layout.main')
 
 @section('container')
@@ -13,76 +12,62 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">ID Tiket</th>
+                    <th scope="col">Tanggal Lapor</th>
                     <th scope="col">Nama Bagian</th>
                     <th scope="col">Permasalah</th>
+                    <th scope="col">Penjelasan</th>
                     <th scope="col">Tindakan</th>
-                    <th scope="col">Bukin</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>1234</td>
-                    <td>IT</td>
-                    <td>System Down</td>
-                    <td>Restarted server</td>
-                    <td>pdf</td>
-                    <td>
-                        <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                            onclick="showTicketSelesai('1234', 'IT', 'System Down', 'Restarted server', 'pdf')">
-                            <span data-feather="eye">Lihat</span>
-                        </button>
-                        {{-- <a href="#" class="badge bg-warning"><span data-feather="edit">Edit</span></a>
-                        <form class="d-inline" action="" method="POST">
-                            @csrf
-                            <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')">Delete<span
-                                    data-feather="x-circle"></span></button>
-                        </form> --}}
-                    </td>
-                </tr>
+                @foreach ($tiket as $item)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $item->id }}</td>
+                        <td>{{ $item->created_at->translatedformat('l-d-M-Y') }}</td>
+                        <td>{{ $item->bagian->nama_bagian }}</td>
+                        <td>{{ $item->permasalahan->jenis_masalah }}</td>
+                        <td>{{ $item->penjelasan }}</td>
+                        <td>{{ $item->tindakan }}</td>
+                        @if ($item->proses_table == null)
+                            <td>
+                                <a class="btn btn-danger btn-sm"><span data-feather="eye"><i
+                                            class="bi bi-envelope-open"></i></span></a>
+
+
+                            </td>
+                        @else
+                            <td>
+                                <a href="/dashboard/tiket-selesai/{{ $item->id }}" class="btn btn-success btn-sm"><span
+                                        data-feather="eye"><i class="bi bi-envelope-open"></i></span></a>
+                            </td>
+                        @endif
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
-
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ticket Selesai</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="pdfModalLabel">Bukti PDF</h5>
+                    <div class="d-flex">
+                        <a id="downloadPdfBtn" href="#" class="btn btn-success btn-sm me-2" download>
+                            Download PDF
+                        </a>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
                 </div>
                 <div class="modal-body">
-                    <table class="table table-sm">
-                        <tr>
-                            <th>ID Tiket</th>
-                            <td id="modalTicketId"></td>
-                        </tr>
-                        <tr>
-                            <th>Nama Bagian</th>
-                            <td id="modalNamaBagian"></td>
-                        </tr>
-                        <tr>
-                            <th>Permasalah</th>
-                            <td id="modalPermasalah"></td>
-                        </tr>
-                        <tr>
-                            <th>Tindakan</th>
-                            <td id="modalTindakan"></td>
-                        </tr>
-                        <tr>
-                            <th>Bukti</th>
-                            <td id="modalBukti"></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Selesai</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
+                    <iframe src="" id="pdfFrame" width="100%" height="500px"></iframe>
                 </div>
             </div>
         </div>
     </div>
+@endsection
+@section('scripts')
+    <script src="{{ asset('js/modal.js') }}"></script>
 @endsection
