@@ -14,7 +14,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-12 col-lg-9">
                     {{-- Form Tindak Lanjut --}}
-                    <form action="/dashboard-admin/tiket/proses" method="POST">
+                    <form action="/dashboard-admin/tiket/proses" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="text-center mt-3">
 
