@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bagian;
 use App\Models\permasalahan;
+use App\Models\proses;
 use App\Models\tiket;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,9 @@ class TiketProsesController extends Controller
     {
 
         return view('Dashboard.tiket-proses.index', [
-            'tiket' => tiket::where('user_id', auth()->user()->id)->get(),
+            'tiket' => tiket::where('proses','=',2)
+            ->where('user_id', auth()->user()->id)->get(),
+
         ]);
     }
 
@@ -39,9 +42,13 @@ class TiketProsesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(tiket $tiket)
+    public function show(tiket $tiket_prose)
     {
-        //
+ 
+        
+        return view('Dashboard.tiket-proses.selesai',[
+            'status'=> proses::where('tiket_id',$tiket_prose->id)->get()
+        ]);
     }
 
     /**

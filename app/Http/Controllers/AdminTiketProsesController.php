@@ -44,6 +44,7 @@ class AdminTiketProsesController extends Controller
 
         ]);
         // dd($validatedData);
+        $validatedData['tindakan'] = strip_tags($request->input('tindakan'));
         proses::create($validatedData);
         return redirect('dashboard-admin/tiket/proses')->with('success', 'Tindakan di kirim');
 

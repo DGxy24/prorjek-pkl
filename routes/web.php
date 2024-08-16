@@ -31,10 +31,14 @@ Route::group(['middleware' => ['auth']], function () {
   Route::post('dashboard/ajukan-tiket', [AjukanTiketController::class, 'store'])->name('tiket.simpan');
   // akhir membuat route ajukan tiket
   // membuat route tiket proses
-  Route::get('dashboard/tiket-proses', [TiketProsesController::class, 'index']);
+  Route::resource('dashboard/tiket-proses', TiketProsesController::class);
   // akhir membuat route tiket proses 
   // membuat route tiket proses 
   Route::get('dashboard/tiket-selesai', [TiketSelesaiController::class, 'index']);
+
+  // Route::get('dashboard/tiket-proses/selesai', function () {
+  //   return view('Dashboard.Tiket-proses.selesai');
+  // });
   // akhir membuat route tiket proses 
 });
 // route tiket masuk & tindak
@@ -47,9 +51,7 @@ Route::get('dashboard-admin/tiket-masuk/tindak', function () {
 });
 
 // khusun view fronend
-Route::get('dashboard/tiket-proses/selesai', function () {
-  return view('Dashboard.Tiket-proses.selesai');
-});
+
 
 
 // End khusun view fronend
