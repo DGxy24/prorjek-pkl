@@ -22,27 +22,25 @@
                                 <i class="bi bi-filetype-pdf"></i>
                             </button>
                         </div>
+                     
                         <div class="card-body d-flex justify-content-between align-items-start">
                             <div>
-                                <h5 class="card-title">Penanganan Bidang "nama_bidang"</h5>
-                                <p class="card-text">ID Tiket : "tiket_id"</p>
-                                <p class="card-text">Permasalahan : nama_masalah</p>
-                                <p class="card-text">Tindakan : Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Reprehenderit ducimus nihil, veniam harum ex velit voluptatibus placeat. Voluptatem
-                                    neque reprehenderit perspiciatis fugiat illum. Fugiat quos, aspernatur corrupti
-                                    doloribus esse voluptatibus.
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, facilis! Nesciunt
-                                    molestiae eum, consequatur exercitationem, iste nihil sit, magni quo molestias
-                                    recusandae suscipit facere in consectetur adipisci voluptatum nulla quas?
+                       
+                                <h5 class="card-title">Penanganan Bidang {{ auth()->user()->bagian->nama_bagian }}</h5>
+                                <p class="card-text">ID Tiket : {{ $status[0]->tiket_id }}</p>
+
+                                <p class="card-text">Permasalahan : {{ $status[0]->tiket->permasalahan->jenis_masalah }}</p>
+                                <p class="card-text">Tindakan : {{ $status[0]->tindakan }}
                                 </p>
                                 <a href="#" class="btn btn-success">Selesai</a>
                                 <a href="#" class="btn btn-danger">Belum</a>
                             </div>
                             <div class="mx-auto">
-                                <iframe src="{{ asset('img/cv.pdf') }}" width="447px" height="390px"
+                                <iframe src="{{ asset('img/') }}" width="447px" height="390px"
                                     class="d-block mx-auto">
                                 </iframe>
                             </div>
+                
                         </div>
                     </div>
 

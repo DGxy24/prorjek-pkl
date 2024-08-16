@@ -30,8 +30,8 @@
             </thead>
             <tbody>
 
+                @foreach ($tiket as $item)
                 <tr>
-                    @foreach ($tiket as $item)
                         {{-- <td>{{ $loop->iteration }}</td> --}}
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->created_at->translatedformat('l-d-M-Y') }}</td>

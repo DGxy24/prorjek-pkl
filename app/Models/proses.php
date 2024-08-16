@@ -16,7 +16,7 @@ class proses extends Model
     ];
     public function tiket()
 {
-    return $this->hasMany(tiket::class);
+    return $this->belongsTo(tiket::class);
 
 }
 }

@@ -13,34 +13,27 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">ID Tiket</th>
-                    <th scope="col">Bagian</th>
+                    <th scope="col">Tanggal Lapor</th>
+                    <th scope="col">Nama Bagian</th>
                     <th scope="col">Permasalah</th>
+                    <th scope="col">Penjelasan</th>
                     <th scope="col">Tindakan</th>
-                    <th scope="col">Bukti</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach($tiket as $item)
                 <tr>
-                    <td>1</td>
-                    <td>1234</td>
-                    <td>IT</td>
-                    <td>System Down</td>
-                    <td>Restarted server</td>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $item->id }}</td>
+                        <td>{{ $item->created_at->translatedformat('l-d-M-Y') }}</td>
+                        <td>{{ $item->bagian->nama_bagian }}</td>
+                        <td>{{ $item->permasalahan->jenis_masalah }}</td>
+                        <td>{{ $item->penjelasan }}</td>
+                        <td>{{ $item->tindakan }}</td>
+               @if ($item->proses_table == null)
                     <td>
-                        {{-- <a href="{{ asset('img/cv.pdf') }}"> pdf</a> --}}
-                        {{-- <div class="row justify-content-center">
-                            <iframe src="{{ asset('img/cv.pdf') }}" width="50%" height="600">
-                                Silahkan Download PDF<a href="{{ asset('img/cv.pdf') }}">Download PDF</a>
-                            </iframe>
-                        </div> --}}
-                        <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#pdfModal">
-                            <i class="bi bi-filetype-pdf"></i>
-                        </button>
-                    </td>
-                    <td>
-                        <a href="/dashboard/tiket-proses/selesai" class="btn btn-info btn-sm"><span data-feather="eye"><i
+                        <a  class="btn btn-danger btn-sm"><span data-feather="eye"><i
                                     class="bi bi-envelope-open"></i></span></a>
 
                         {{-- <a href="#" class="badge bg-warning"><span data-feather="edit">Edit</span></a>
@@ -50,7 +43,16 @@
                               data-feather="x-circle"></span></button>
                   </form> --}}
                     </td>
+
+                    @else
+                    <td>
+                        <a href="/dashboard/tiket-proses/{{ $item->id }}" class="btn btn-success btn-sm"><span data-feather="eye"><i
+                                    class="bi bi-envelope-open"></i></span></a>
+                    </td>
+
+                    @endif
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
