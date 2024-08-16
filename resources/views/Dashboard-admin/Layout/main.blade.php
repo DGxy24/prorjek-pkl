@@ -82,7 +82,8 @@
         integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous">
     </script>
 
-    <script src="/js/dashboard.js"></script>
+    {{-- <script src="/js/dashboard.js"></script> --}}
+    <script src="/js/modal.js"></script>
     {{-- untuk mengambil data dari tabel --}}
     <script>
         var tiket;
@@ -124,7 +125,7 @@
             document.getElementById('link_tolak').action = tolak;
         }
     </script>
-    <script>
+    {{-- <script>
         document.getElementById('formFile').addEventListener('change', function(event) {
             const fileInput = event.target;
             const viewPdfBtn = document.getElementById('viewPdfBtn');
@@ -137,7 +138,7 @@
                 viewPdfBtn.style.display = 'none';
             }
         });
-    </script>
+    </script> --}}
 </body>
 
 </html>
