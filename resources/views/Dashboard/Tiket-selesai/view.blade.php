@@ -1,4 +1,5 @@
-{{-- menu laporan penangan IT  --}}
+{{-- menu laporan penanganan selesai --}}
+
 @extends('dashboard.layout.main')
 
 @section('container')
@@ -17,7 +18,7 @@
 
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <h5 class="mb-0">Laporan Penanganan</h5>
+                            <h5 class="mb-0">Laporan Penanganan Selesai</h5>
                             <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
                                 data-bs-target="#pdfModal">
                                 <i class="bi bi-filetype-pdf"></i>
@@ -27,20 +28,23 @@
                         <div class="card-body d-flex justify-content-between align-items-start">
                             <div>
 
-                                <h5 class="card-title">Penanganan Bidang {{ auth()->user()->bagian->nama_bagian }}</h5>
-                                <p class="card-text">ID Tiket : {{ $status[0]->tiket_id }}</p>
+                                <h5 class="card-title">Penanganan Bidang </h5>
+                                {{-- {{ auth()->user()->bagian->nama_bagian }} --}}
 
-                                <p class="card-text">Permasalahan : {{ $status[0]->tiket->permasalahan->jenis_masalah }}</p>
-                                <p class="card-text">Tindakan : {{ $status[0]->tindakan }}
+                                <p class="card-text">ID Tiket : </p>
+                                {{-- {{ $status[0]->tiket_id }} --}}
+
+                                <p class="card-text">Permasalahan : </p>
+                                {{-- {{ $status[0]->tiket->permasalahan->jenis_masalah }} --}}
+
+                                <p class="card-text">Tindakan :
                                 </p>
-                                <a href="#" class="btn btn-success">Selesai</a>
-                                <a href="#" class="btn btn-danger">Belum</a>
+                                {{-- {{ $status[0]->tindakan }} --}}
+
+
                             </div>
                             <div class="mx-auto">
-
-                                <iframe src="{{ asset('storage/' . $status[0]->bukti) }}" width="447px" height="390px"
-                                    class="d-block mx-auto">
-
+                                <iframe src="{{ asset('img/') }}" width="447px" height="390px" class="d-block mx-auto">
                                 </iframe>
                             </div>
 
@@ -75,28 +79,4 @@
             </div>
         </div>
     </div>
-
-
-    {{-- Script untuk menampilkan dan mendownload file --}}
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-    var pdfModal = document.getElementById("pdfModal");
-    pdfModal.addEventListener("show.bs.modal", function (event) {
-        var button = event.relatedTarget;
-        var pdfSrc = '{{ asset('storage/' . $status[0]->bukti) }}'; // Gantilah dengan path dinamis jika ada
-        var pdfFrame = document.getElementById("pdfFrame");
-        var downloadPdfBtn = document.getElementById("downloadPdfBtn");
-
-        // Set src untuk iframe dan href untuk tombol download
-        pdfFrame.src = pdfSrc;
-        downloadPdfBtn.href = pdfSrc;
-    });
-
-    pdfModal.addEventListener("hidden.bs.modal", function () {
-        var pdfFrame = document.getElementById("pdfFrame");
-        pdfFrame.src = ""; // Kosongkan src saat modal ditutup
-    });
-});
-    </script>
-
 @endsection

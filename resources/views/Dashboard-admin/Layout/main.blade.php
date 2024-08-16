@@ -125,20 +125,25 @@
             document.getElementById('link_tolak').action = tolak;
         }
     </script>
-    {{-- <script>
-        document.getElementById('formFile').addEventListener('change', function(event) {
-            const fileInput = event.target;
-            const viewPdfBtn = document.getElementById('viewPdfBtn');
+    <script>
+        // Fungsi untuk mengatur URL PDF
+        function setPdfSource(pdfUrl) {
+            var pdfViewer = document.getElementById('pdfViewer');
+            pdfViewer.src = "/img/cv.pdf";;
+        }
 
-            if (fileInput.files.length > 0) {
-                const fileUrl = URL.createObjectURL(fileInput.files[0]);
-                viewPdfBtn.href = fileUrl;
-                viewPdfBtn.style.display = 'inline-block';
-            } else {
-                viewPdfBtn.style.display = 'none';
-            }
+        // Event listener untuk membuka modal
+        document.addEventListener('DOMContentLoaded', function() {
+            var modalElement = document.getElementById('tindakLanjutModal');
+            modalElement.addEventListener('show.bs.modal', function(event) {
+                // Ambil data dari tombol atau sumber lain untuk menentukan URL PDF
+                var button = event.relatedTarget;
+                var pdfUrl = button.getAttribute('data-pdf-url');
+                setPdfSource(pdfUrl);
+            });
         });
-    </script> --}}
+    </script>
+
 </body>
 
 </html>

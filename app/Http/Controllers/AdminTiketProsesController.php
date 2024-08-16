@@ -13,18 +13,15 @@ class AdminTiketProsesController extends Controller
      */
     public function index()
     {
-        return view('Dashboard-admin.Tiket-proses.index',[
-            'tiket'=> tiket::where('proses',2)->get()
+        return view('Dashboard-admin.Tiket-proses.index', [
+            'tiket' => tiket::where('proses', 2)->get()
         ]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(tiket $prose)
-    {
-       
-    }
+    public function create(tiket $prose) {}
 
     /**
      * Store a newly created resource in storage.
@@ -34,7 +31,7 @@ class AdminTiketProsesController extends Controller
         
     
         $validatedData = $request->validate([
-            'tiket_id'=> 'required',
+            'tiket_id' => 'required',
             'tindakan' => 'required',
             'bukti' => 'required',
         ], messages: [
@@ -48,18 +45,17 @@ class AdminTiketProsesController extends Controller
         $validatedData['tindakan'] = strip_tags($request->input('tindakan'));
         proses::create($validatedData);
         return redirect('dashboard-admin/tiket/proses')->with('success', 'Tindakan di kirim');
-
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Request $request,tiket $prose)
+    public function show(Request $request, tiket $prose)
     {
 
-        return view('Dashboard-admin.Tiket-proses.tindak',[
+        return view('Dashboard-admin.Tiket-proses.tindak', [
             'tiket' => tiket::where('id', $prose->id)->get(),
- 
+
         ]);
     }
 
@@ -68,7 +64,7 @@ class AdminTiketProsesController extends Controller
      */
     public function edit(tiket $tiket)
     {
-        //
+        return view('Dashboard-admin.Tiket-proses.edit'[]);
     }
 
     /**

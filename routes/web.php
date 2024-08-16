@@ -75,5 +75,15 @@ Route::group(['middleware' => [IsAdmin::class]], function () {
   Route::resource('/dashboard-admin/tiket/proses', AdminTiketProsesController::class);
   Route::post('dashboard-admin/tiket/masuk/{id}/tolak', [AdminTiketMasukController::class, 'tolak']);
 
-  Route::get('dashboard-admin/tiket-proses/tindak', );
+  Route::get('dashboard-admin/tiket-proses/tindak',);
+});
+
+// view edit tindak lanjut sementara
+Route::get('dashboard-admin/tiket-proses/edit', function () {
+  return view('Dashboard-admin.Tiket-proses.edit');
+});
+
+
+Route::get('dashboard/tiket-selesai/view', function () {
+  return view('Dashboard.Tiket-selesai.view');
 });
