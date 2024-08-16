@@ -15,7 +15,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-12 col-lg-9">
                     {{-- Form Daftar --}}
-                    <form action="{{ route('daftar') }}" method="POST">
+                    <form action="/dashboard-admin/user" method="POST">
                         @csrf
 
                         {{--  <input type="telp" class="form-control @error('no_hp') is-invalid

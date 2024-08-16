@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Dflydev\DotAccessData\Data;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,6 +19,10 @@ class tiket extends Model
         'tindakan',
 
     ];
+
+    public function proses_table(){
+        return $this->hasOne(proses::class);
+    }
     public function permasalahan()
     {
         return $this->belongsTo(permasalahan::class);

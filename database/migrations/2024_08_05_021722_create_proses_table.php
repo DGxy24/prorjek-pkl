@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('proses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('tiket_id');
-            $table->foreignId('status_id');
-            $table->string('tindakan');
-            $table->string('bukti');
+            $table->foreignId('status_id')->default(0);
+            $table->text('tindakan');
+            $table->text('bukti');
             $table->timestamps();
         });
     }

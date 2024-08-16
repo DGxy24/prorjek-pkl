@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class proses extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'tiket_id',
+        'tindakan',
+        'bukti'
+
+    ];
+    public function tiket()
+{
+    return $this->hasMany(tiket::class);
+
+}
 }

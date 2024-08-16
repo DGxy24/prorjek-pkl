@@ -51,9 +51,7 @@ Route::get('dashboard/tiket-proses/selesai', function () {
   return view('Dashboard.Tiket-proses.selesai');
 });
 
-Route::get('dashboard-admin/tiket-proses/tindak', function () {
-  return view('Dashboard-admin.Tiket-proses.tindak');
-});
+
 // End khusun view fronend
 
 Route::get('/', [HomeController::class, 'index']);
@@ -74,4 +72,6 @@ Route::group(['middleware' => [IsAdmin::class]], function () {
   Route::resource('/dashboard-admin/tiket/ditolak', AdminTiketTolakController::class);
   Route::resource('/dashboard-admin/tiket/proses', AdminTiketProsesController::class);
   Route::post('dashboard-admin/tiket/masuk/{id}/tolak', [AdminTiketMasukController::class, 'tolak']);
+
+  Route::get('dashboard-admin/tiket-proses/tindak', );
 });

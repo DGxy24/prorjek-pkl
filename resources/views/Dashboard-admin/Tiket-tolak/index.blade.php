@@ -36,6 +36,8 @@
                             id_tiket={{ $item->id }};
                             var link_t = "/dashboard-admin/tiket/"+id_tiket+"/edit";
                         </script> --}}
+
+                     
                         <td>
                             <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
                                 onclick="showTicketDetails('{{ $item->id }}','{{ $item->created_at->translatedformat('l-d F Y') }}','{{ $item->bagian->nama_bagian }}', '{{ $item->permasalahan->jenis_masalah }}', '{{ $item->penjelasan }}', '{{ $item->tindakan }}');
