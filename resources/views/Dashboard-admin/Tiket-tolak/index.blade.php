@@ -1,5 +1,4 @@
-{{-- membuat menu tabel tiket masuk dan modal tiket --}}
-
+{{-- menu tiket ditolak --}}
 @extends('dashboard-admin.layout.main')
 
 @section('container')
@@ -42,21 +41,11 @@
                             <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
                                 onclick="showTicketDetails('{{ $item->id }}','{{ $item->created_at->translatedformat('l-d F Y') }}','{{ $item->bagian->nama_bagian }}', '{{ $item->permasalahan->jenis_masalah }}', '{{ $item->penjelasan }}', '{{ $item->tindakan }}');
                                 status();
-                                "
-                                
-                                >
-                              
+                                ">
+
                                 <span data-feather="eye"><i class="bi bi-eye-fill"></i></span>
                             </button>
-                       
 
-                           
-                            <!-- <a href="#" class="badge bg-warning"><span data-feather="edit">Edit</span></a>
-                            <form class="d-inline" action="" method="POST">
-                                {{-- @csrf --}}
-                                <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')">Delete<span
-                                        data-feather="x-circle"></span></button>
-                            </form> -->
                         </td>
 
                     </tr>
@@ -102,20 +91,26 @@
                         </tr>
                     </table>
                 </div>
-               
+
                 <div class="modal-footer">
                     <form id="link_terima" method="POST">
                         @method('PUT')
                         @csrf
-                    <button  class="btn btn-success" type="submit">Setuju</button>
-                </form>
-                    <a href="/" type="button" class="btn btn-danger">Tolak</a>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button class="btn btn-success" type="submit">Setuju</button>
+                    </form>
+
+                    <form id="link_tolak" method="POST">
+
+                        @csrf
+                        {{-- <button class="btn btn-danger" type="submit">Tolak</button> --}}
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </form>
+                    {{-- 
+                    <a id="link_tolak" href="#" type="button" class="btn btn-danger">Tolak</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
 
                 </div>
-                <script>
-                    document.getElementById('link_terima').action=link_t;
-                   </script>
+
             </div>
         </div>
     </div>
