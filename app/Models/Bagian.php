@@ -8,15 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Bagian extends Model
 {
     use HasFactory;
-    
+
     public function user()
-{
-    return $this->hasMany(User::class);
-
-}
-public function tiket()
-{
-    return $this->hasMany(tiket::class);
-
-}
+    {
+        return $this->hasMany(User::class);
+    }
+    public function tiket()
+    {
+        return $this->hasMany(tiket::class);
+    }
 }

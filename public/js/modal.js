@@ -1,7 +1,5 @@
 // public/js/modal.js
 
-
-
 document
     .getElementById("formFile")
     .addEventListener("change", function (event) {

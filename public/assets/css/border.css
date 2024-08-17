@@ -1,0 +1,15 @@
+#dataTable {
+    border-collapse: collapse;
+}
+
+#dataTable th,
+#dataTable td {
+    border: 1px solid #dee2e6; /* Adjust color as needed */
+    padding: 0.75rem;
+    vertical-align: top;
+}
+
+#dataTable thead th {
+    background-color: #f8f9fa; /* Adjust color as needed */
+    font-weight: bold;
+}

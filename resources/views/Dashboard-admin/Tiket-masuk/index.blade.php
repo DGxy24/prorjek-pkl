@@ -7,11 +7,10 @@
         <h1 class="h2">Tiket Masuk</h1>
     </div>
 
-    <div class="table-responsive table-bordered w-100">
-        <table class="table table-striped table-sm">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-
                     <th scope="col">ID Tiket</th>
                     <th scope="col">Tanggal Lapor</th>
                     <th scope="col">Nama Bagian</th>
