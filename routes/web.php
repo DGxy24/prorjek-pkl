@@ -78,12 +78,14 @@ Route::group(['middleware' => [IsAdmin::class]], function () {
   Route::get('dashboard-admin/tiket-proses/tindak',);
 });
 
+
+
 // view edit tindak lanjut sementara
-Route::get('dashboard-admin/tiket-proses/edit', function () {
-  return view('Dashboard-admin.Tiket-proses.edit');
-});
+// Route::get('dashboard-admin/tiket-proses/edit', function () {
+//   return view('Dashboard-admin.Tiket-proses.edit');
+// });
 
 
-Route::get('dashboard/tiket-selesai/view', function () {
-  return view('Dashboard.Tiket-selesai.view');
-});
+// Route::get('dashboard/tiket-selesai/view', function () {
+//   return view('Dashboard.Tiket-selesai.view');
+// });

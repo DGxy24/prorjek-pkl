@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\tiket;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -12,7 +13,9 @@ class DashboardController extends Controller
     public function index()
     {
         //
-        return view('dashboard/index');
+        return view('dashboard/index',[
+            'total'=>tiket::where('user_id', auth()->user()->id)->count(),
+        ]);
     }
 
     /**
