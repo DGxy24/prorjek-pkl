@@ -8,10 +8,10 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Dashboard Admin<h1>
     </div>
-    <p>Total Tiket = {{ $tiket }}</p>
+
     <div class="row mb-4">
         <!-- Card Jumlah Tiket -->
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="card text-white bg-primary">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
@@ -29,7 +29,7 @@
         </div>
 
         <!-- Card Jumlah Akun Pengguna -->
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="card text-white bg-success">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
@@ -44,6 +44,22 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="col-md-4">
+            {{-- <div class="card text-white bg-success">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="card-title">Jumlah Akun Pengguna</h5>
+                            <h3 class="card-text" id="totalUsers">{{ $akun }}</h3>
+                            <!-- Ganti dengan jumlah akun dinamis -->
+                        </div>
+                        <div class="icon">
+                            <i class="bi bi-people-fill" style="font-size: 2rem;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div> --}}
         </div>
     </div>
 
