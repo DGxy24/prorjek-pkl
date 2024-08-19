@@ -155,6 +155,14 @@
         });
     </script>
 
+    <script>
+        function showTicketProses(id, tindakan, pdfUrl) {
+            document.getElementById('modalTicketId').textContent = id;
+            document.getElementById('modalTindakan').textContent = tindakan;
+            document.getElementById('modalPdf').src = pdfUrl;
+        }
+    </script>
+
     {{-- JS untuk tabel --}}
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
@@ -172,7 +180,7 @@
 
 
 
-    
+
 
 </body>
 

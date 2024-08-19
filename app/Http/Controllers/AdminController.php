@@ -15,31 +15,31 @@ class AdminController extends Controller
      */
     public function index()
     {
-       
-        return view('dashboard-admin.index',[
-            'bagian'=> Bagian::all(),
-            'masalah'=> permasalahan::all(),
-            'tiket'=> tiket::all()->count(),
-            'bagian1'=> tiket::where('bagian_id',1)->count(),
-            'bagian2'=> tiket::where('bagian_id',2)->count(),
-            'bagian3'=> tiket::where('bagian_id',3)->count(),
-            'bagian4'=> tiket::where('bagian_id',4)->count(),
-            'bagian5'=> tiket::where('bagian_id',5)->count(),
-            'bagian6'=> tiket::where('bagian_id',6)->count(),
-            'bagian7'=> tiket::where('bagian_id',7)->count(),
-            'bagian8'=> tiket::where('bagian_id',8)->count(),
-            'bagian9'=> tiket::where('bagian_id',9)->count(),
-            'masalah1'=> tiket::where('permasalahan_id',1)->count(),
-            'masalah2'=> tiket::where('permasalahan_id',2)->count(),
-            'masalah3'=> tiket::where('permasalahan_id',3)->count(),
-            'masalah4'=> tiket::where('permasalahan_id',4)->count(),
-            'masalah5'=> tiket::where('permasalahan_id',5)->count(),
-            'masalah6'=> tiket::where('permasalahan_id',6)->count(),
-            'masalah7'=> tiket::where('permasalahan_id',7)->count(),
-            'masalah8'=> tiket::where('permasalahan_id',8)->count(),
-            'masalah9'=> tiket::where('permasalahan_id',9)->count(),
+
+        return view('dashboard-admin.index', [
+            'bagian' => Bagian::all(),
+            'masalah' => permasalahan::all(),
+            'akun' => User::all()->count(),
+            'tiket' => tiket::all()->count(),
+            'bagian1' => tiket::where('bagian_id', 1)->count(),
+            'bagian2' => tiket::where('bagian_id', 2)->count(),
+            'bagian3' => tiket::where('bagian_id', 3)->count(),
+            'bagian4' => tiket::where('bagian_id', 4)->count(),
+            'bagian5' => tiket::where('bagian_id', 5)->count(),
+            'bagian6' => tiket::where('bagian_id', 6)->count(),
+            'bagian7' => tiket::where('bagian_id', 7)->count(),
+            'bagian8' => tiket::where('bagian_id', 8)->count(),
+            'bagian9' => tiket::where('bagian_id', 9)->count(),
+            'masalah1' => tiket::where('permasalahan_id', 1)->count(),
+            'masalah2' => tiket::where('permasalahan_id', 2)->count(),
+            'masalah3' => tiket::where('permasalahan_id', 3)->count(),
+            'masalah4' => tiket::where('permasalahan_id', 4)->count(),
+            'masalah5' => tiket::where('permasalahan_id', 5)->count(),
+            'masalah6' => tiket::where('permasalahan_id', 6)->count(),
+            'masalah7' => tiket::where('permasalahan_id', 7)->count(),
+            'masalah8' => tiket::where('permasalahan_id', 8)->count(),
+            'masalah9' => tiket::where('permasalahan_id', 9)->count(),
         ]);
-        
     }
 
     /**
