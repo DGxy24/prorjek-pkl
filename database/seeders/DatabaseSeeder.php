@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
         'nama_bagian' => 'Hukum'
        ]);
        Bagian::create([
-        'nama_bagian' => 'TU & KEU'
+        'nama_bagian' => 'TU dan KEU'
        ]);
        Bagian::create([
         'nama_bagian' => 'Kepegawaian'
@@ -52,31 +52,31 @@ class DatabaseSeeder extends Seeder
 
        //Menambah data permasalahan
        permasalahan::create([
-        'jenis_masalah' => 'Permasalahan Jaringan'
+        'jenis_masalah' => 'Jaringan'
        ]);
        permasalahan::create([
-        'jenis_masalah' => 'Permasalahan SIPP'
+        'jenis_masalah' => 'SIPP'
        ]);
        permasalahan::create([
-        'jenis_masalah' => 'Permasalahan Ruang Sidang Online'
+        'jenis_masalah' => 'Ruang Sidang Online'
        ]);
        permasalahan::create([
-        'jenis_masalah' => 'Permasalahan E-Berpadu'
+        'jenis_masalah' => 'E-Berpadu'
        ]);
        permasalahan::create([
-        'jenis_masalah' => 'Permasalahan E-Court'
+        'jenis_masalah' => 'E-Court'
        ]);
        permasalahan::create([
-        'jenis_masalah' => 'Permasalahan Pelaporan'
+        'jenis_masalah' => 'Pelaporan'
        ]);
        permasalahan::create([
-        'jenis_masalah' => 'Permasalahan Perkusi'
+        'jenis_masalah' => 'Perkusi'
        ]);
        permasalahan::create([
-        'jenis_masalah' => 'Permasalahan EIS'
+        'jenis_masalah' => 'EIS'
        ]);
        permasalahan::create([
-        'jenis_masalah' => 'Permasalahan Sinkronisasi'
+        'jenis_masalah' => 'Sinkronisasi'
        ]);
 
 
@@ -109,19 +109,19 @@ class DatabaseSeeder extends Seeder
         tiket::create([
             'user_id' => '2',
             'bagian_id' => '2',
-            'permasalahan_id' => '2',
+            'permasalahan_id' => '1',
             'penjelasan' => 'wdokawod',
             'tindakan' => 'wdokawod',
         ]);    tiket::create([
             'user_id' => '2',
             'bagian_id' => '2',
-            'permasalahan_id' => '2',
+            'permasalahan_id' => '3',
             'penjelasan' => 'satu',
             'tindakan' => 'dua',
         ]);    tiket::create([
             'user_id' => '2',
             'bagian_id' => '2',
-            'permasalahan_id' => '2',
+            'permasalahan_id' => '4',
             'penjelasan' => 'tiga',
             'tindakan' => 'tiga',
         ]);
