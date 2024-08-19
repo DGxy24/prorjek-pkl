@@ -14,8 +14,8 @@
         <a class="btn btn-primary" href="/dashboard/ajukan-tiket/create" role="button">Lapor</a>
     </div>
 
-    <div class="table-responsive table-bordered w-100">
-        <table class="table table-striped table-sm">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
                     {{-- <th>#</th> --}}
@@ -31,7 +31,7 @@
             <tbody>
 
                 @foreach ($tiket as $item)
-                <tr>
+                    <tr>
                         {{-- <td>{{ $loop->iteration }}</td> --}}
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->created_at->translatedformat('l-d-M-Y') }}</td>
@@ -54,7 +54,7 @@
                         </form> --}}
                         </td>
 
-                </tr>
+                    </tr>
                 @endforeach
             </tbody>
         </table>

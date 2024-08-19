@@ -8,8 +8,8 @@
         <a class="btn btn-primary" href="/dashboard-admin/user/create" role="button"><i class="bi bi-person-fill-add"></i></a>
     </div>
 
-    <div class="table-responsive table-bordered w-100 mt-3">
-        <table class="table table-striped table-sm">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
                     <th scope="col">#</th>

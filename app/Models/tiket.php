@@ -20,7 +20,8 @@ class tiket extends Model
 
     ];
 
-    public function proses_table(){
+    public function proses_table()
+    {
         return $this->hasOne(proses::class);
     }
     public function permasalahan()
@@ -36,6 +37,5 @@ class tiket extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    
     }
 }

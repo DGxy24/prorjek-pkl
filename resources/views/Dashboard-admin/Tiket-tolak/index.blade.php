@@ -6,11 +6,10 @@
         <h1 class="h2">Tiket Ditolak</h1>
     </div>
 
-    <div class="table-responsive table-bordered w-100">
-        <table class="table table-striped table-sm">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-
                     <th scope="col">ID Tiket</th>
                     <th scope="col">Tanggal Lapor</th>
                     <th scope="col">Nama Bagian</th>
@@ -36,7 +35,7 @@
                             var link_t = "/dashboard-admin/tiket/"+id_tiket+"/edit";
                         </script> --}}
 
-                     
+
                         <td>
                             <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
                                 onclick="showTicketDetails('{{ $item->id }}','{{ $item->created_at->translatedformat('l-d F Y') }}','{{ $item->bagian->nama_bagian }}', '{{ $item->permasalahan->jenis_masalah }}', '{{ $item->penjelasan }}', '{{ $item->tindakan }}');

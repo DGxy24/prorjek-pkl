@@ -7,12 +7,11 @@
         <h1 class="h2">Tiket Proses</h1>
     </div>
 
-    <div class="table-responsive table-bordered w-100">
-        <table class="table table-striped table-sm">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
                     {{-- {{ dd($tiket[0]->proses) }} --}}
-
                     <th scope="col">ID Tiket</th>
                     <th scope="col">Tanggal Lapor</th>
                     <th scope="col">Bagian</th>
@@ -48,8 +47,7 @@
                         @else
                             <td>
                                 {{-- menuju form view modal --}}
-                                {{-- <a href="#" class="btn btn-success btn-sm" role="button"><span data-feather="edit"><i
-                                            class="bi bi-eye"></i></span></a> --}}
+
                                 <a href="#" class="btn btn-success btn-sm" role="button" data-bs-toggle="modal"
                                     data-bs-target="#tindakLanjutModal" data-pdf-url="{{ $item->pdf_url }}">
                                     <i class="bi bi-eye"></i>

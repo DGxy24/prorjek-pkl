@@ -24,7 +24,14 @@
         }
     </style>
 
+
     <title>Dashboard</title>
+
+    {{-- CSS untuk tabel --}}
+    <link href="{{ asset('assets/css/border.css') }}" rel="stylesheet">
+    <!-- Custom styles for this page -->
+    <link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+    {{-- end CSS untuk tabel --}}
 
 
     <link rel="icon" href="img/logo.png">
@@ -36,10 +43,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-
     <!-- Custom styles for this template -->
     <link href="/css/dashboard.css" rel="stylesheet">
-
 
     {{-- Trix Editor --}}
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
@@ -51,6 +56,7 @@
         }
     </style>
     <link rel="icon" href="/img/logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
@@ -85,6 +91,10 @@
     {{-- <script src="/js/dashboard.js"></script> --}}
     <script src="/js/modal.js"></script>
     {{-- untuk mengambil data dari tabel --}}
+
+    {{-- barchat js --}}
+    <script src="/js/barchart.js"></script>
+
     <script>
         var tiket;
 
@@ -125,6 +135,7 @@
             document.getElementById('link_tolak').action = tolak;
         }
     </script>
+
     <script>
         // Fungsi untuk mengatur URL PDF
         function setPdfSource(pdfUrl) {
@@ -143,6 +154,23 @@
             });
         });
     </script>
+
+    {{-- JS untuk tabel --}}
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="{{ asset('assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="{{ asset('assets/js/sb-admin-2.min.js') }}"></script>
+    <!-- Page level plugins -->
+    <script src="{{ asset('assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+    <!-- Page level custom scripts -->
+    <script src="{{ asset('assets/js/demo/datatables-demo.js') }}"></script>
+    {{-- end JS untuk tabel --}}
+
+
 
 </body>
 

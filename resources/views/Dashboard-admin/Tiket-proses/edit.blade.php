@@ -61,9 +61,10 @@
 
                             </div>
                         </div>
+                        <button class="w-100 btn btn-lg btn-primary mb-5" type="submit">SUBMIT</button>
                 </div>
 
-                <button class="w-5 btn btn-lg btn-primary mb-4" type="submit">SUBMIT</button>
+
                 </form>
         </main>
     </div>
