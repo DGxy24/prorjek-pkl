@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-
+               {{-- {{ dd($tiket[1]->proses_table) }} --}}
                 @foreach ($tiket as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
@@ -54,7 +54,8 @@
                                 </a> --}}
 
                                 <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                    onclick="showTicketProses('{{ $item->id }}', '{{ $item->tindakan }}', '{{ asset('img/cv.pdf') }}');">
+                                    onclick="showTicketProses('{{ $item->id }}', '{{ $item->proses_table->tindakan }}',
+                                     '{{ asset('storage/' . $item->proses_table->bukti) }}');edit_proses();">
                                     <span data-feather="eye"><i class="bi bi-eye"></i></i></span>
                                 </button>
 
@@ -96,13 +97,14 @@
                     </table>
                 </div>
                 <div class="modal-footer">
-                    <form id="link_terima" method="POST">
-                        @method('PUT')
+
+                    <a id="link_edit" class="btn btn-warning btn-sm"
+                        role="button"><span data-feather="edit"><i class="bi bi-pencil-square"></i></span></a>
+                    {{-- <form id="link_edit" method="POST">
                         @csrf
                         <button class="btn btn-warning" type="submit">Ubah</button>
-                    </form>
-                    <form id="link_tolak" method="POST">
-                        @csrf
+                    </form> --}}
+                    <form id="" method="POST">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </form>
                 </div>
@@ -110,6 +112,6 @@
         </div>
     </div>
 @endsection
-@section('scripts')
+{{-- @section('scripts')
     <script src="{{ asset('js/modal.js') }}"></script>
-@endsection
+@endsection --}}

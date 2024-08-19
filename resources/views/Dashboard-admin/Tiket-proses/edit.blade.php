@@ -15,7 +15,10 @@
             <div class="row justify-content-center">
                 <div class="col-md-12 col-lg-9">
                     {{-- Form Tindak Lanjut --}}
-                    <form action="/dashboard-admin/tiket/proses" method="POST">
+                   
+                    <form action="/dashboard-admin/tiket/proses/{{ $tiket[0]->id }}" method="POST" 
+                        enctype="multipart/form-data">
+                        @method('PUT')
                         @csrf
                         <div class="text-center mt-3">
 
@@ -24,7 +27,7 @@
 
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="tiket_id" name="tiket_id" placeholder="ID User"
-                                readonly value="">
+                                readonly value="{{ $tiket[0]->tiket_id }}">
                             {{-- {{ $tiket[0]->id }} --}}
                             <label for="floatingFullName">ID Tiket </label>
                         </div>
@@ -36,7 +39,7 @@
                             @error('tindakan')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
-                            <input id="tindakan" type="hidden" name="tindakan" value="{{ old('tindakan') }}">
+                            <input id="tindakan" type="hidden" name="tindakan" value="{{ old('tindakan',$tiket[0]->tindakan) }}">
                             <trix-editor input="tindakan"></trix-editor>
                         </div>
 
