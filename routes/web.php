@@ -21,10 +21,12 @@ Route::get('/daftar', [UserController::class, 'index']);
 Route::post('/daftar', [UserController::class, 'store'])->name('daftar');
 
 Route::post('/login', [UserController::class, 'authenticate'])->name('login');
+
+//Route user
 Route::group(['middleware' => ['auth']], function () {
   // membuat route dashboard
-  Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
-  // akhir membuat route dashboard
+  Route::get('/dashboard', [DashboardController::class, 'index']);
+
   // membuat route ajukan tiket
   Route::resource('dashboard/ajukan-tiket', AjukanTiketController::class);
   Route::get('dashboard/ajukan-tiket', [AjukanTiketController::class, 'index']);
@@ -74,7 +76,8 @@ Route::group(['middleware' => [IsAdmin::class]], function () {
   Route::resource('/dashboard-admin/tiket/ditolak', AdminTiketTolakController::class);
   Route::resource('/dashboard-admin/tiket/proses', AdminTiketProsesController::class);
   Route::post('dashboard-admin/tiket/masuk/{id}/tolak', [AdminTiketMasukController::class, 'tolak']);
-
+  Route::get('dashboard-admin/tiket/selesai',[AdminTiketProsesController::class,'selesai']);
+  Route::get('dashboard-admin/tiket/selesai/{id}',[AdminTiketProsesController::class,'cek_selesai']);
   Route::get('dashboard-admin/tiket-proses/tindak',);
 });
 

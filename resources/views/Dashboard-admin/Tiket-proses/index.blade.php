@@ -98,8 +98,8 @@
                 </div>
                 <div class="modal-footer">
 
-                    <a id="link_edit" class="btn btn-warning btn-sm"
-                        role="button"><span data-feather="edit"><i class="bi bi-pencil-square"></i></span></a>
+                    <a id="link_edit" class="btn btn-warning"
+                        role="button"><span data-feather="edit">Ubah</span></a>
                     {{-- <form id="link_edit" method="POST">
                         @csrf
                         <button class="btn btn-warning" type="submit">Ubah</button>

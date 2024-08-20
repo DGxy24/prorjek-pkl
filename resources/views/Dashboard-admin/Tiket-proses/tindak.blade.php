@@ -52,7 +52,7 @@
                         {{-- pakai ini di conttrolernya agar input tindakkanya bersih --}}
                         {{-- $validatedData['tindakan'] = strip_tags($request->input('tindakan')); --}}
                         <div class="mb-3">
-                            <label for="tindakan" class="form-label">Tindakan Lanjut yang dilakukan</label>
+                            <label for="tindakan" class="form-label">Tindakan Lanjut dari IT</label>
                             @error('tindakan')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror

@@ -18,6 +18,14 @@ class AdminTiketProsesController extends Controller
         ]);
     }
 
+    public function selesai()
+    {
+        //Sementara untuk bisa diliat,tolong hapus jika sudah diubah
+        return view('Dashboard-admin.Tiket-selesai.index', [
+            'tiket' => tiket::where('proses', 2)->get()
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
