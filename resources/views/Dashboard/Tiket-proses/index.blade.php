@@ -42,8 +42,21 @@
                             <td>
                                 <a href="/dashboard/tiket-proses/{{ $item->id }}" class="btn btn-success btn-sm"><span
                                         data-feather="eye"><i class="bi bi-envelope-open"></i></span></a>
-                            </td>
+                            
+
+
                         @endif
+
+                        @if ($item->proses_table != null)
+                        @if($item->proses_table->status==2)
+                        {{-- Masukan kolom/td untuk tombol cek balasan user --}}
+                       tes
+                    @else
+                    @endif
+                        @else
+
+                        @endif
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

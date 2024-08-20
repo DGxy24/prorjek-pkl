@@ -132,13 +132,6 @@ class DatabaseSeeder extends Seeder
             'penjelasan' => 'empat',
             'tindakan' => 'empat',
         ]);
-        status::create([
-            'id'=>'1',
-            'status'=> 'Belum'
-        ]);
-        status::create([
-            'id'=>'2',
-            'status'=> 'Selesai'
-        ]);
+   
     }
 }

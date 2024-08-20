@@ -22,7 +22,8 @@
                 </tr>
             </thead>
             <tbody>
-               {{-- {{ dd($tiket[1]->proses_table) }} --}}
+               {{-- {{ dd($tiket[0]->proses_table) }} --}}
+
                 @foreach ($tiket as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
@@ -59,8 +60,19 @@
                                     <span data-feather="eye"><i class="bi bi-eye"></i></i></span>
                                 </button>
 
-                            </td>
+                           
                         @endif
+
+                        @if ($item->proses_table != null)
+                            @if($item->proses_table->status==2)
+                            {{-- Masukan kolom/td untuk tombol cek balasan user --}}
+                            tess
+                        @else
+                        @endif
+                            @else
+
+                            @endif
+                            </td>
                     </tr>
                 @endforeach
 
