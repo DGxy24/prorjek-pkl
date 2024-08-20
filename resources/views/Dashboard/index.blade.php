@@ -62,41 +62,68 @@
         </div>
     </div>
 
-    <h3 class="h2">Persentasi Tiket<h3>
-            <canvas id="barchartTiket" style="width: 100%;"></canvas>
-            <div class="mt-3"></div>
+    <div class="col-md-7">
+        <h3 class="h3">Persentasi Tiket<h3>
+                <canvas id="barchartTiket" style="width: 100%;"></canvas>
+    </div>
 
-            <script>
-                var ctx = document.getElementById("barchartTiket").getContext("2d");
-                var barchartTiket = new Chart(ctx, {
-                    type: "bar",
-                    data: {
-                        labels: ["Diajukan", "Dalam Proses", "Ditolak", "Selesai"], // Hanya satu bagian
-                        datasets: [{
-                            label: "Jumlah Tiket",
-                            data: [{{ $ajukan }}, {{ $proses }}, {{ $tolak }}, {{ $terima }}], // Data untuk satu masalah saja
-                            backgroundColor: [
-                                "rgba(54, 162, 235, 0.5)", // Biru untuk Diajukan
-                                "rgba(255, 205, 86, 0.5)", // Kuning untuk Dalam Proses
-                                "rgba(255, 99, 132, 0.5)", // Merah untuk Ditolak
-                                "rgba(75, 192, 192, 0.5)" // Hijau untuk Selesai
-                            ],
-                            borderColor: [
-                                "rgba(54, 162, 235, 1)", // Biru untuk Diajukan
-                                "rgba(255, 205, 86, 1)", // Kuning untuk Dalam Proses
-                                "rgba(255, 99, 132, 1)", // Merah untuk Ditolak
-                                "rgba(75, 192, 192, 1)" // Hijau untuk Selesai
-                            ],
-                            borderWidth: 3,
-                        }],
+
+
+    <script>
+        var ctx = document.getElementById("barchartTiket").getContext("2d");
+        var barchartTiket = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: ["Persentasi Tiket"], // Hanya satu bagian
+                datasets: [{
+                    label: "Diajukan",
+                    data: [{{ $ajukan }}],
+                    backgroundColor: [
+                        "rgba(54, 162, 235, 0.5)", // Biru untuk Diajukan
+                    ],
+                    borderColor: [
+                        "rgba(54, 162, 235, 1)", // Biru untuk Diajukan
+                    ],
+                    borderWidth: 3,
+                }, {
+                    label: "Dalam Proses",
+                    data: [{{ $proses }}],
+                    backgroundColor: [
+                        "rgba(255, 205, 86, 0.5)", // Kuning untuk Dalam Proses
+                    ],
+                    borderColor: [
+                        "rgba(255, 205, 86, 1)", // Kuning untuk Dalam Proses
+                    ],
+                    borderWidth: 3,
+                }, {
+                    label: "Ditolak",
+                    data: [{{ $tolak }}],
+                    backgroundColor: [
+                        "rgba(255, 99, 132, 0.5)", // Merah untuk Ditolak
+                    ],
+                    borderColor: [
+                        "rgba(255, 99, 132, 1)", // Merah untuk Ditolak
+                    ],
+                    borderWidth: 3,
+                }, {
+                    label: "Selesai",
+                    data: [{{ $terima }}],
+                    backgroundColor: [
+                        "rgba(75, 192, 192, 0.5)" // Hijau untuk Selesai
+                    ],
+                    borderColor: [
+                        "rgba(75, 192, 192, 1)" // Hijau untuk Selesai
+                    ],
+                    borderWidth: 3,
+                }],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
                     },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                            },
-                        },
-                    },
-                });
-            </script>
-        @endsection
+                },
+            },
+        });
+    </script>
+@endsection
