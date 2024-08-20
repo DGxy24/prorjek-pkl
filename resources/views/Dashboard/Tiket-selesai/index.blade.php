@@ -30,19 +30,19 @@
                         <td>{{ $item->permasalahan->jenis_masalah }}</td>
                         <td>{{ $item->penjelasan }}</td>
                         <td>{{ $item->tindakan }}</td>
-                        @if ($item->proses_table == null)
+                        {{-- @if ($item->proses_table == null)
                             <td>
                                 <a class="btn btn-danger btn-sm"><span data-feather="eye"><i
                                             class="bi bi-envelope-open"></i></span></a>
 
 
                             </td>
-                        @else
-                            <td>
-                                <a href="/dashboard/tiket-selesai/{{ $item->id }}" class="btn btn-success btn-sm"><span
-                                        data-feather="eye"><i class="bi bi-envelope-open"></i></span></a>
-                            </td>
-                        @endif
+                        @else --}}
+                        <td>
+                            <a href="/dashboard/tiket-selesai/{{ $item->id }}" class="btn btn-success btn-sm"><span
+                                    data-feather="eye"><i class="bi bi-envelope-open"></i></span></a>
+                        </td>
+                        {{-- @endif --}}
                     </tr>
                 @endforeach
             </tbody>

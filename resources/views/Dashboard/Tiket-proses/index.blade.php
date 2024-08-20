@@ -34,7 +34,7 @@
                         @if ($item->proses_table == null)
                             <td>
                                 <a class="btn btn-danger btn-sm"><span data-feather="eye"><i
-                                            class="bi bi-envelope-open"></i></span></a>
+                                            class="bi bi-envelope"></i></span></a>
 
 
                             </td>
