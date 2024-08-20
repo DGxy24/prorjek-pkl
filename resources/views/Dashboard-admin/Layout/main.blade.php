@@ -115,9 +115,10 @@
             document.getElementById('modalPassword').textContent = password;
         }
 
-        function showTicketDetails(id, tanggal, bagian, masalah, penjelasan, tindakan) {
+        function showTicketDetails(id,nama, tanggal, bagian, masalah, penjelasan, tindakan) {
             tiket = id;
             document.getElementById('modalTicketId').textContent = id;
+            document.getElementById('modalTicketNama').textContent = nama;
             document.getElementById('modalTanggalLapor').textContent = tanggal;
             document.getElementById('modalNamaBagian').textContent = bagian;
             document.getElementById('modalPermasalah').textContent = masalah;

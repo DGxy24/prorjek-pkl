@@ -14,7 +14,7 @@ class TiketSelesaiController extends Controller
     {
         //
         return view('Dashboard.tiket-selesai.index',[
-            'tiket' => tiket::where('proses','=',1)
+            'tiket' => tiket::where('proses','=',3)
             ->where('user_id', auth()->user()->id)->get()
 
         ]);

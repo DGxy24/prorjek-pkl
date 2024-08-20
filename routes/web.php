@@ -70,6 +70,7 @@ Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 Route::group(['middleware' => [IsAdmin::class]], function () {
   Route::get('/dashboard-admin', [AdminController::class, 'index']);
   Route::resource('/dashboard-admin/user', AdminAkunController::class);
+  Route::get('/dashboard-admin/admin', [AdminAkunController::class,'admin']);
 
 
   Route::resource('/dashboard-admin/tiket/masuk', AdminTiketMasukController::class);

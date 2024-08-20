@@ -74,7 +74,7 @@
                         labels: ["Diajukan", "Dalam Proses", "Ditolak", "Selesai"], // Hanya satu bagian
                         datasets: [{
                             label: "Jumlah Tiket",
-                            data: [10, 8, 2, 5], // Data untuk satu masalah saja
+                            data: [{{ $ajukan }}, {{ $proses }}, {{ $tolak }}, {{ $terima }}], // Data untuk satu masalah saja
                             backgroundColor: [
                                 "rgba(54, 162, 235, 0.5)", // Biru untuk Diajukan
                                 "rgba(255, 205, 86, 0.5)", // Kuning untuk Dalam Proses

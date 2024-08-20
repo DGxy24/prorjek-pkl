@@ -21,6 +21,7 @@
                 </tr>
             </thead>
             <tbody>
+                
                 @foreach ($tiket as $item)
                     <tr>
 
@@ -37,7 +38,8 @@
                         </script> --}}
                         <td>
                             <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                onclick="showTicketDetails('{{ $item->id }}','{{ $item->created_at->translatedformat('l-d F Y') }}',
+                                onclick="showTicketDetails('{{ $item->id }}','{{ $item->user->name }}'
+                                ,'{{ $item->created_at->translatedformat('l-d F Y') }}',
                                 '{{ $item->bagian->nama_bagian }}', '{{ $item->permasalahan->jenis_masalah }}',
                                  '{{ $item->penjelasan }}', '{{ $item->tindakan }}');
                                 status();
@@ -68,6 +70,10 @@
                         <tr>
                             <th>ID Tiket</th>
                             <td id="modalTicketId"></td>
+                        </tr>
+                        <tr>
+                            <th>Nama Pelapor</th>
+                            <td id="modalTicketNama"></td>
                         </tr>
                         <tr>
                             <th>Tanggal Lapor</th>
