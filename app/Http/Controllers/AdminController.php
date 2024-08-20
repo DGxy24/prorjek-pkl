@@ -39,6 +39,12 @@ class AdminController extends Controller
             'masalah7' => tiket::where('permasalahan_id', 7)->count(),
             'masalah8' => tiket::where('permasalahan_id', 8)->count(),
             'masalah9' => tiket::where('permasalahan_id', 9)->count(),
+
+            //Menghitung data tiket
+            'ajukan'=>tiket::where('proses',0)->count(),
+            'proses'=>tiket::where('proses',2)->count(),
+            'tolak'=>tiket::where('proses',1)->count(),
+            'terima'=>tiket::where('proses',3)->count(),
         ]);
     }
 

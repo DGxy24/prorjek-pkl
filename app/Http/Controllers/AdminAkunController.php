@@ -16,7 +16,15 @@ class AdminAkunController extends Controller
     public function index()
     {
         return view('Dashboard-admin.Users.index', [
-            'akun' => User::all()
+            'akun' => User::all()->where('level',0)
+        ]);
+    }
+
+    public function admin()
+    {
+        return view('Dashboard-admin.Users.admin_index', [
+            'akun' => User::where('level',1)->get()
+
         ]);
     }
 

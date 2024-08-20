@@ -15,7 +15,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="userDropdown">
                         <li><a class="dropdown-item" href="/dashboard-admin/user">User</a></li>
-                        <li><a class="dropdown-item" href="#">Admin</a></li>
+                        <li><a class="dropdown-item" href="/dashboard-admin/admin">Admin</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown mt-3 mb-3">

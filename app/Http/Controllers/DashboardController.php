@@ -15,6 +15,14 @@ class DashboardController extends Controller
         //
         return view('dashboard/index',[
             'total'=>tiket::where('user_id', auth()->user()->id)->count(),
+            'ajukan'=>tiket::where('user_id', auth()->user()->id)
+            ->where('proses',0)->count(),
+            'proses'=>tiket::where('user_id', auth()->user()->id)
+            ->where('proses',2)->count(),
+            'tolak'=>tiket::where('user_id', auth()->user()->id)
+            ->where('proses',1)->count(),
+            'terima'=>tiket::where('user_id', auth()->user()->id)
+            ->where('proses',3)->count(),
         ]);
     }
 
