@@ -5,7 +5,6 @@
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Menejemen Admin</h1>
-        <a class="btn btn-primary" href="/dashboard-admin/user/create" role="button"><i class="bi bi-person-fill-add"></i></a>
     </div>
 
     <div class="table-responsive">
