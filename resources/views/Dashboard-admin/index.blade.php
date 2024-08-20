@@ -63,121 +63,148 @@
         </div>
     </div>
 
-    <h3 class="h2">Persentasi Tiket<h3>
-            <canvas id="barchartTiket" style="width: 100%;"></canvas>
+    <div class="col-md-7">
+        <h3 class="h3">Persentasi Tiket<h3>
+                <canvas id="barchartTiket" style="width: 100%;"></canvas>
+    </div>
 
-            <div class="container">
-                <div class="col-md-12">
-                    <h4> Bidang</h4>
-                    <canvas id="barchartBidang" style="width: 100%;"></canvas>
-                </div>
-                <div class="mt-3"></div>
-                <div class="col-md-12">
-                    <h4> Jenis Masalah</h4>
-                    <canvas id="barchartMasalah" style="width: 100%;"></canvas>
-                </div>
-            </div>
-            <script>
-                var ctx = document.getElementById("barchartTiket").getContext("2d");
-                var barchartTiket = new Chart(ctx, {
-                    type: "bar",
-                    data: {
-                        labels: ["Diajukan", "Dalam Proses", "Ditolak", "Selesai"], // Hanya satu bagian
-                        datasets: [{
-                            label: "Jumlah Tiket",
-                            data: [{{ $ajukan }}, {{ $proses }}, {{ $tolak }}, {{ $terima }}], // Data untuk satu masalah saja
-                            backgroundColor: [
-                                "rgba(54, 162, 235, 0.5)", // Biru untuk Diajukan
-                                "rgba(255, 205, 86, 0.5)", // Kuning untuk Dalam Proses
-                                "rgba(255, 99, 132, 0.5)", // Merah untuk Ditolak
-                                "rgba(75, 192, 192, 0.5)" // Hijau untuk Selesai
-                            ],
-                            borderColor: [
-                                "rgba(54, 162, 235, 1)", // Biru untuk Diajukan
-                                "rgba(255, 205, 86, 1)", // Kuning untuk Dalam Proses
-                                "rgba(255, 99, 132, 1)", // Merah untuk Ditolak
-                                "rgba(75, 192, 192, 1)" // Hijau untuk Selesai
-                            ],
-                            borderWidth: 3,
-                        }],
+    <div class="container">
+        <div class="col-md-12">
+            <h4> Bidang</h4>
+            <canvas id="barchartBidang" style="width: 100%;"></canvas>
+        </div>
+        <div class="mt-3"></div>
+        <div class="col-md-12">
+            <h4> Jenis Masalah</h4>
+            <canvas id="barchartMasalah" style="width: 100%;"></canvas>
+        </div>
+    </div>
+    <script>
+        var ctx = document.getElementById("barchartTiket").getContext("2d");
+        var barchartTiket = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: ["Persentasi Tiket"], // Hanya satu bagian
+                datasets: [{
+                    label: "Diajukan",
+                    data: [{{ $ajukan }}],
+                    backgroundColor: [
+                        "rgba(54, 162, 235, 0.5)", // Biru untuk Diajukan
+                    ],
+                    borderColor: [
+                        "rgba(54, 162, 235, 1)", // Biru untuk Diajukan
+                    ],
+                    borderWidth: 3,
+                }, {
+                    label: "Dalam Proses",
+                    data: [{{ $proses }}],
+                    backgroundColor: [
+                        "rgba(255, 205, 86, 0.5)", // Kuning untuk Dalam Proses
+                    ],
+                    borderColor: [
+                        "rgba(255, 205, 86, 1)", // Kuning untuk Dalam Proses
+                    ],
+                    borderWidth: 3,
+                }, {
+                    label: "Ditolak",
+                    data: [{{ $tolak }}],
+                    backgroundColor: [
+                        "rgba(255, 99, 132, 0.5)", // Merah untuk Ditolak
+                    ],
+                    borderColor: [
+                        "rgba(255, 99, 132, 1)", // Merah untuk Ditolak
+                    ],
+                    borderWidth: 3,
+                }, {
+                    label: "Selesai",
+                    data: [{{ $terima }}],
+                    backgroundColor: [
+                        "rgba(75, 192, 192, 0.5)" // Hijau untuk Selesai
+                    ],
+                    borderColor: [
+                        "rgba(75, 192, 192, 1)" // Hijau untuk Selesai
+                    ],
+                    borderWidth: 3,
+                }],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
                     },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                            },
-                        },
-                    },
-                });
-            </script>
-            <script>
-                // bar chart bidang
-                var ctx = document.getElementById("barchartBidang").getContext("2d");
-                // var bagian = {!! json_encode($bagian->toArray()) !!};
-                var barchartBidang = new Chart(ctx, {
-                    type: "bar",
-                    data: {
-                        labels: [
-                            @foreach ($bagian as $item)
-                                "{{ $item->nama_bagian }}",
-                            @endforeach
-                        ],
-                        datasets: [{
-                            label: "Jumlah Tiket",
-                            // Jika Bagian ditambah, jangan lupa menambahkan variabelnya kesini juga
-                            data: [{{ $bagian1 }}, {{ $bagian2 }}, {{ $bagian3 }},
-                                {{ $bagian4 }},
-                                {{ $bagian5 }}, {{ $bagian6 }}, {{ $bagian7 }},
-                                {{ $bagian8 }}, {{ $bagian9 }},
-                            ],
-                            backgroundColor: "rgba(72, 189, 58, 0.5)",
-                            borderColor: "rgba(72, 189, 58, 1)",
-                            borderWidth: 2,
-                        }, ],
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                            },
-                        },
-                    },
-                });
-                //  end bar chart bidang
+                },
+            },
+        });
+    </script>
 
-                // barchart masalah
-                var ctx = document.getElementById("barchartMasalah").getContext("2d");
-                var barchartMasalah = new Chart(ctx, {
-                    type: "bar",
-                    data: {
-                        labels: [
-                            @foreach ($masalah as $item)
-                                "{{ $item->jenis_masalah }}",
-                            @endforeach
-                        ],
-                        datasets: [{
+    <script>
+        // bar chart bidang
+        var ctx = document.getElementById("barchartBidang").getContext("2d");
+        // var bagian = {!! json_encode($bagian->toArray()) !!};
+        var barchartBidang = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: [
+                    @foreach ($bagian as $item)
+                        "{{ $item->nama_bagian }}",
+                    @endforeach
+                ],
+                datasets: [{
+                    label: "Jumlah Tiket",
+                    // Jika Bagian ditambah, jangan lupa menambahkan variabelnya kesini juga
+                    data: [{{ $bagian1 }}, {{ $bagian2 }}, {{ $bagian3 }},
+                        {{ $bagian4 }},
+                        {{ $bagian5 }}, {{ $bagian6 }}, {{ $bagian7 }},
+                        {{ $bagian8 }}, {{ $bagian9 }},
+                    ],
+                    backgroundColor: "rgba(72, 189, 58, 0.5)",
+                    borderColor: "rgba(72, 189, 58, 1)",
+                    borderWidth: 2,
+                }, ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+            },
+        });
+        //  end bar chart bidang
 
-                            label: "Jumlah Tiket",
-                            // Jika jenis masalah ditambah, jangan lupa menambahkan variabelnya kesini juga
-                            data: [{{ $masalah1 }}, {{ $masalah2 }}, {{ $masalah3 }},
-                                {{ $masalah4 }},
-                                {{ $masalah5 }}, {{ $masalah6 }}, {{ $masalah7 }},
-                                {{ $masalah8 }},
-                                {{ $masalah9 }},
-                            ],
-                            backgroundColor: "rgba(255, 72, 20, 0.5)",
-                            borderColor: "rgba(255, 72, 20, 1)",
-                            borderWidth: 2,
-                        }, ],
+        // barchart masalah
+        var ctx = document.getElementById("barchartMasalah").getContext("2d");
+        var barchartMasalah = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: [
+                    @foreach ($masalah as $item)
+                        "{{ $item->jenis_masalah }}",
+                    @endforeach
+                ],
+                datasets: [{
+
+                    label: "Jumlah Tiket",
+                    // Jika jenis masalah ditambah, jangan lupa menambahkan variabelnya kesini juga
+                    data: [{{ $masalah1 }}, {{ $masalah2 }}, {{ $masalah3 }},
+                        {{ $masalah4 }},
+                        {{ $masalah5 }}, {{ $masalah6 }}, {{ $masalah7 }},
+                        {{ $masalah8 }},
+                        {{ $masalah9 }},
+                    ],
+                    backgroundColor: "rgba(255, 72, 20, 0.5)",
+                    borderColor: "rgba(255, 72, 20, 1)",
+                    borderWidth: 2,
+                }, ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
                     },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                            },
-                        },
-                    },
-                });
-                // end barchart masalah
-            </script>
-        @endsection
+                },
+            },
+        });
+        // end barchart masalah
+    </script>
+@endsection
