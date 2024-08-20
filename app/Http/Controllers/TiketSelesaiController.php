@@ -13,7 +13,11 @@ class TiketSelesaiController extends Controller
     public function index()
     {
         //
-        return view('Dashboard.tiket-selesai.index');
+        return view('Dashboard.tiket-selesai.index',[
+            'tiket' => tiket::where('proses','=',1)
+            ->where('user_id', auth()->user()->id)->get()
+
+        ]);
     }
 
     /**
