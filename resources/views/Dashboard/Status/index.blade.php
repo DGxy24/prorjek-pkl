@@ -5,9 +5,11 @@
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Tiket Tindak Lanjutan</h1>
+        <a class="btn btn-danger" href="/dashboard/tiket-proses" role="button"> <i class="bi bi-arrow-left-square-fill"></i>
+        </a>
     </div>
 
-    <div class="table-responsive">
+    {{-- <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
@@ -24,7 +26,7 @@
                     <td>1</td>
                     <td>tiket_id</td>
                     <td>nama_user</td>
-                    <td>text</td>
+                    <td>test</td>
                     <td>button pdf view</td>
                     <td>
                         <a class="btn btn-danger btn-sm"><span data-feather="eye"><i class="bi bi-envelope"></i></span></a>
@@ -35,7 +37,7 @@
                     <td>1</td>
                     <td>tiket_id</td>
                     <td>nama_admin</td>
-                    <td>text</td>
+                    <td>test</td>
                     <td>button pdf view</td>
                     <td>
                         <a class="btn btn-danger btn-sm"><span data-feather="eye"><i class="bi bi-envelope"></i></span></a>
@@ -44,7 +46,7 @@
                 </tr>
             </tbody>
         </table>
-    </div>
+    </div> --}}
 
     <div class="card mb-3">
         <div class="card-header">
@@ -52,20 +54,34 @@
         </div>
         <div class="card-body">
             <!-- Chat antara user dan admin -->
-            <div class="media mb-3">
-                <img src="path-to-user-avatar.jpg" class="mr-3 rounded-circle" alt="User Avatar" width="50">
-                <div class="media-body">
+            <div class="media mb-3 d-flex align-items-center">
+                <img src="/img/profile-user.png" class="rounded-circle" alt="User Avatar" width="40" height="40">
+                <div class="media-body ml-3">
                     <h5 class="mt-0">nama_user</h5>
-                    <p>text</p>
-                    <a href="path-to-pdf" class="btn btn-sm btn-outline-primary">Lihat PDF</a>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit excepturi exercitationem mollitia
+                        architecto vitae praesentium similique delectus beatae ad doloribus error, libero quia eius, hic
+                        asperiores illum, suscipit veniam deserunt!
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, accusamus laborum cumque omnis error
+                        explicabo quasi ipsum nesciunt esse, repellat inventore consequuntur velit magni ex eos
+                        necessitatibus in earum animi.</p>
+                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#pdfModal">
+                        <i class="bi bi-filetype-pdf"></i>
+                    </button>
                 </div>
             </div>
-            <div class="media mb-3">
-                <img src="path-to-admin-avatar.jpg" class="mr-3 rounded-circle" alt="Admin Avatar" width="50">
-                <div class="media-body">
+            <div class="media mb-3 d-flex align-items-center">
+                <img src="/img/profile-user.png" class="rounded-circle" alt="Admin Avatar" width="40" height="40">
+                <div class="media-body ml-3">
                     <h5 class="mt-0">nama_admin</h5>
-                    <p>text</p>
-                    <a href="path-to-pdf" class="btn btn-sm btn-outline-primary">Lihat PDF</a>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit excepturi exercitationem mollitia
+                        architecto vitae praesentium similique delectus beatae ad doloribus error, libero quia eius, hic
+                        asperiores illum, suscipit veniam deserunt!
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, accusamus laborum cumque omnis error
+                        explicabo quasi ipsum nesciunt esse, repellat inventore consequuntur velit magni ex eos
+                        necessitatibus in earum animi.</p>
+                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#pdfModal">
+                        <i class="bi bi-filetype-pdf"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -74,8 +90,9 @@
         </div>
     </div>
 
+
     <!-- Modal -->
-    {{-- <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+    <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -92,7 +109,7 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 @endsection
 @section('scripts')
     <script src="{{ asset('js/modal.js') }}"></script>
