@@ -30,11 +30,12 @@ class StatusController extends Controller
     public function lanjutan(proses $id,tiket $tiket)
     {
         // dd($tiket);
-        $validatedData['status'] = 2;
-        proses::where('id', $id->id)->update($validatedData);
+        // $validatedData['status'] = 2;
+        // proses::where('id', $id->id)->update($validatedData);
         //Menuju Form Lanjutan
         return view('Dashboard.lanjutan.index',[
-          "tiket"=> tiket::where("id",$tiket->id)->get()
+          "tiket"=> tiket::where("id",$tiket->id)->get(),
+          "proses"=> tiket::where("id",$id->id)->get()
         ]);
     }
 
@@ -61,6 +62,8 @@ class StatusController extends Controller
             'bukti.required' => 'Bukti harus di sertakan',
 
         ]);
+        // $validatedData['status'] = 2;
+        proses::where('id', $request->proses_id)->update($validatedData['status']=2);
         // Mengubah data file agar bisa disimpan
         
         $validatedData['bukti']= $request->file('bukti')->store('bukti-proses');
