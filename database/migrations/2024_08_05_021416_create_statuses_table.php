@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('statuses', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('tiket_id');
+            
+
             $table->foreign('tiket_id')->references('id')->on('tikets');
             $table->text('tindakan');
             $table->text('bukti');

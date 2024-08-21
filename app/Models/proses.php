@@ -10,6 +10,7 @@ class proses extends Model
     use HasFactory;
     protected $fillable = [
         'tiket_id',
+        'user_id',
         'tindakan',
         'bukti'
 
@@ -18,5 +19,9 @@ class proses extends Model
 {
     return $this->belongsTo(tiket::class);
 
+}
+public function user()
+{
+    return $this->belongsTo(User::class);
 }
 }

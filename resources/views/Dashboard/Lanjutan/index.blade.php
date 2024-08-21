@@ -3,7 +3,7 @@
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Tindak Lanjut</h1>
-        <a class="btn btn-danger" href="/dashboard/ajukan-tiket" role="button"> <i class="bi bi-arrow-left-square-fill"></i>
+        <a class="btn btn-danger" href="/dashboard/tiket-proses/{{ $proses[0]->tiket->id }}" role="button"> <i class="bi bi-arrow-left-square-fill"></i>
         </a>
 
     </div>
@@ -12,12 +12,14 @@
 
             <div class="row justify-content-center">
                 <div class="col-md-12 col-lg-9">
-
-                    <form action="{{ route('tiket.simpan') }}" method="POST">
+                    {{-- {{ dd($proses[0]->tiket) }} --}}
+                    <form action="/dashboard/tiket-status" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="text-center mt-3">
                             <h1 class="h3 mb-3 fw-normal"></h1>
                         </div>
+                        <input type="hidden" name="user_id" id="user_id" value="{{ auth()->user()->id  }}">
+
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="user_id" name="user_id" placeholder="ID User"
                                 readonly value="{{ auth()->user()->id }}">
@@ -29,18 +31,18 @@
                             <label for="floatingUsername">Proses ID</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="proses_id" name="proses_id"
-                                placeholder="Nama Bagian" readonly value="{{ $tiket[0]->id }}">
+                            <input type="text" class="form-control" id="tiket_id" name="tiket_id"
+                                placeholder="Nama Bagian" readonly value="{{ $proses[0]->tiket->id }}">
                             <label for="floatingUsername">Tiket ID</label>
                         </div>
                         
                         <div class="mb-3">
                             <label for="alasan" class="form-label">Alasan Belum Selesai</label>
-                            @error('alasan')
+                            @error('tindakan')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
-                            <input id="alasan" type="hidden" name="alasan" value="{{ old('alasan') }}">
-                            <trix-editor input="alasan"></trix-editor>
+                            <input id="tindakan" type="hidden" name="tindakan" value="{{ old('tindakan') }}">
+                            <trix-editor input="tindakan"></trix-editor>
                         </div>
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Upload File Pdf</label>
