@@ -133,5 +133,11 @@ class DatabaseSeeder extends Seeder
             'tindakan' => 'empat',
         ]);
    
+        //Untuk tiket, Proses ada 4 
+        //Proses 0 = baru dikirim, Proses 1 = Tiket di tolak, Proses 2 = Tiket Diterima
+        // Proses 3 = Tiket selesai
+
+        // Untuk Status ada 3
+        //Status 0 = Default,baru dibuat, Status 1 = Tiket sudah selesai, Status 2 = Tiket belum selesi dari user
     }
 }
