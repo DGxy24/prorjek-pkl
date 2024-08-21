@@ -53,6 +53,26 @@
         trix-toolbar [data-trix-button-group="file-tools"] {
             display: none;
         }
+
+        .media {
+            align-items: flex-start;
+        }
+
+        .media-body {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .media+.media {
+            margin-top: 15px;
+        }
+
+        .card-header,
+        .card-footer {
+            background-color: #007bff;
+            color: white;
+        }
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

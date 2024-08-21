@@ -32,7 +32,10 @@ Route::group(['middleware' => ['auth']], function () {
   // membuat route ajukan tiket
   Route::resource('dashboard/ajukan-tiket', AjukanTiketController::class);
   Route::resource('dashboard/tiket-status', StatusController::class);
+
   Route::get('dashboard/tiket-status/{id}/{tiket}/lanjutan', [StatusController::class,'lanjutan']);
+
+  
   Route::get('dashboard/ajukan-tiket', [AjukanTiketController::class, 'index']);
   Route::post('dashboard/ajukan-tiket', [AjukanTiketController::class, 'store'])->name('tiket.simpan');
   // akhir membuat route ajukan tiket
@@ -76,15 +79,15 @@ Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 Route::group(['middleware' => [IsAdmin::class]], function () {
   Route::get('/dashboard-admin', [AdminController::class, 'index']);
   Route::resource('/dashboard-admin/user', AdminAkunController::class);
-  Route::get('/dashboard-admin/admin', [AdminAkunController::class,'admin']);
+  Route::get('/dashboard-admin/admin', [AdminAkunController::class, 'admin']);
 
 
   Route::resource('/dashboard-admin/tiket/masuk', AdminTiketMasukController::class);
   Route::resource('/dashboard-admin/tiket/ditolak', AdminTiketTolakController::class);
   Route::resource('/dashboard-admin/tiket/proses', AdminTiketProsesController::class);
   Route::post('dashboard-admin/tiket/masuk/{id}/tolak', [AdminTiketMasukController::class, 'tolak']);
-  Route::get('dashboard-admin/tiket/selesai',[AdminTiketProsesController::class,'selesai']);
-  Route::get('dashboard-admin/tiket/selesai/{id}',[AdminTiketProsesController::class,'cek_selesai']);
+  Route::get('dashboard-admin/tiket/selesai', [AdminTiketProsesController::class, 'selesai']);
+  Route::get('dashboard-admin/tiket/selesai/{id}', [AdminTiketProsesController::class, 'cek_selesai']);
   Route::get('dashboard-admin/tiket-proses/tindak',);
 });
 
@@ -96,6 +99,9 @@ Route::group(['middleware' => [IsAdmin::class]], function () {
 // });
 
 
-// Route::get('dashboard/tiket-selesai/view', function () {
-//   return view('Dashboard.Tiket-selesai.view');
+// Route::get('dashboard/lanjutan/index', function () {
+//   return view('Dashboard.lanjutan.index');
+// });
+// Route::get('dashboard/status/index', function () {
+//   return view('Dashboard.status.index');
 // });
