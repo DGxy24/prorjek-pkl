@@ -137,6 +137,12 @@
         }
     </script>
 
+    <script>
+          function ShowPDF(pdfUrl) {
+            document.getElementById('modalPdf').src = pdfUrl;
+
+          }
+    </script>
     {{-- JS untuk tabel --}}
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
