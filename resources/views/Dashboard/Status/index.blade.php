@@ -9,44 +9,7 @@
         </a>
     </div>
 
-    {{-- <div class="table-responsive">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">ID Tiket</th>
-                    <th scope="col">Akun</th>
-                    <th scope="col">Alasan/Tindakan</th>
-                    <th scope="col">Bukti</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>tiket_id</td>
-                    <td>nama_user</td>
-                    <td>test</td>
-                    <td>button pdf view</td>
-                    <td>
-                        <a class="btn btn-danger btn-sm"><span data-feather="eye"><i class="bi bi-envelope"></i></span></a>
-                    </td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>tiket_id</td>
-                    <td>nama_admin</td>
-                    <td>test</td>
-                    <td>button pdf view</td>
-                    <td>
-                        <a class="btn btn-danger btn-sm"><span data-feather="eye"><i class="bi bi-envelope"></i></span></a>
-                    </td>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div> --}}
+
 
     <div class="card mb-3">
         <div class="card-header" style="background-color: transparent; color: black;"">
@@ -60,9 +23,7 @@
                         var pdfModal = document.getElementById("pdfModal");
                         pdfModal.addEventListener("show.bs.modal", function(event) {
                             var button = event.relatedTarget;
-                            // var pdfSrc =
-                            //     '{{ asset('storage/' . $item->bukti) }}'; 
-                            // var pdfFrame = document.getElementById("pdfFrame");
+
                             var pdfSrc = button.getAttribute('onclick').match(/ShowPDF\('(.*?)'\)/)[1];
                             var pdfFrame = document.getElementById("modalPdf");
                             var downloadPdfBtn = document.getElementById("downloadPdfBtn");
@@ -103,27 +64,7 @@
     </div>
 
 
-    <!-- Modal -->
-    {{-- <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="pdfModalLabel">Bukti PDF</h5>
-                    <div class="d-flex">
 
-                        <a id="downloadPdfBtn" href="#" class="btn btn-success btn-sm me-2" download>
-                            Download PDF
-                        </a>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                </div>
-                
-                <div class="modal-body">
-                    <iframe src="{{ asset('storage/' . $item->bukti)}}" id="pdfFrame" width="100%" height="500px"></iframe>
-                </div>
-            </div>
-        </div>
-    </div> --}}
     <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
