@@ -1,96 +1,63 @@
-@extends('dashboard-admin.layout.main')
+@extends('dashboard.layout.main')
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Tindak Lanjut</h1>
-        <a class="btn btn-danger" href="/dashboard-admin/tiket/proses" role="button"> <i
-                class="bi bi-arrow-left-square-fill"></i>
+        <h1 class="h2">Form Tindak Ulang</h1>
+        <a class="btn btn-danger" href="#" role="button"> <i class="bi bi-arrow-left-square-fill"></i>
         </a>
-    </div>
 
+    </div>
     <div class="container">
         <main class="form-signin">
 
             <div class="row justify-content-center">
                 <div class="col-md-12 col-lg-9">
-                    {{-- Form Tindak Lanjut --}}
-                    <form action="/dashboard-admin/tiket/proses" method="POST" enctype="multipart/form-data">
+                    <form action="/dashboard/tiket-status" method="POST" enctype="multipart/form-data">
                         @csrf
-
                         <div class="text-center mt-3">
-
-                            <h1 class="h3 mb-3 fw-normal">Form Tindak Lanjut</h1>
+                            <h1 class="h3 mb-3 fw-normal"></h1>
                         </div>
                         <input type="hidden" name="user_id" id="user_id" value="{{ auth()->user()->id }}">
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="tiket_id" name="tiket_id" placeholder="ID User"
-                                readonly value="{{ $tiket[0]->id }}">
-                            <label for="floatingFullName">ID Tiket </label>
+                            <input type="hidden" class="form-control" id="user_id" name="user_id" placeholder="ID User"
+                                readonly value="{{ auth()->user()->id }}">
+                            {{-- <label for="floatingFullName">User ID </label> --}}
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="hidden" class="form-control" id="proses_id" name="proses_id"
+                                placeholder="Nama Bagian" readonly>
+                            {{-- value="{{ $proses[0]->id }}" --}}
+                            {{-- <label for="floatingUsername">Proses ID</label> --}}
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="hidden" class="form-control" id="tiket_id" name="tiket_id"
+                                placeholder="Nama Bagian" readonly>
+                            {{-- value="{{ $proses[0]->tiket->id }}" --}}
+                            {{-- <label for="floatingUsername">Tiket ID</label> --}}
                         </div>
 
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="bagian_id" name="bagian_id"
-                                value="{{ $tiket[0]->bagian->nama_bagian }}" readonly>
-                            <label for="floatingUsername">Bagian</label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="permasalahan_id"
-                                value="{{ $tiket[0]->permasalahan->jenis_masalah }}" name="permasalahan_id" readonly>
-                            <label for="floatingUsername">Permasalahan</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="permasalahan_id"
-                                value="{{ $tiket[0]->penjelasan }}" name="permasalahan_id" readonly>
-                            <label for="floatingUsername">Penjelasan</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="permasalahan_id"
-                                value="{{ $tiket[0]->tindakan }}" name="permasalahan_id" readonly>
-
-                            <label for="floatingUsername">Tindakan</label>
-                        </div>
-                        {{-- pakai ini di conttrolernya agar input tindakkanya bersih --}}
-                        {{-- $validatedData['tindakan'] = strip_tags($request->input('tindakan')); --}}
                         <div class="mb-3">
-                            <label for="tindakan" class="form-label">Tindakan Lanjut dari IT</label>
+                            <label for="alasan" class="form-label">Alasan Belum Selesai</label>
                             @error('tindakan')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                             <input id="tindakan" type="hidden" name="tindakan" value="{{ old('tindakan') }}">
                             <trix-editor input="tindakan"></trix-editor>
                         </div>
-
-
-
                         <div class="mb-3">
-
                             <label for="formFile" class="form-label">Upload File Pdf</label>
                             <div class="d-flex align-items-center mt-2">
-
-                                <input class="form-control  @error('bukti') is-invalid
-                        @enderror"
-                                    value="{{ old('bukti') }}" type="file" id="formFile" accept="application/pdf"
+                                <input class="form-control"type="file" id="formFile" accept="application/pdf"
                                     name="bukti">
-
                                 <button id="viewPdfBtn" class="btn btn-warning ms-3" style="display: none;"
                                     data-bs-toggle="modal" data-bs-target="#pdfModal1">
                                     <i class="bi bi-filetype-pdf"></i>
                                 </button>
-                                @error('bukti')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-
                             </div>
-
                         </div>
-
                         <button class="w-100 btn btn-lg btn-primary mb-5" type="submit">SUBMIT</button>
                 </div>
-
                 </form>
         </main>
     </div>
