@@ -22,14 +22,16 @@ class AdminTiketProsesController extends Controller
     {
         //Sementara untuk bisa diliat,tolong hapus jika sudah diubah
         return view('Dashboard-admin.Tiket-selesai.index', [
-            'tiket' => tiket::where('proses', 2)->get()
+            'tiket' => tiket::where('proses', 3)->get()
         ]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(tiket $prose) {}
+    public function create(tiket $prose) {
+
+    }
 
     /**
      * Store a newly created resource in storage.
