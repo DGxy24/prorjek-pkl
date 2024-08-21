@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\proses;
+use App\Models\status;
 use App\Models\tiket;
 use Illuminate\Http\Request;
 
@@ -30,7 +31,7 @@ class AdminStatusController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'user_id'=>'',
+            'user_id' => '',
             'tiket_id' => '',
             'tindakan' => 'required',
             'bukti' => 'required',
@@ -42,11 +43,10 @@ class AdminStatusController extends Controller
         ]);
 
 
-        $validatedData['bukti']= $request->file('bukti')->store('bukti-proses');
+        $validatedData['bukti'] = $request->file('bukti')->store('bukti-proses');
         $validatedData['tindakan'] = strip_tags($request->input('tindakan'));
         proses::create($validatedData);
-        return redirect('dashboard-admin/tiket/proses')->with('success', 'Tindakan di kirim');
-
+        return redirect('/dashboard-admin/tiket/proses')->with('success', 'Tindakan di kirim');
     }
 
     /**
@@ -54,9 +54,9 @@ class AdminStatusController extends Controller
      */
     public function show(tiket $status)
     {
-     
-        return view('Dashboard-admin.Status.index',[
-            'tiket' => tiket::where('id',$status->id)->get()
+
+        return view('Dashboard-admin.Status.index', [
+            'tiket' => proses::where('tiket_id', $status->id)->get(),
         ]);
     }
 
