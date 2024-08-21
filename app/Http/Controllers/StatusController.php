@@ -19,8 +19,8 @@ class StatusController extends Controller
 
     public function view(tiket $tiket)
     {   
-        // dd($tiket);
-
+     
+        
         //Menuju form Dashboard status
         return view('Dashboard.status.index',[
             "tiket"=> proses::where("tiket_id",$tiket->id)->get()
@@ -34,8 +34,7 @@ class StatusController extends Controller
         // proses::where('id', $id->id)->update($validatedData);
         //Menuju Form Lanjutan
         return view('Dashboard.lanjutan.index',[
-          "tiket"=> tiket::where("id",$tiket->id)->get(),
-          "proses"=> tiket::where("id",$id->id)->get()
+          "proses"=> proses::where("id",$id->id)->get()
         ]);
     }
 
@@ -53,7 +52,8 @@ class StatusController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'tiket_id' => 'required',
+            'user_id'=>'',
+            'tiket_id' => '',
             'tindakan' => 'required',
             'bukti' => 'required',
         ], messages: [
@@ -62,14 +62,15 @@ class StatusController extends Controller
             'bukti.required' => 'Bukti harus di sertakan',
 
         ]);
+        $proses_update['status']=2;
         // $validatedData['status'] = 2;
-        proses::where('id', $request->proses_id)->update($validatedData['status']=2);
+        proses::where('id', $request->proses_id)->update($proses_update);
         // Mengubah data file agar bisa disimpan
         
         $validatedData['bukti']= $request->file('bukti')->store('bukti-proses');
         $validatedData['tindakan'] = strip_tags($request->input('tindakan'));
         proses::create($validatedData);
-        return redirect('dashboard-admin/tiket/proses')->with('success', 'Tindakan di kirim');
+        return redirect('dashboard/tiket-proses')->with('success', 'Tindakan di kirim');
     }
 
     /**

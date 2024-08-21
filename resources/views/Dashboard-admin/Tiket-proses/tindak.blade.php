@@ -16,10 +16,12 @@
                     {{-- Form Tindak Lanjut --}}
                     <form action="/dashboard-admin/tiket/proses" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="text-center mt-3">
 
+                        <div class="text-center mt-3">
+                            
                             <h1 class="h3 mb-3 fw-normal">Form Tindak Lanjut</h1>
                         </div>
+                        <input type="hidden" name="user_id" id="user_id" value="{{ auth()->user()->id  }}">
 
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="tiket_id" name="tiket_id" placeholder="ID User"
