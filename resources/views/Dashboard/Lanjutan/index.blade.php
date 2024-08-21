@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Ajukan Tiket</h1>
+        <h1 class="h2">Tindak Lanjut</h1>
         <a class="btn btn-danger" href="/dashboard/ajukan-tiket" role="button"> <i class="bi bi-arrow-left-square-fill"></i>
         </a>
 
@@ -16,7 +16,7 @@
                     <form action="{{ route('tiket.simpan') }}" method="POST">
                         @csrf
                         <div class="text-center mt-3">
-                            <h1 class="h3 mb-3 fw-normal">Silahkan Daftar</h1>
+                            <h1 class="h3 mb-3 fw-normal"></h1>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="user_id" name="user_id" placeholder="ID User"
@@ -25,9 +25,15 @@
                         </div>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="proses_id" name="proses_id"
-                                placeholder="Nama Bagian" readonly value="">
+                                placeholder="Nama Bagian" readonly value="{{ $proses[0]->id }}">
                             <label for="floatingUsername">Proses ID</label>
                         </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="proses_id" name="proses_id"
+                                placeholder="Nama Bagian" readonly value="{{ $tiket[0]->id }}">
+                            <label for="floatingUsername">Tiket ID</label>
+                        </div>
+                        
                         <div class="mb-3">
                             <label for="alasan" class="form-label">Alasan Belum Selesai</label>
                             @error('alasan')
