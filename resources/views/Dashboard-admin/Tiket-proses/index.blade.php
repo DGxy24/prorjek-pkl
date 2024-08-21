@@ -38,15 +38,45 @@
                             var link_t = "/dashboard-admin/tiket/"+id_tiket+"/edit";
                         </script> --}}
 
-                        @if ($item->proses_table == null)
+                        {{-- @if ($item->proses_table == null)
                             <td>
                                 {{-- menuju form tindak lanjut  --}}
-                                <a href="/dashboard-admin/tiket/proses/{{ $item->id }} " class="btn btn-danger btn-sm"
+                                {{-- <a href="/dashboard-admin/tiket/proses/{{ $item->id }} " class="btn btn-danger btn-sm"
                                     role="button"><span data-feather="edit"><i class="bi bi-pencil-square"></i></span></a>
 
                             </td>
                         @else
-                            <td>
+                            <td> --}} 
+                                {{-- menuju form view modal --}}
+
+                                {{-- <a href="#" class="btn btn-success btn-sm" role="button" data-bs-toggle="modal"
+                                    data-bs-target="#tindakLanjutModal" data-pdf-url="{{ $item->pdf_url }}">
+                                    <i class="bi bi-eye"></i>
+                                </a> --}}
+
+                                {{-- <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                    onclick="showTicketProses('{{ $item->id }}', '{{ $item->proses_table->tindakan }}',
+                                     '{{ asset('storage/' . $item->proses_table->bukti) }}');edit_proses();">
+                                    <span data-feather="eye"><i class="bi bi-eye"></i></i></span>
+                                </button>
+
+                           
+                        @endif --}}
+                        @if ($item->proses_table == null)
+                        <td>
+                            <a href="/dashboard-admin/tiket/proses/{{ $item->id }} " class="btn btn-danger btn-sm"
+                                role="button"><span data-feather="edit"><i class="bi bi-pencil-square"></i></span></a>
+                        </td>
+
+                 @elseif($item->proses_table != null)
+                    @if($item->proses_table->status==2)
+                    {{-- Masukan kolom/td untuk tombol cek balasan user --}}
+                    <td>
+                        <a href="/dashboard-admin/tiket/status/{{ $item->id }} " class="btn btn-warning btn-sm"><span
+                                data-feather="eye"><i class="bi bi-pencil"></i></span></a> </td>
+
+                    @elseif($item->proses_table->status==0)
+                     <td> 
                                 {{-- menuju form view modal --}}
 
                                 {{-- <a href="#" class="btn btn-success btn-sm" role="button" data-bs-toggle="modal"
@@ -59,20 +89,10 @@
                                      '{{ asset('storage/' . $item->proses_table->bukti) }}');edit_proses();">
                                     <span data-feather="eye"><i class="bi bi-eye"></i></i></span>
                                 </button>
-
-                           
-                        @endif
-
-                        @if ($item->proses_table != null)
-                            @if($item->proses_table->status==2)
-                            {{-- Masukan kolom/td untuk tombol cek balasan user --}}
-                            tess
-                        @else
-                        @endif
-                            @else
-
-                            @endif
-                            </td>
+                    @endif 
+                       
+                    @endif
+                        
                     </tr>
                 @endforeach
 
