@@ -33,8 +33,10 @@
                                 <p class="card-text">Permasalahan : {{ $status[0]->tiket->permasalahan->jenis_masalah }}</p>
                                 <p class="card-text">Tindakan : {{ $status[0]->tindakan }}
                                 </p>
-                                <a href="/dashboard/tiket-status/{{ $status[0]->tiket_id }}" class="btn btn-success">Selesai</a>
-                                <a href="/dashboard/tiket-status/{{ $status[0]->id }}/{{ $status[0]->tiket_id }}/lanjutan" class="btn btn-danger">Belum</a>
+                                <a href="/dashboard/tiket-status/{{ $status[0]->tiket_id }}"
+                                    class="btn btn-success">Selesai</a>
+                                <a href="/dashboard/tiket-status/{{ $status[0]->id }}/{{ $status[0]->tiket_id }}/lanjutan"
+                                    class="btn btn-danger">Belum</a>
                             </div>
                             <div class="mx-auto">
 
@@ -79,24 +81,24 @@
 
     {{-- Script untuk menampilkan dan mendownload file --}}
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-    var pdfModal = document.getElementById("pdfModal");
-    pdfModal.addEventListener("show.bs.modal", function (event) {
-        var button = event.relatedTarget;
-        var pdfSrc = '{{ asset('storage/' . $status[0]->bukti) }}'; // Gantilah dengan path dinamis jika ada
-        var pdfFrame = document.getElementById("pdfFrame");
-        var downloadPdfBtn = document.getElementById("downloadPdfBtn");
+        document.addEventListener("DOMContentLoaded", function() {
+            var pdfModal = document.getElementById("pdfModal");
+            pdfModal.addEventListener("show.bs.modal", function(event) {
+                var button = event.relatedTarget;
+                var pdfSrc =
+                '{{ asset('storage/' . $status[0]->bukti) }}'; // Gantilah dengan path dinamis jika ada
+                var pdfFrame = document.getElementById("pdfFrame");
+                var downloadPdfBtn = document.getElementById("downloadPdfBtn");
 
-        // Set src untuk iframe dan href untuk tombol download
-        pdfFrame.src = pdfSrc;
-        downloadPdfBtn.href = pdfSrc;
-    });
+                // Set src untuk iframe dan href untuk tombol download
+                pdfFrame.src = pdfSrc;
+                downloadPdfBtn.href = pdfSrc;
+            });
 
-    pdfModal.addEventListener("hidden.bs.modal", function () {
-        var pdfFrame = document.getElementById("pdfFrame");
-        pdfFrame.src = ""; // Kosongkan src saat modal ditutup
-    });
-});
+            pdfModal.addEventListener("hidden.bs.modal", function() {
+                var pdfFrame = document.getElementById("pdfFrame");
+                pdfFrame.src = ""; // Kosongkan src saat modal ditutup
+            });
+        });
     </script>
-
 @endsection
