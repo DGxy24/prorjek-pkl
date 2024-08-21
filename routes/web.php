@@ -33,7 +33,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::resource('dashboard/ajukan-tiket', AjukanTiketController::class);
   Route::resource('dashboard/tiket-status', StatusController::class);
 
-  Route::get('dashboard/tiket-status/{id}/{tiket}/lanjutan', [StatusController::class,'lanjutan']);
+  Route::get('dashboard/tiket-proses/{id}/lanjutan', [StatusController::class,'lanjutan']);
 
   
   Route::get('dashboard/ajukan-tiket', [AjukanTiketController::class, 'index']);

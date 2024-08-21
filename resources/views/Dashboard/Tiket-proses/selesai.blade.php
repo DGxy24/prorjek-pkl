@@ -34,7 +34,7 @@
                                 <p class="card-text">Tindakan : {{ $status[0]->tindakan }}
                                 </p>
                                 <a href="/dashboard/tiket-status/{{ $status[0]->tiket_id }}" class="btn btn-success">Selesai</a>
-                                <a href="/dashboard/tiket-status/{{ $status[0]->id }}/{{ $status[0]->tiket_id }}/lanjutan" class="btn btn-danger">Belum</a>
+                                <a href="/dashboard/tiket-proses/{{ $status[0]->id }}/lanjutan" class="btn btn-danger">Belum</a>
                             </div>
                             <div class="mx-auto">
 

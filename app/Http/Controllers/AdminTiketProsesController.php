@@ -37,19 +37,20 @@ class AdminTiketProsesController extends Controller
     public function store(Request $request)
     {
         
-    
+    // dd($request->user_id);
         $validatedData = $request->validate([
-            'tiket_id' => 'required',
+            'tiket_id' => '',
+            'user_id' => '',
             'tindakan' => 'required',
             'bukti' => 'required',
         ], messages: [
             'tindakan.required' => 'Tindakan Harus Di isi',
-            'tiket_id.required' => 'Tindakan Harus Di isi',
+
             'bukti.required' => 'Bukti harus di sertakan',
 
         ]);
         // Mengubah data file agar bisa disimpan
-        
+
         $validatedData['bukti']= $request->file('bukti')->store('bukti-proses');
         $validatedData['tindakan'] = strip_tags($request->input('tindakan'));
         proses::create($validatedData);
