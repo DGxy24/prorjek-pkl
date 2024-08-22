@@ -13,7 +13,7 @@
 
 
     <div class="card mb-3">
-        <div class="card-header" style="background-color: transparent; color: black;"">
+        <div class="card-header" style="background-color: #85A2A1; color: black;"">
             <strong>Tiket ID: {{ $tiket[0]->tiket_id }}</strong>
         </div>
         <div class="card-body">
@@ -45,13 +45,15 @@
                 <div class="media mb-3 d-flex align-items-center">
                     <img src="/img/profile-user.png" class="rounded-circle" alt="User Avatar" width="30" height="30"
                         style="margin-right: 10px;">
-                    <div class="media-body ml-3">
-                        <h5 class="mt-0">{{ $item->user->name }}</h5>
-                        <p>{{ $item->tindakan }}</p>
-                        <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#pdfModal" onclick="ShowPDF('{{ asset('storage/' . $item->bukti) }}');">
-                            <i class="bi bi-filetype-pdf"></i>
-                        </button>
+                    <div class="media-body ml-3 w-100">
+                        <div class="shadow p-2" style="background-color: #e2e9e9;">
+                            <h5 class="mt-0">{{ $item->user->name }}</h5>
+                            <p>{{ $item->tindakan }}</p>
+                            <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#pdfModal" onclick="ShowPDF('{{ asset('storage/' . $item->bukti) }}');">
+                                <i class="bi bi-filetype-pdf"></i>
+                            </button>
+                        </div>
                     </div>
 
                 </div>
@@ -59,8 +61,10 @@
             @endforeach
 
         </div>
-        <div class="card-footer" style="background-color: transparent;">
-            <a href="/dashboard-admin/tiket/status/create/{{ $tiket[0]->tiket_id }}" class="btn btn-warning ">Kirim Pesan</a>
+        <div class="card-footer" style="background-color: #85A2A1;">
+            <a href="/dashboard-admin/tiket/status/create/{{ $tiket[0]->tiket_id }}" class="btn"
+                style="background-color: #374750; color: white;">Kirim
+                Pesan</a>
         </div>
     </div>
 

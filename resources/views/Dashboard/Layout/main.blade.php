@@ -27,6 +27,8 @@
     </style>
     <title>Dashboard</title>
 
+    <link href="/css/button.css" rel="stylesheet">
+
     {{-- CSS untuk tabel --}}
     <link href="{{ asset('assets/css/border.css') }}" rel="stylesheet">
     <!-- Custom styles for this page -->

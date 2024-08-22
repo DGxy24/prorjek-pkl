@@ -1,0 +1,11 @@
+.btn-custom {
+    background-color: #374750;
+    color: white;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: white;
+    color: #374750;
+    border: 1px solid #374750; /* Opsional: tambahkan border untuk efek lebih baik */
+}
