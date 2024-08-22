@@ -72,12 +72,10 @@
         </div>
 
         <div class="card-footer" style="background-color: #85A2A1;">
-            <a href="/dashboard/tiket-status/create/{{  $tiket[0]->tiket_id }}" class="btn" style="background-color: #374750; color: white;">Kirim
+            <a class="btn btn-custom" style="background-color: #374750; color: white;">Kirim
                 Pesan</a>
-            <a href="/dashboard/tiket-status/selesai/{{  $tiket[0]->id }}"
-            class="btn" style="background-color: #374750; color: white;">Selesai</a>
-          
-
+            <a href="/dashboard/tiket-status/selesai/{{ $tiket[0]->id }}" class="btn btn-custom"
+                style="background-color: #374750; color: white;">Selesai</a>
         </div>
     </div>
 

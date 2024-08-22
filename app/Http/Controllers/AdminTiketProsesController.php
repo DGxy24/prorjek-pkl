@@ -18,6 +18,14 @@ class AdminTiketProsesController extends Controller
         ]);
     }
 
+    public function cek_selesai(tiket $id)
+    {
+        // dd($id);
+        return view('Dashboard-admin.tiket-selesai.show', [
+            'tiket' => proses::where('tiket_id', $id->id)->get()
+        ]);
+    }
+
     public function selesai()
     {
         //Sementara untuk bisa diliat,tolong hapus jika sudah diubah
@@ -29,17 +37,15 @@ class AdminTiketProsesController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(tiket $prose) {
-
-    }
+    public function create(tiket $prose) {}
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        
-    // dd($request->user_id);
+
+        // dd($request->user_id);
         $validatedData = $request->validate([
             'tiket_id' => '',
             'user_id' => '',
@@ -51,7 +57,7 @@ class AdminTiketProsesController extends Controller
         ]);
         // Mengubah data file agar bisa disimpan
 
-        $validatedData['bukti']= $request->file('bukti')->store('bukti-proses');
+        $validatedData['bukti'] = $request->file('bukti')->store('bukti-proses');
         $validatedData['tindakan'] = strip_tags($request->input('tindakan'));
         proses::create($validatedData);
         return redirect('dashboard-admin/tiket/proses')->with('success', 'Tindakan di kirim');
@@ -74,9 +80,9 @@ class AdminTiketProsesController extends Controller
      */
     public function edit(tiket $prose)
     {
-        
-        return view('Dashboard-admin.Tiket-proses.edit',[
-            'tiket' => proses::where('tiket_id',$prose->id)->get()
+
+        return view('Dashboard-admin.Tiket-proses.edit', [
+            'tiket' => proses::where('tiket_id', $prose->id)->get()
         ]);
     }
 
@@ -89,16 +95,15 @@ class AdminTiketProsesController extends Controller
         $validatedData = $request->validate([
             'tiket_id' => 'required',
             'tindakan' => 'required',
-   
+
         ]);
         $validatedData['tindakan'] = strip_tags($request->input('tindakan'));
-        if($request->file('bukti')){
-        $validatedData['bukti']= $request->file('bukti')->store('bukti-proses');
+        if ($request->file('bukti')) {
+            $validatedData['bukti'] = $request->file('bukti')->store('bukti-proses');
         }
 
-        proses::where('id',$prose->id)->update($validatedData);
+        proses::where('id', $prose->id)->update($validatedData);
         return redirect('dashboard-admin/tiket/proses')->with('success', 'Tindakan di kirim');
-
     }
 
     /**

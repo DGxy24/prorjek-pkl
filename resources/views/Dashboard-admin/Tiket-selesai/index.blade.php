@@ -39,8 +39,9 @@
                             </td>
                         @else
                             <td>
-                                <a href="/dashboard/tiket-selesai/{{ $item->id }}" class="btn btn-success btn-sm"><span
-                                        data-feather="eye"><i class="bi bi-envelope-open"></i></span></a>
+                                <a href="/dashboard-admin/tiket/selesai/{{ $item->id }}"
+                                    class="btn btn-success btn-sm"><span data-feather="eye"><i
+                                            class="bi bi-envelope-open"></i></span></a>
                             </td>
                         @endif
                     </tr>

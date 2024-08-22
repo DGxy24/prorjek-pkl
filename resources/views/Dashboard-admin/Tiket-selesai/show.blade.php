@@ -1,11 +1,12 @@
 {{-- menu tabel tiket lanjutan  --}}
 
-@extends('dashboard.layout.main')
+@extends('dashboard-admin.layout.main')
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">History Tindakan Tiket</h1>
-        <a class="btn btn-danger" href="/dashboard/tiket-selesai" role="button"> <i class="bi bi-arrow-left-square-fill"></i>
+        <a class="btn btn-danger" href="/dashboard-admin/tiket/selesai" role="button"> <i
+                class="bi bi-arrow-left-square-fill"></i>
         </a>
     </div>
 
