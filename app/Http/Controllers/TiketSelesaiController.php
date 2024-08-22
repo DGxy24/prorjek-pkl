@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\proses;
 use App\Models\tiket;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class TiketSelesaiController extends Controller
      */
     public function index()
     {
-        //
+        
         return view('Dashboard.tiket-selesai.index',[
             'tiket' => tiket::where('proses','=',3)
             ->where('user_id', auth()->user()->id)->get()
@@ -39,9 +40,12 @@ class TiketSelesaiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(tiket $tiket)
+    public function show(tiket $tiket_selesai)
     {
-        //
+        // dd($tiket_selesai);
+        return view('Dashboard.tiket-selesai.show',[
+            'tiket' => proses::where('tiket_id',$tiket_selesai->id)->get()
+        ]);
     }
 
     /**

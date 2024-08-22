@@ -47,9 +47,7 @@ class AdminTiketProsesController extends Controller
             'bukti' => 'required',
         ], messages: [
             'tindakan.required' => 'Tindakan Harus Di isi',
-
             'bukti.required' => 'Bukti harus di sertakan',
-
         ]);
         // Mengubah data file agar bisa disimpan
 

@@ -1,6 +1,7 @@
 @extends('dashboard-admin.layout.main')
 
 @section('container')
+
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 
         <h1 class="h2">Form Tindak Ulang</h1>
@@ -19,6 +20,7 @@
                         <div class="text-center mt-3">
                             <h1 class="h3 mb-3 fw-normal"></h1>
                         </div>
+                        {{-- Menyimpan User ID, tidak muncul di user --}}
                         <input type="hidden" name="user_id" id="user_id" value="{{ auth()->user()->id }}">
 
                         <div class="form-floating mb-3">
@@ -27,9 +29,10 @@
                             {{-- <label for="floatingFullName">User ID </label> --}}
                         </div>
 
-                        <div class="form-floating mb-3">
-                            <input type="hidden" class="form-control" id="tiket_id" name="tiket_id" {{-- placeholder="Nama Bagian" readonly value="{{ $tiket[0]->t }}"> --}}
-                                {{-- <label for="floatingUsername">Tiket ID</label> --}} </div>
+                        {{-- Menyimpan Tiket ID, tidak muncul di user --}}
+                            <input type="hidden" class="form-control" id="tiket_id" name="tiket_id" 
+                            value="{{ $tiket[0]->id }}"> 
+
 
                             <div class="mb-3">
                                 <label for="alasan" class="form-label">Tindak Lanjut IT</label>

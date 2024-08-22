@@ -33,7 +33,8 @@ Route::group(['middleware' => ['auth']], function () {
   // membuat route ajukan tiket
   Route::resource('dashboard/ajukan-tiket', AjukanTiketController::class);
   Route::resource('dashboard/tiket-status', StatusController::class);
-
+  Route::get('dashboard/tiket-status/create/{tiket}', [StatusController::class,'create']);
+Route::get('dashboard/tiket-status/selesai/{tiket}', [StatusController::class,'selesai']);
   Route::get('dashboard/tiket-proses/{id}/lanjutan', [StatusController::class,'lanjutan']);
 
   
@@ -46,7 +47,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::resource('dashboard/tiket-proses/status', StatusController::class);
   // akhir membuat route tiket proses 
   // membuat route tiket proses 
-  Route::get('dashboard/tiket-selesai', [TiketSelesaiController::class, 'index']);
+  Route::resource('dashboard/tiket-selesai', TiketSelesaiController::class);
 
   // Route::get('dashboard/tiket-proses/selesai', function () {
   //   return view('Dashboard.Tiket-proses.selesai');
@@ -87,6 +88,7 @@ Route::group(['middleware' => [IsAdmin::class]], function () {
   Route::resource('/dashboard-admin/tiket/ditolak', AdminTiketTolakController::class);
   Route::resource('/dashboard-admin/tiket/proses', AdminTiketProsesController::class);
   Route::resource('/dashboard-admin/tiket/status', AdminStatusController::class);
+  Route::get('/dashboard-admin/tiket/status/create/{tiket}', [AdminStatusController::class,'create']);
   Route::post('dashboard-admin/tiket/masuk/{id}/tolak', [AdminTiketMasukController::class, 'tolak']);
   Route::get('dashboard-admin/tiket/selesai', [AdminTiketProsesController::class, 'selesai']);
   Route::get('dashboard-admin/tiket/selesai/{id}', [AdminTiketProsesController::class, 'cek_selesai']);

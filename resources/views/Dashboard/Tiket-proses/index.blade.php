@@ -22,8 +22,10 @@
                 </tr>
             </thead>
             <tbody>
+                
                 {{-- {{ dd($tiket[0]->proses_table) }} --}}
                 @foreach ($tiket as $item)
+                
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $item->id }}</td>
