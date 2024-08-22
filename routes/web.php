@@ -55,14 +55,16 @@ Route::get('dashboard/tiket-status/selesai/{tiket}', [StatusController::class,'s
   // });
   // akhir membuat route tiket proses 
 });
-// route tiket masuk & tindak
-Route::get('dashboard-admin/tiket-masuk', function () {
-  return view('Dashboard-admin.Tiket-masuk.index');
-});
 
-Route::get('dashboard-admin/tiket-masuk/tindak', function () {
-  return view('Dashboard-admin.Tiket-masuk.Tindak.index');
-});
+
+// route tiket masuk & tindak
+// Route::get('dashboard-admin/tiket-masuk', function () {
+//   return view('Dashboard-admin.Tiket-masuk.index');
+// });
+
+// Route::get('dashboard-admin/tiket-masuk/tindak', function () {
+//   return view('Dashboard-admin.Tiket-masuk.Tindak.index');
+// });
 
 // khusun view fronend
 
