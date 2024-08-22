@@ -60,7 +60,7 @@
 
         </div>
         <div class="card-footer" style="background-color: transparent;">
-            <a href="/dashboard-admin/tiket/status/create" class="btn btn-warning ">Kirim Pesan</a>
+            <a href="/dashboard-admin/tiket/status/create/{{ $tiket[0]->tiket_id }}" class="btn btn-warning ">Kirim Pesan</a>
         </div>
     </div>
 

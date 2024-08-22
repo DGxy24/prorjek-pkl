@@ -38,9 +38,28 @@ class StatusController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(tiket $tiket)
     {
-        return view('Dashboard.Status.create');
+        // dd($tiket);
+        return view('Dashboard.Status.create',[
+            'tiket'=> tiket::where('id', $tiket->id)->get()
+        ]);
+    }
+
+    public function selesai(proses $tiket)
+    {
+    //    dd($tiket);
+
+       $selesai_proses['status']=1;
+       $selesai_tiket['proses']=3;
+       //Semua data proses yang memiliki tiket id seperti yg ada di request, statusnya menjadi 1
+       proses::where('tiket_id', $tiket->tiket_id)->update($selesai_proses);
+
+       //Mengubah data proses di Tiket menjadii 3 (Selesai)
+       tiket::where('id', $tiket->tiket_id)->update($selesai_tiket);
+
+       return redirect('dashboard/tiket-selesai')
+       ->with('success', 'Laporan Tiket Selesai');
     }
 
     /**
@@ -48,6 +67,7 @@ class StatusController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $validatedData = $request->validate([
             'user_id' => '',
             'tiket_id' => '',
@@ -55,19 +75,21 @@ class StatusController extends Controller
             'bukti' => 'required',
         ], messages: [
             'tindakan.required' => 'Tindakan Harus Di isi',
-            'tiket_id.required' => 'Tindakan Harus Di isi',
+            // 'tiket_id.required' => 'Tindakan Harus Di isi',
             'bukti.required' => 'Bukti harus di sertakan',
 
         ]);
-        $proses_update['status'] = 2;
+        // $proses_update['status'] = 2;
         // $validatedData['status'] = 2;
-        proses::where('id', $request->proses_id)->update($proses_update);
+        // proses::where('id', $request->proses_id)->update($proses_update);
         // Mengubah data file agar bisa disimpan
 
+    $proses['status'] = 2;
         $validatedData['bukti'] = $request->file('bukti')->store('bukti-proses');
         $validatedData['tindakan'] = strip_tags($request->input('tindakan'));
         proses::create($validatedData);
-        return redirect('dashboard/tiket-proses')->with('success', 'Tindakan di kirim');
+        proses::where('tiket_id', $request->tiket_id)->update($proses);
+        return redirect('dashboard/tiket-proses/'.$request->tiket_id .'/lihat');
     }
 
     /**

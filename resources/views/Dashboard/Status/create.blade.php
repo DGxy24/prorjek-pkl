@@ -7,6 +7,7 @@
         </a>
 
     </div>
+    {{-- {{ dd($tiket[0]) }} --}}
     <div class="container">
         <main class="form-signin">
 
@@ -20,23 +21,16 @@
                         <input type="hidden" name="user_id" id="user_id" value="{{ auth()->user()->id }}">
 
                         <div class="form-floating mb-3">
-                            <input type="hidden" class="form-control" id="user_id" name="user_id" placeholder="ID User"
+                            <input type="hidden" class="form-control" id="user_id" name="user_id"
                                 readonly value="{{ auth()->user()->id }}">
                             {{-- <label for="floatingFullName">User ID </label> --}}
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="hidden" class="form-control" id="proses_id" name="proses_id"
-                                placeholder="Nama Bagian" readonly>
-                            {{-- value="{{ $proses[0]->id }}" --}}
-                            {{-- <label for="floatingUsername">Proses ID</label> --}}
-                        </div>
-                        <div class="form-floating mb-3">
                             <input type="hidden" class="form-control" id="tiket_id" name="tiket_id"
-                                placeholder="Nama Bagian" readonly>
-                            {{-- value="{{ $proses[0]->tiket->id }}" --}}
-                            {{-- <label for="floatingUsername">Tiket ID</label> --}}
+                                readonly value="{{ $tiket[0]->id }}">
+                            {{-- <label for="floatingFullName">User ID </label> --}}
                         </div>
-
+            
                         <div class="mb-3">
                             <label for="alasan" class="form-label">Alasan Belum Selesai</label>
                             @error('tindakan')

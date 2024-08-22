@@ -5,7 +5,13 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Tiket Selesai</h1>
     </div>
-
+    @if(session()->has('success'))
+    <div class="alert alert-success" role="alert">
+      {{ session('success')}}
+    </div>
+    @endif
+    
+    {{-- {{ dd($tiket) }} --}}
     <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>

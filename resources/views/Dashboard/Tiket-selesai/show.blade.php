@@ -4,15 +4,15 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Tiket Tindak Lanjutan</h1>
-        <a class="btn btn-danger" href="/dashboard/tiket-proses" role="button"> <i class="bi bi-arrow-left-square-fill"></i>
+        <h1 class="h2">History Tindakan Tiket</h1>
+        <a class="btn btn-danger" href="/dashboard/tiket-selesai" role="button"> <i class="bi bi-arrow-left-square-fill"></i>
         </a>
     </div>
 
 
 
     <div class="card mb-3">
-        <div class="card-header" style="background-color: #85A2A1; color: black;">
+        <div class="card-header" style="background-color: transparent; color: black;"">
             <strong>Tiket ID: {{ $tiket[0]->tiket_id }}</strong>
         </div>
         <div class="card-body">
@@ -41,7 +41,7 @@
                     });
                 </script>
 
-                {{-- <div class="media mb-3 d-flex align-items-center">
+                <div class="media mb-3 d-flex align-items-center">
                     <img src="/img/profile-user.png" class="rounded-circle" alt="User Avatar" width="40" height="40">
                     <div class="media-body ml-3">
                         <h5 class="mt-0">{{ $item->user->name }}</h5>
@@ -51,34 +51,14 @@
                             <i class="bi bi-filetype-pdf"></i>
                         </button>
                     </div>
-                </div> --}}
-                <div class="media mb-3 d-flex align-items-center">
-                    <img src="/img/profile-user.png" class="rounded-circle" alt="User Avatar" width="40" height="40">
-                    <div class="media-body ml-3 w-100">
-                        <div class="shadow p-2" style="background-color: #e2e9e9;">
-                            <h5 class="mt-0">{{ $item->user->name }}</h5>
-                            <p>{{ $item->tindakan }}</p>
-                            <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#pdfModal" onclick="ShowPDF('{{ asset('storage/' . $item->bukti) }}');">
-                                <i class="bi bi-filetype-pdf"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
 
+                </div>
                 <hr>
             @endforeach
 
         </div>
-
-        <div class="card-footer" style="background-color: #85A2A1;">
-            <a href="/dashboard/tiket-status/create/{{  $tiket[0]->tiket_id }}" class="btn" style="background-color: #374750; color: white;">Kirim
-                Pesan</a>
-            <a href="/dashboard/tiket-status/selesai/{{  $tiket[0]->id }}"
-            class="btn" style="background-color: #374750; color: white;">Selesai</a>
-          
-
-        </div>
+        <div class="card-footer" style="background-color: #7DA3A1;">
+           </div>
     </div>
 
 

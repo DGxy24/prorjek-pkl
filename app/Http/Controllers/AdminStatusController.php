@@ -20,9 +20,12 @@ class AdminStatusController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(tiket $tiket)
     {
-        return view('Dashboard-admin.Status.create');
+        // dd($tiket);
+        return view('Dashboard-admin.Status.create',[
+            'tiket'=> tiket::where('id',$tiket->id)->get()
+        ]);
     }
 
     /**
@@ -42,11 +45,14 @@ class AdminStatusController extends Controller
 
         ]);
 
-
+        
+        $proses['status'] = 2;
         $validatedData['bukti'] = $request->file('bukti')->store('bukti-proses');
         $validatedData['tindakan'] = strip_tags($request->input('tindakan'));
+        // dd($validatedData);
         proses::create($validatedData);
-        return redirect('/dashboard-admin/tiket/proses')->with('success', 'Tindakan di kirim');
+        proses::where('tiket_id', $request->tiket_id)->update($proses);
+        return redirect('/dashboard-admin/tiket/status/'.$request->tiket_id)->with('success', 'Tindakan di kirim');
     }
 
     /**
