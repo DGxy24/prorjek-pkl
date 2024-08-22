@@ -33,17 +33,18 @@ Route::group(['middleware' => ['auth']], function () {
   // membuat route ajukan tiket
   Route::resource('dashboard/ajukan-tiket', AjukanTiketController::class);
   Route::resource('dashboard/tiket-status', StatusController::class);
+
   Route::get('dashboard/tiket-status/create/{tiket}', [StatusController::class,'create']);
 Route::get('dashboard/tiket-status/selesai/{tiket}', [StatusController::class,'selesai']);
   Route::get('dashboard/tiket-proses/{id}/lanjutan', [StatusController::class,'lanjutan']);
 
-  
+
   Route::get('dashboard/ajukan-tiket', [AjukanTiketController::class, 'index']);
   Route::post('dashboard/ajukan-tiket', [AjukanTiketController::class, 'store'])->name('tiket.simpan');
   // akhir membuat route ajukan tiket
   // membuat route tiket proses
   Route::resource('dashboard/tiket-proses', TiketProsesController::class);
-  Route::get('dashboard/tiket-proses/{tiket}/lihat', [StatusController::class,'view']);
+  Route::get('dashboard/tiket-proses/{tiket}/lihat', [StatusController::class, 'view']);
   Route::resource('dashboard/tiket-proses/status', StatusController::class);
   // akhir membuat route tiket proses 
   // membuat route tiket proses 

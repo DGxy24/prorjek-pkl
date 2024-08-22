@@ -138,10 +138,10 @@
     </script>
 
     <script>
-          function ShowPDF(pdfUrl) {
+        function ShowPDF(pdfUrl) {
             document.getElementById('modalPdf').src = pdfUrl;
 
-          }
+        }
     </script>
     {{-- JS untuk tabel --}}
     <!-- Bootstrap core JavaScript-->

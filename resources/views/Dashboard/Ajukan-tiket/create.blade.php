@@ -18,17 +18,8 @@
                     <form action="{{ route('tiket.simpan') }}" method="POST">
                         @csrf
                         <div class="text-center mt-3">
-                            {{-- <img class="mb-4" src="/img/logo.png" alt="Logo" width="10%">
-                            <h1 class="h3 mb-3 fw-normal">Silahkan Daftar</h1> --}}
+                            <h1 class="h3 mb-3 fw-normal">Form Tiket</h1>
                         </div>
-
-                        {{--  <input type="telp" class="form-control @error('no_hp') is-invalid
-                        @enderror" id="no_hp" name="no_hp" value="{{ old('no_hp') }}">
-                        @error('no_hp')
-                        <div class="invalid-feedback">
-                    {{ $message }}
-                    </div>
-                        @enderror --}}
 
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="user_id" name="user_id" placeholder="ID User"

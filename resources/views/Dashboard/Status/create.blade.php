@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Form Tindak Ulang</h1>
+        <h1 class="h2">Tindak Ulang</h1>
         <a class="btn btn-danger" href="/dashboard/tiket-proses" role="button"> <i class="bi bi-arrow-left-square-fill"></i>
         </a>
 
@@ -16,7 +16,7 @@
                     <form action="/dashboard/tiket-status" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="text-center mt-3">
-                            <h1 class="h3 mb-3 fw-normal"></h1>
+                            <h1 class="h3 mb-3 fw-normal">Form Alasan</h1>
                         </div>
                         <input type="hidden" name="user_id" id="user_id" value="{{ auth()->user()->id }}">
 
