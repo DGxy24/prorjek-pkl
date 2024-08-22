@@ -4,8 +4,8 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Tiket Tindak Lanjutan</h1>
-        <a class="btn btn-danger" href="/dashboard/tiket-proses" role="button"> <i class="bi bi-arrow-left-square-fill"></i>
+        <h1 class="h2">History Tindakan Tiket</h1>
+        <a class="btn btn-danger" href="/dashboard/tiket-selesai" role="button"> <i class="bi bi-arrow-left-square-fill"></i>
         </a>
     </div>
 
@@ -57,10 +57,8 @@
             @endforeach
 
         </div>
-        <div class="card-footer" style="background-color: transparent;">
-            <a href="/dashboard/tiket-status/create/{{  $tiket[0]->tiket_id }}" class="btn btn-warning ">Kirim Pesan</a>
-            <a href="/dashboard/tiket-status/selesai/{{  $tiket[0]->id }}" class="btn btn-success">Selesai</a>
-        </div>
+        <div class="card-footer" style="background-color: #7DA3A1;">
+           </div>
     </div>
 
 
