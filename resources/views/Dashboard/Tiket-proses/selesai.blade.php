@@ -16,8 +16,10 @@
                 <div class="col-12 ">
 
                     <div class="card">
-                        <div class="card-header d-flex justify-content-between align-items-center">
-                            <h5 class="mb-0">Laporan Penanganan</h5>
+                        <div class="card-header d-flex justify-content-between align-items-center"
+                            style="background-color: #85A2A1; color: black;">
+                            <h5 class="mb-0">
+                                Laporan Penanganan</h5>
                             <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
                                 data-bs-target="#pdfModal">
                                 <i class="bi bi-filetype-pdf"></i>
@@ -25,37 +27,38 @@
                         </div>
 
                         <div class="card-body d-flex justify-content-between align-items-start">
-                            <div>
-
+                            <div class="col-6">
                                 <h5 class="card-title">Penanganan Bidang {{ auth()->user()->bagian->nama_bagian }}</h5>
                                 <p class="card-text">ID Tiket : {{ $status[0]->tiket_id }}</p>
 
                                 <p class="card-text">Permasalahan : {{ $status[0]->tiket->permasalahan->jenis_masalah }}</p>
                                 <p class="card-text">Tindakan : {{ $status[0]->tindakan }}
                                 </p>
-
-                                <a href="/dashboard/tiket-status/{{ $status[0]->tiket_id }}" class="btn btn-success">Selesai</a>
-                                <a href="/dashboard/tiket-proses/{{ $status[0]->id }}/lanjutan" class="btn btn-danger">Belum</a>
-
+                                {{-- <a href="/dashboard/tiket-status/{{ $status[0]->tiket_id }}"
+                                    class="btn btn-success">Selesai</a>
+                                <a href="/dashboard/tiket-proses/{{ $status[0]->id }}/lanjutan"
+                                    class="btn btn-danger">Belum</a> --}}
                             </div>
-                            <div class="mx-auto">
-
+                            <div class="col-6">
                                 <iframe src="{{ asset('storage/' . $status[0]->bukti) }}" width="447px" height="390px"
                                     class="d-block mx-auto">
-
                                 </iframe>
                             </div>
+                        </div>
 
+                        <div class="card-footer mb-3" style="background-color: #85A2A1;">
+                            <a href="/dashboard/tiket-status/{{ $status[0]->tiket_id }}" class="btn"
+                                style="background-color: #374750; color: white;">Selesai</a>
+                            <a href="/dashboard/tiket-proses/{{ $status[0]->id }}/lanjutan" class="btn"
+                                style="background-color: #374750; color: white;">Belum</a>
+                            {{-- <a href="/dashboard/tiket-status/create" class="btn"
+                                style="background-color: #374750; color: white;">Kirim
+                                Pesan</a>
+                            <a href="#" class="btn" style="background-color: #374750; color: white;">Selesai</a> --}}
                         </div>
                     </div>
-
-
                 </div>
-
-
         </main>
-
-
     </div>
 
     <!-- Modal -->
@@ -86,7 +89,7 @@
             pdfModal.addEventListener("show.bs.modal", function(event) {
                 var button = event.relatedTarget;
                 var pdfSrc =
-                '{{ asset('storage/' . $status[0]->bukti) }}'; // Gantilah dengan path dinamis jika ada
+                    '{{ asset('storage/' . $status[0]->bukti) }}'; // Gantilah dengan path dinamis jika ada
                 var pdfFrame = document.getElementById("pdfFrame");
                 var downloadPdfBtn = document.getElementById("downloadPdfBtn");
 

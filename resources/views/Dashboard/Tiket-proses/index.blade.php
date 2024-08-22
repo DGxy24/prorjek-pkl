@@ -34,26 +34,29 @@
                         <td>{{ $item->tindakan }}</td>
 
 
-                     @if ($item->proses_table == null)
+                        @if ($item->proses_table == null)
                             <td>
                                 <a class="btn btn-danger btn-sm"><span data-feather="eye"><i
                                             class="bi bi-envelope"></i></span></a>
                             </td>
-                     @elseif($item->proses_table != null)
-                        @if($item->proses_table->status==2)
-                        {{-- Masukan kolom/td untuk tombol cek balasan user --}}
-                        <td>
-                            <a href="/dashboard/tiket-proses/{{ $item->id }}/lihat" class="btn btn-warning btn-sm"><span
-                                    data-feather="eye"><i class="bi bi-pencil"></i></span></a> </td>
-                        @elseif($item->proses_table->status==0)
-                        <td>
-                            <a href="/dashboard/tiket-proses/{{ $item->id }}" class="btn btn-success btn-sm"><span
-                                    data-feather="eye"><i class="bi bi-envelope-open"></i></span></a> </td>
-                    @endif 
-                           
+                        @elseif($item->proses_table != null)
+                            @if ($item->proses_table->status == 2)
+                                {{-- Masukan kolom/td untuk tombol cek balasan user --}}
+                                <td>
+                                    <a href="/dashboard/tiket-proses/{{ $item->id }}/lihat"
+                                        class="btn btn-warning btn-sm"><span data-feather="eye"><i
+                                                class="bi bi-pencil"></i></span></a>
+                                </td>
+                            @elseif($item->proses_table->status == 0)
+                                <td>
+                                    <a href="/dashboard/tiket-proses/{{ $item->id }}"
+                                        class="btn btn-success btn-sm"><span data-feather="eye"><i
+                                                class="bi bi-envelope-open"></i></span></a>
+                                </td>
+                            @endif
                         @endif
-          
-                        
+
+
                     </tr>
                 @endforeach
             </tbody>
