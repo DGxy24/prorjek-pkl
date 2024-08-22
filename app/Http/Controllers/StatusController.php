@@ -41,25 +41,25 @@ class StatusController extends Controller
     public function create(tiket $tiket)
     {
         // dd($tiket);
-        return view('Dashboard.Status.create',[
-            'tiket'=> tiket::where('id', $tiket->id)->get()
+        return view('Dashboard.Status.create', [
+            'tiket' => tiket::where('id', $tiket->id)->get()
         ]);
     }
 
     public function selesai(proses $tiket)
     {
-    //    dd($tiket);
+        //    dd($tiket);
 
-       $selesai_proses['status']=1;
-       $selesai_tiket['proses']=3;
-       //Semua data proses yang memiliki tiket id seperti yg ada di request, statusnya menjadi 1
-       proses::where('tiket_id', $tiket->tiket_id)->update($selesai_proses);
+        $selesai_proses['status'] = 1;
+        $selesai_tiket['proses'] = 3;
+        //Semua data proses yang memiliki tiket id seperti yg ada di request, statusnya menjadi 1
+        proses::where('tiket_id', $tiket->tiket_id)->update($selesai_proses);
 
-       //Mengubah data proses di Tiket menjadii 3 (Selesai)
-       tiket::where('id', $tiket->tiket_id)->update($selesai_tiket);
+        //Mengubah data proses di Tiket menjadii 3 (Selesai)
+        tiket::where('id', $tiket->tiket_id)->update($selesai_tiket);
 
-       return redirect('dashboard/tiket-selesai')
-       ->with('success', 'Laporan Tiket Selesai');
+        return redirect('dashboard/tiket-selesai')
+            ->with('success', 'Laporan Tiket Selesai');
     }
 
     /**
@@ -84,12 +84,12 @@ class StatusController extends Controller
         // proses::where('id', $request->proses_id)->update($proses_update);
         // Mengubah data file agar bisa disimpan
 
-    $proses['status'] = 2;
+        $proses['status'] = 2;
         $validatedData['bukti'] = $request->file('bukti')->store('bukti-proses');
         $validatedData['tindakan'] = strip_tags($request->input('tindakan'));
         proses::create($validatedData);
         proses::where('tiket_id', $request->tiket_id)->update($proses);
-        return redirect('dashboard/tiket-proses/'.$request->tiket_id .'/lihat');
+        return redirect('dashboard/tiket-proses/' . $request->tiket_id . '/lihat');
     }
 
     /**
@@ -98,11 +98,11 @@ class StatusController extends Controller
     public function show(proses $tiket_status)
     {
 
-        dd($tiket_status);
+        // dd($tiket_status);
         $validatedData['proses'] = 3;
         tiket::where('id', $tiket_status->id)->update($validatedData);
 
-        return redirect('/dashboard/tiket-proses')->with('success', 'Laporan Diterima');
+        return redirect('/dashboard/tiket-selesai')->with('success', 'Laporan selesai');
     }
 
     /**
