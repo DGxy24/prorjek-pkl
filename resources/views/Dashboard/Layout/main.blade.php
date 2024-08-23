@@ -36,7 +36,7 @@
     {{-- end CSS untuk tabel --}}
 
 
-    <link rel="icon" href="img/logo.png">
+    <link rel="icon" href="/img/logo.png">
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
