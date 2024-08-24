@@ -58,7 +58,7 @@ class StatusController extends Controller
        //Mengubah data proses di Tiket menjadii 3 (Selesai)
        tiket::where('id', $tiket->tiket_id)->update($selesai_tiket);
 
-       return redirect('dashboard/tiket-selesai')
+       return redirect('/dashboard/tiket-selesai')
        ->with('success', 'Laporan Tiket Selesai');
     }
 
@@ -98,7 +98,7 @@ class StatusController extends Controller
     public function show(proses $tiket_status)
     {
 
-        dd($tiket_status);
+        // dd($tiket_status);
         $validatedData['proses'] = 3;
         tiket::where('id', $tiket_status->id)->update($validatedData);
 
