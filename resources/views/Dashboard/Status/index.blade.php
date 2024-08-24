@@ -1,7 +1,13 @@
 {{-- menu tabel tiket lanjutan  --}}
 
 @extends('dashboard.layout.main')
+{{-- {{ dd(auth()->user()->id) }} --}}
+{{-- {{ dd($tiket[0]->tiket->user_id) }} --}}
 
+
+@if($tiket[0]->tiket->user_id != auth()->user()->id)
+    {{ abort(404); }}
+@endif
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Tiket Tindak Lanjutan</h1>

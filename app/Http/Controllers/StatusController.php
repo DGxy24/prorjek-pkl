@@ -58,8 +58,10 @@ class StatusController extends Controller
         //Mengubah data proses di Tiket menjadii 3 (Selesai)
         tiket::where('id', $tiket->tiket_id)->update($selesai_tiket);
 
-        return redirect('dashboard/tiket-selesai')
-            ->with('success', 'Laporan Tiket Selesai');
+
+       return redirect('/dashboard/tiket-selesai')
+       ->with('success', 'Laporan Tiket Selesai');
+
     }
 
     /**
