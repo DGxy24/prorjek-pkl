@@ -1,9 +1,15 @@
 {{-- membuat sidebar --}}
 
-
-
-<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse mt-5" style="background-color: #7DA3A1">
-    <div class="container position-sticky pt-3 d-flex flex-column h-100">
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse"
+    style="background-color: #7DA3A1; position: fixed; top: 0; bottom: 0; height: 100vh; z-index: 1050;">
+    <div class="container d-flex text-center">
+        <div>
+            <a href="/dashboard-admin">
+                <img src="/img/logo.png" alt="" width="40%" class="">
+            </a>
+        </div>
+    </div>
+    <div class="container position-sticky pt-3 d-flex flex-column" style="height: 80%;">
         <div class="sidebar-content flex-grow-1">
             <ul class="nav flex-column">
                 <li class="nav-item dropdown">

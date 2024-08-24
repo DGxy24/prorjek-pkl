@@ -61,8 +61,12 @@
                 <div class="media mb-3 d-flex align-items-center">
                     <img src="/img/profile-user.png" class="rounded-circle" alt="User Avatar" width="40" height="40">
                     <div class="media-body ml-3 w-100">
-                        <div class="shadow p-2" style="background-color: #e2e9e9;">
-                            <h5 class="mt-0">{{ $item->user->name }}</h5>
+                        <div class="shadow p-2 rounded" style="background-color: #e2e9e9;">
+                            <div class="d-flex justify-content-between align-items-center rounded">
+                                <h5 class="mt-0 shadow p-1 rounded-pill">{{ $item->user->name }}</h5>
+                                <span
+                                    class="h6 shadow p-1 rounded-pill">{{ $item->created_at->translatedformat('l-d-M-Y') }}</span>
+                            </div>
                             <p>{{ $item->tindakan }}</p>
                             <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
                                 data-bs-target="#pdfModal" onclick="ShowPDF('{{ asset('storage/' . $item->bukti) }}');">
@@ -78,7 +82,8 @@
         </div>
         {{-- dashboard/tiket-status/create/{tiket} --}}
         <div class="card-footer" style="background-color: #85A2A1;">
-            <a href="/dashboard/tiket-status/create/{{ $tiket[0]->tiket_id }}" class="btn btn-custom" style="background-color: #374750; color: white;">Kirim
+            <a href="/dashboard/tiket-status/create/{{ $tiket[0]->tiket_id }}" class="btn btn-custom"
+                style="background-color: #374750; color: white;">Kirim
                 Pesan</a>
             <a href="/dashboard/tiket-status/selesai/{{ $tiket[0]->id }}" class="btn btn-custom"
                 style="background-color: #374750; color: white;">Selesai</a>

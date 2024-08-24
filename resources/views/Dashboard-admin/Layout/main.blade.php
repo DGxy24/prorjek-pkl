@@ -115,7 +115,7 @@
             document.getElementById('modalPassword').textContent = password;
         }
 
-        function showTicketDetails(id,nama, tanggal, bagian, masalah, penjelasan, tindakan) {
+        function showTicketDetails(id, nama, tanggal, bagian, masalah, penjelasan, tindakan) {
             tiket = id;
             document.getElementById('modalTicketId').textContent = id;
             document.getElementById('modalTicketNama').textContent = nama;
@@ -159,14 +159,14 @@
 
     <script>
         function showTicketProses(id, tindakan, pdfUrl) {
-            tanda=id;
+            tanda = id;
             document.getElementById('modalTicketId').textContent = id;
             document.getElementById('modalTindakan').textContent = tindakan;
             document.getElementById('modalPdf').src = pdfUrl;
         }
 
-        function edit_proses(){
-            var link = "/dashboard-admin/tiket/proses/"+tanda+"/edit";
+        function edit_proses() {
+            var link = "/dashboard-admin/tiket/proses/" + tanda + "/edit";
             document.getElementById('link_edit').href = link;
 
         }
