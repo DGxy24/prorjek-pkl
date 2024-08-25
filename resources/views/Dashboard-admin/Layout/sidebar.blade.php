@@ -5,11 +5,11 @@
     <div class="container d-flex text-center">
         <div>
             <a href="/dashboard-admin">
-                <img src="/img/logo.png" alt="" width="40%" class="">
+                <img src="/img/logo.png" alt="logo">
             </a>
         </div>
     </div>
-    <div class="container position-sticky pt-3 d-flex flex-column" style="height: 80%;">
+    <div class="container position-sticky pt-3 d-flex flex-column">
         <div class="sidebar-content flex-grow-1">
             <ul class="nav flex-column">
                 <li class="nav-item dropdown">
