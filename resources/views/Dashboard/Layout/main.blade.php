@@ -181,7 +181,7 @@
                         userNameElement.innerText = firstName;
                     } else {
                         userNameElement.innerText =
-                        fullName; // Tampilkan nama lengkap jika layar lebih besar dari 768px
+                            fullName; // Tampilkan nama lengkap jika layar lebih besar dari 768px
                     }
                 });
             }
@@ -209,13 +209,13 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('assets/js/demo/datatables-demo.js') }}"></script>
     {{-- end JS untuk tabel --}}
-    <!-- Bootstrap JavaScript (Versi jQuery) -->
+    {{-- <!-- Bootstrap JavaScript (Versi jQuery) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- Atau jika Anda menggunakan Bootstrap 5 -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> --}}
 
 
 
