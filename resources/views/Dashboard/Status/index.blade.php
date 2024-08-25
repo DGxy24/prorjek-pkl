@@ -5,8 +5,8 @@
 {{-- {{ dd($tiket[0]->tiket->user_id) }} --}}
 
 
-@if($tiket[0]->tiket->user_id != auth()->user()->id)
-    {{ abort(404); }}
+@if ($tiket[0]->tiket->user_id != auth()->user()->id)
+    {{ abort(404) }}
 @endif
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -47,19 +47,17 @@
                     });
                 </script>
 
-                {{-- <div class="media mb-3 d-flex align-items-center">
-                    <img src="/img/profile-user.png" class="rounded-circle" alt="User Avatar" width="40" height="40">
-                    <div class="media-body ml-3">
-                        <h5 class="mt-0">{{ $item->user->name }}</h5>
-                        <p>{{ $item->tindakan }}</p>
-                        <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#pdfModal" onclick="ShowPDF('{{ asset('storage/' . $item->bukti) }}');">
-                            <i class="bi bi-filetype-pdf"></i>
-                        </button>
-                    </div>
-                </div> --}}
+                {{-- untuk manipulasi profile picture --}}
+                @php
+                    $nameParts = explode(' ', $item->user->name);
+                    $initials = strtoupper($nameParts[0][0] . (isset($nameParts[1]) ? $nameParts[1][0] : ''));
+                @endphp
+
                 <div class="media mb-3 d-flex align-items-center">
-                    <img src="/img/profile-user.png" class="rounded-circle" alt="User Avatar" width="40" height="40">
+                    {{-- <img src="/img/profile-user.png" class="rounded-circle" alt="User Avatar" width="40" height="40"> --}}
+                    <div class="profile-circle-chat d-flex justify-content-center align-items-center rounded-circle">
+                        {{ $initials }}
+                    </div>
                     <div class="media-body ml-3 w-100">
                         <div class="shadow p-2 rounded" style="background-color: #e2e9e9;">
                             <div class="d-flex justify-content-between align-items-center rounded">

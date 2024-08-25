@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-               {{-- {{ dd($tiket[0]->proses_table) }} --}}
+                {{-- {{ dd($tiket[0]->proses_table) }} --}}
 
                 @foreach ($tiket as $item)
                     <tr>
@@ -32,67 +32,33 @@
                         <td>{{ $item->permasalahan->jenis_masalah }}</td>
                         <td>{{ $item->penjelasan }}</td>
                         <td>{{ $item->tindakan }}</td>
-                        {{-- <script>
-                            var id_tiket;
-                            id_tiket={{ $item->id }};
-                            var link_t = "/dashboard-admin/tiket/"+id_tiket+"/edit";
-                        </script> --}}
 
-                        {{-- @if ($item->proses_table == null)
-                            <td>
-                                {{-- menuju form tindak lanjut  --}}
-                                {{-- <a href="/dashboard-admin/tiket/proses/{{ $item->id }} " class="btn btn-danger btn-sm"
-                                    role="button"><span data-feather="edit"><i class="bi bi-pencil-square"></i></span></a>
-
-                            </td>
-                        @else
-                            <td> --}} 
-                                {{-- menuju form view modal --}}
-
-                                {{-- <a href="#" class="btn btn-success btn-sm" role="button" data-bs-toggle="modal"
-                                    data-bs-target="#tindakLanjutModal" data-pdf-url="{{ $item->pdf_url }}">
-                                    <i class="bi bi-eye"></i>
-                                </a> --}}
-
-                                {{-- <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                    onclick="showTicketProses('{{ $item->id }}', '{{ $item->proses_table->tindakan }}',
-                                     '{{ asset('storage/' . $item->proses_table->bukti) }}');edit_proses();">
-                                    <span data-feather="eye"><i class="bi bi-eye"></i></i></span>
-                                </button>
-
-                           
-                        @endif --}}
                         @if ($item->proses_table == null)
-                        <td>
-                            <a href="/dashboard-admin/tiket/proses/{{ $item->id }} " class="btn btn-danger btn-sm"
-                                role="button"><span data-feather="edit"><i class="bi bi-pencil-square"></i></span></a>
-                        </td>
+                            <td>
+                                <a href="/dashboard-admin/tiket/proses/{{ $item->id }} " class="btn btn-danger btn-sm"
+                                    role="button"><span data-feather="edit"><i class="bi bi-pencil-square"></i></span></a>
+                            </td>
+                        @elseif($item->proses_table != null)
+                            @if ($item->proses_table->status == 2)
+                                {{-- Masukan kolom/td untuk tombol cek balasan user --}}
+                                <td>
+                                    <a href="/dashboard-admin/tiket/status/{{ $item->id }} "
+                                        class="btn btn-warning btn-sm"><span data-feather="eye"><i
+                                                class="bi bi-pencil"></i></span></a>
+                                </td>
+                            @elseif($item->proses_table->status == 0)
+                                <td>
+                                    {{-- menuju form view modal --}}
 
-                 @elseif($item->proses_table != null)
-                    @if($item->proses_table->status==2)
-                    {{-- Masukan kolom/td untuk tombol cek balasan user --}}
-                    <td>
-                        <a href="/dashboard-admin/tiket/status/{{ $item->id }} " class="btn btn-warning btn-sm"><span
-                                data-feather="eye"><i class="bi bi-pencil"></i></span></a> </td>
-
-                    @elseif($item->proses_table->status==0)
-                     <td> 
-                                {{-- menuju form view modal --}}
-
-                                {{-- <a href="#" class="btn btn-success btn-sm" role="button" data-bs-toggle="modal"
-                                    data-bs-target="#tindakLanjutModal" data-pdf-url="{{ $item->pdf_url }}">
-                                    <i class="bi bi-eye"></i>
-                                </a> --}}
-
-                                <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                    onclick="showTicketProses('{{ $item->id }}', '{{ $item->proses_table->tindakan }}',
+                                    <button class="btn btn-success btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal"
+                                        onclick="showTicketProses('{{ $item->id }}', '{{ $item->proses_table->tindakan }}',
                                      '{{ asset('storage/' . $item->proses_table->bukti) }}');edit_proses();">
-                                    <span data-feather="eye"><i class="bi bi-eye"></i></i></span>
-                                </button>
-                    @endif 
-                       
-                    @endif
-                        
+                                        <span data-feather="eye"><i class="bi bi-eye"></i></i></span>
+                                    </button>
+                            @endif
+                        @endif
+
                     </tr>
                 @endforeach
 
@@ -130,8 +96,7 @@
                 </div>
                 <div class="modal-footer">
 
-                    <a id="link_edit" class="btn btn-warning"
-                        role="button"><span data-feather="edit">Ubah</span></a>
+                    <a id="link_edit" class="btn btn-warning" role="button"><span data-feather="edit">Ubah</span></a>
                     {{-- <form id="link_edit" method="POST">
                         @csrf
                         <button class="btn btn-warning" type="submit">Ubah</button>

@@ -21,13 +21,15 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Custom styles for this template -->
     <link href="/css/dashboard.css" rel="stylesheet">
+    <link href="/css/sidebar-admin.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+
     {{-- Trix Editor --}}
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
     <link rel="icon" href="/img/logo.png">
-    <link href="/css/sidebar-admin.css" rel="stylesheet">
     <title>Dashboard</title>
 
-    <style>
+    {{-- <style>
         trix-toolbar [data-trix-button-group="file-tools"] {
             display: none;
         }
@@ -45,26 +47,8 @@
             padding: 0;
             /* Menyembunyikan padding jika tidak diinginkan */
         }
-    </style>
-    <style>
+    </style> --}}
 
-    </style>
-    <style>
-        .profile-circle {
-            width: 35px;
-            height: 35px;
-            background-color: #374750;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 20px;
-            font-weight: bold;
-            color: white;
-            text-transform: uppercase;
-            margin-left: 10px;
-        }
-    </style>
 
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -181,6 +165,36 @@
             document.getElementById('link_edit').href = link;
 
         }
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Ambil semua elemen dengan kelas 'user-name'
+            var userNameElements = document.querySelectorAll('.user-name');
+
+            // Function untuk memperbarui nama berdasarkan ukuran layar
+            function updateUserNames() {
+                userNameElements.forEach(function(userNameElement) {
+                    var fullName = userNameElement.getAttribute('data-full-name') || userNameElement
+                        .innerText;
+                    userNameElement.setAttribute('data-full-name', fullName);
+
+                    if (window.innerWidth < 768) {
+                        var firstName = fullName.split(' ')[0]; // Ambil kata pertama (nama depan)
+                        userNameElement.innerText = firstName;
+                    } else {
+                        userNameElement.innerText =
+                            fullName; // Tampilkan nama lengkap jika layar lebih besar dari 768px
+                    }
+                });
+            }
+
+            // Panggil fungsi pertama kali saat halaman dimuat
+            updateUserNames();
+
+            // Panggil fungsi setiap kali ukuran jendela berubah
+            window.addEventListener('resize', updateUserNames);
+        });
     </script>
 
     {{-- JS untuk tabel --}}

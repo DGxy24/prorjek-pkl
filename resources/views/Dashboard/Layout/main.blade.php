@@ -21,53 +21,12 @@
     <!-- Custom styles for this template -->
     <link href="/css/dashboard.css" rel="stylesheet">
     <link href="/css/sidebar-user.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
     {{-- Trix Editor --}}
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
 
     <title>Dashboard</title>
 
-    <style>
-        /* Menyembunyikan toolbar pada editor */
-        trix-toolbar {
-            display: none;
-        }
-
-        /* Menyembunyikan bagian lain dari editor jika diperlukan */
-        trix-editor {
-            border: none;
-            /* Menyembunyikan border jika tidak diinginkan */
-            padding: 0;
-            /* Menyembunyikan padding jika tidak diinginkan */
-        }
-    </style>
-    <style>
-        trix-toolbar [data-trix-button-group="file-tools"] {
-            display: none;
-        }
-
-        .media {
-            align-items: flex-start;
-        }
-
-        .media-body {
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 10px;
-        }
-
-        .media+.media {
-            margin-top: 15px;
-        }
-
-        .card-header,
-        .card-footer {
-            background-color: #007bff;
-            color: white;
-        }
-    </style>
-    <style>
-
-    </style>
 
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -183,9 +142,6 @@
     <script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
     <!-- Page level custom scripts -->
     <script src="{{ asset('assets/js/demo/datatables-demo.js') }}"></script>
-
-
-
 
 </body>
 

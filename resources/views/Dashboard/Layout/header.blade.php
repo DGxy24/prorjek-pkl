@@ -1,3 +1,9 @@
+@php
+    // $initial = strtoupper(auth()->user()->name[0]);
+    $nameParts = explode(' ', auth()->user()->name);
+    $initials = strtoupper($nameParts[0][0] . (isset($nameParts[1]) ? $nameParts[1][0] : ''));
+@endphp
+
 {{-- membuat header --}}
 <header class="navbar navbar-dark sticky-top px-3" style="background-color: #7DA3A1; z-index: 1000;">
 
@@ -10,8 +16,13 @@
     <div class="navbar-nav">
         <div class="nav-item text-nowrap">
             <a href="#" type="submit" class="nav-link px-3 border-none">
-                <span class="mr-2 d-inline text-black me-2" style="color: black">{{ auth()->user()->name }}</span>
-                <img src="/img/profile-user.png" alt="" width="35px" height="35px">
+                <div class="container d-flex align-items-center">
+                    <span class="mr-2 d-inline text-black me-2" style="color: black">{{ auth()->user()->name }}</span>
+                    {{-- <img src="/img/profile-user.png" alt="" width="35px" height="35px"> --}}
+                    <div class="profile-circle">
+                        {{ $initials }}
+                    </div>
+                </div>
             </a>
         </div>
     </div>
