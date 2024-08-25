@@ -6,9 +6,32 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <meta name="author" content="Doly Gurning">
+    {{-- CSS untuk tabel --}}
+    <link href="{{ asset('assets/css/border.css') }}" rel="stylesheet">
+    <!-- Custom styles for this page -->
+    <link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+    {{-- end CSS untuk tabel --}}
+    <link rel="icon" href="img/logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="/css/dashboard.css" rel="stylesheet">
+    {{-- Trix Editor --}}
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
+    <link rel="icon" href="/img/logo.png">
 
+    <title>Dashboard</title>
+
+    <style>
+        trix-toolbar [data-trix-button-group="file-tools"] {
+            display: none;
+        }
+    </style>
     <style>
         /* Menyembunyikan toolbar pada editor */
         trix-toolbar {
@@ -23,39 +46,37 @@
             /* Menyembunyikan padding jika tidak diinginkan */
         }
     </style>
-
-
-    <title>Dashboard</title>
-
-    {{-- CSS untuk tabel --}}
-    <link href="{{ asset('assets/css/border.css') }}" rel="stylesheet">
-    <!-- Custom styles for this page -->
-    <link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
-    {{-- end CSS untuk tabel --}}
-
-
-    <link rel="icon" href="img/logo.png">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <!-- Custom styles for this template -->
-    <link href="/css/dashboard.css" rel="stylesheet">
-
-    {{-- Trix Editor --}}
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
-    <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
-
     <style>
-        trix-toolbar [data-trix-button-group="file-tools"] {
-            display: none;
+        /* Gaya untuk layar desktop (default) */
+        #sidebarMenu .container.position-sticky {
+            height: 80%;
+        }
+
+        /* Gaya untuk layar mobile (maksimal 768px) */
+        @media (max-width: 768px) {
+            #sidebarMenu .container.position-sticky {
+                height: 75%;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+
+            /* Ukuran layar mobile */
+            #sidebarMenu img {
+                width: 30%;
+            }
+        }
+
+        @media (min-width: 768px) {
+
+            /* Ukuran layar desktop */
+            #sidebarMenu img {
+                width: 40%;
+            }
         }
     </style>
-    <link rel="icon" href="/img/logo.png">
+
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>

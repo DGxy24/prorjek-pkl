@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="icon" href="img/logo.png">
+    <link rel="icon" href="img/logo.png">
     <title>Form Daftar</title>
 </head>
 
@@ -30,17 +30,10 @@
                     <form action="{{ route('daftar') }}" method="POST">
                         @csrf
 
-                        {{--  <input type="telp" class="form-control @error('no_hp') is-invalid
-                        @enderror" id="no_hp" name="no_hp" value="{{ old('no_hp') }}">
-                        @error('no_hp')
-                        <div class="invalid-feedback">
-                    {{ $message }}
-                    </div>
-                        @enderror --}}
                         <div class="text-center mt-3">
                             <a href="/">
-                            <img class="mb-4" src="/img/logo.png" alt="Logo" width="10%">
-                        </a>
+                                <img class="mb-4" src="/img/logo.png" alt="Logo" width="10%">
+                            </a>
                             <h1 class="h3 mb-3 fw-normal">Silahkan Daftar</h1>
                         </div>
 
@@ -73,7 +66,7 @@
                                 </div>
                             @enderror
                         </div>
-                        
+
                         <div class="form-floating mb-3">
                             <select
                                 class="form-select  @error('bagian_id') is-invalid
@@ -83,40 +76,42 @@
                                 <option value="">Pilih</option>
                                 @foreach ($bagian as $item)
                                     <option value="{{ $item->id }}">{{ $item->nama_bagian }}</option>
-
-                                @endforeach                            
+                                @endforeach
 
                             </select>
                             <label for="floatingSelectGrid">Pilih Bidang/Bagian</label>
                             @error('bagian_id')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control  @error('email') is-invalid
+                            <input type="email"
+                                class="form-control  @error('email') is-invalid
                         @enderror"
                                 id="email" name="email" value="{{ old('email') }}" id="floatingEmail"
                                 placeholder="name@example.com">
                             <label for="floatingEmail">Email address</label>
                             @error('email')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control @error('password') is-invalid
+                            <input type="password"
+                                class="form-control @error('password') is-invalid
                         @enderror"
-                                id="password" name="password" value="{{ old('password') }}" id="floatingPassword" placeholder="Password">
+                                id="password" name="password" value="{{ old('password') }}" id="floatingPassword"
+                                placeholder="Password">
                             <label for="floatingPassword">Password</label>
                             @error('password')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
 
 

@@ -63,7 +63,7 @@
                     <div class="media-body ml-3 w-100">
                         <div class="shadow p-2 rounded" style="background-color: #e2e9e9;">
                             <div class="d-flex justify-content-between align-items-center rounded">
-                                <h5 class="mt-0 shadow p-1 rounded-pill">{{ $item->user->name }}</h5>
+                                <h5 class="user-name mt-0 shadow p-1 rounded-pill">{{ $item->user->name }}</h5>
                                 <span
                                     class="h6 shadow p-1 rounded-pill">{{ $item->created_at->translatedformat('l-d-M-Y') }}</span>
                             </div>
