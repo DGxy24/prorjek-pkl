@@ -24,7 +24,7 @@
     {{-- Trix Editor --}}
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
     <link rel="icon" href="/img/logo.png">
-
+    <link href="/css/sidebar-admin.css" rel="stylesheet">
     <title>Dashboard</title>
 
     <style>
@@ -40,39 +40,29 @@
 
         /* Menyembunyikan bagian lain dari editor jika diperlukan */
         trix-editor {
-            border: none;
+            border: 1px;
             /* Menyembunyikan border jika tidak diinginkan */
             padding: 0;
             /* Menyembunyikan padding jika tidak diinginkan */
         }
     </style>
     <style>
-        /* Gaya untuk layar desktop (default) */
-        #sidebarMenu .container.position-sticky {
-            height: 80%;
-        }
 
-        /* Gaya untuk layar mobile (maksimal 768px) */
-        @media (max-width: 768px) {
-            #sidebarMenu .container.position-sticky {
-                height: 75%;
-            }
-        }
-
-        @media (max-width: 767.98px) {
-
-            /* Ukuran layar mobile */
-            #sidebarMenu img {
-                width: 30%;
-            }
-        }
-
-        @media (min-width: 768px) {
-
-            /* Ukuran layar desktop */
-            #sidebarMenu img {
-                width: 40%;
-            }
+    </style>
+    <style>
+        .profile-circle {
+            width: 35px;
+            height: 35px;
+            background-color: #374750;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;
+            margin-left: 10px;
         }
     </style>
 

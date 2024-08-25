@@ -1,8 +1,8 @@
-.color{
-  background: #7DA3A1;
+.color {
+    background: #7da3a1;
 }
 
-.tombol .btn:hover{
- background-color: white !important;
- color: #324851 !important;
+.tombol .btn:hover {
+    background-color: white !important;
+    color: #324851 !important;
 }

@@ -1,0 +1,25 @@
+/* Gaya untuk layar desktop (default) */
+#sidebarMenu .container.position-sticky {
+    height: 80%;
+}
+
+/* Gaya untuk layar mobile (maksimal 768px) */
+@media (max-width: 768px) {
+    #sidebarMenu .container.position-sticky {
+        height: 78%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    /* Ukuran layar mobile */
+    #sidebarMenu img {
+        width: 25%;
+    }
+}
+
+@media (min-width: 768px) {
+    /* Ukuran layar desktop */
+    #sidebarMenu img {
+        width: 40%;
+    }
+}

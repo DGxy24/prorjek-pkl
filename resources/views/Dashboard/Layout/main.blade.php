@@ -20,6 +20,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Custom styles for this template -->
     <link href="/css/dashboard.css" rel="stylesheet">
+    <link href="/css/sidebar-user.css" rel="stylesheet">
     {{-- Trix Editor --}}
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
 
@@ -65,33 +66,7 @@
         }
     </style>
     <style>
-        /* Gaya untuk layar desktop (default) */
-        #sidebarMenu .container.position-sticky {
-            height: 80%;
-        }
 
-        /* Gaya untuk layar mobile (maksimal 768px) */
-        @media (max-width: 768px) {
-            #sidebarMenu .container.position-sticky {
-                height: 78%;
-            }
-        }
-
-        @media (max-width: 767.98px) {
-
-            /* Ukuran layar mobile */
-            #sidebarMenu img {
-                width: 25%;
-            }
-        }
-
-        @media (min-width: 768px) {
-
-            /* Ukuran layar desktop */
-            #sidebarMenu img {
-                width: 40%;
-            }
-        }
     </style>
 
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
