@@ -1,8 +1,76 @@
-.color{
-  background: #7DA3A1;
+.color {
+    background: #7da3a1;
 }
 
-.tombol .btn:hover{
- background-color: white !important;
- color: #324851 !important;
+.tombol .btn:hover {
+    background-color: white !important;
+    color: #324851 !important;
+}
+
+/* untuk text penjelasan */
+/* Menyembunyikan toolbar pada editor */
+trix-toolbar {
+    display: none;
+}
+
+/* Menyembunyikan bagian lain dari editor jika diperlukan */
+trix-editor {
+    /* border: ; */
+    /* Menyembunyikan border jika tidak diinginkan */
+    padding: 3;
+    /* Menyembunyikan padding jika tidak diinginkan */
+}
+
+trix-toolbar [data-trix-button-group="file-tools"] {
+    display: none;
+}
+
+.media {
+    align-items: flex-start;
+}
+
+.media-body {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.media + .media {
+    margin-top: 15px;
+}
+
+.card-header,
+.card-footer {
+    background-color: #007bff;
+    color: white;
+}
+
+/* untuk profile picture */
+.profile-circle {
+    width: 35px;
+    height: 35px;
+    background-color: #374750;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+
+.profile-circle-chat {
+    width: 40px;
+    height: 40px;
+    background-color: #7da3a1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
 }

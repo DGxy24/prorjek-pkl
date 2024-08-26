@@ -40,17 +40,28 @@
                                 value="{{ $tiket[0]->permasalahan->jenis_masalah }}" name="permasalahan_id" readonly>
                             <label for="floatingUsername">Permasalahan</label>
                         </div>
-                        <div class="form-floating mb-3">
+
+                        {{-- <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="permasalahan_id"
                                 value="{{ $tiket[0]->penjelasan }}" name="permasalahan_id" readonly>
                             <label for="floatingUsername">Penjelasan</label>
+                        </div> --}}
+
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Penjelasan</label>
+                            <textarea class="form-control" id="permasalahan_id" name="permasalahan_id" rows="3" readonly>{{ $tiket[0]->penjelasan }}</textarea>
                         </div>
-                        <div class="form-floating mb-3">
+
+                        {{-- <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="permasalahan_id"
                                 value="{{ $tiket[0]->tindakan }}" name="permasalahan_id" readonly>
-
                             <label for="floatingUsername">Tindakan</label>
+                        </div> --}}
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Tindakan</label>
+                            <textarea class="form-control" id="tindakan_id" name="tindakan_id" rows="3" readonly>{{ $tiket[0]->tindakan }}</textarea>
                         </div>
+
                         {{-- pakai ini di conttrolernya agar input tindakkanya bersih --}}
                         {{-- $validatedData['tindakan'] = strip_tags($request->input('tindakan')); --}}
                         <div class="mb-3">

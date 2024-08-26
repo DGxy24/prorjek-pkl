@@ -11,7 +11,7 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    {{-- <th scope="col">#</th> --}}
+                    <th scope="col">#</th>
                     <th scope="col">ID Tiket</th>
                     <th scope="col">Tanggal Lapor</th>
                     <th scope="col">Nama Bagian</th>
@@ -26,7 +26,7 @@
                 {{-- {{ dd($tiket[0]->proses_table) }} --}}
                 @foreach ($tiket as $item)
                     <tr>
-                        {{-- <td>{{ $loop->iteration }}</td> --}}
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->created_at->translatedformat('l-d-M-Y') }}</td>
                         <td>{{ $item->bagian->nama_bagian }}</td>

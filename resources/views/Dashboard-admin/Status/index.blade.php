@@ -42,13 +42,21 @@
                     });
                 </script>
 
+                {{-- untuk manipulasi profile picture --}}
+                @php
+                    $nameParts = explode(' ', $item->user->name);
+                    $initials = strtoupper($nameParts[0][0] . (isset($nameParts[1]) ? $nameParts[1][0] : ''));
+                @endphp
                 <div class="media mb-3 d-flex align-items-center">
-                    <img src="/img/profile-user.png" class="rounded-circle" alt="User Avatar" width="30" height="30"
-                        style="margin-right: 10px;">
+                    {{-- <img src="/img/profile-user.png" class="rounded-circle" alt="User Avatar" width="30" height="30"
+                        style="margin-right: 10px;"> --}}
+                    <div class="profile-circle-chat d-flex justify-content-center align-items-center rounded-circle">
+                        {{ $initials }}
+                    </div>
                     <div class="media-body ml-3 w-100">
                         <div class="shadow p-2 rounded" style="background-color: #e2e9e9;">
                             <div class="d-flex justify-content-between align-items-center rounded">
-                                <h5 class="mt-0 shadow p-1 rounded-pill">{{ $item->user->name }}</h5>
+                                <h5 class="user-name mt-0 shadow p-1 rounded-pill">{{ $item->user->name }}</h5>
                                 <span
                                     class="h6 shadow p-1 rounded-pill">{{ $item->created_at->translatedformat('l-d-M-Y') }}</span>
                             </div>
