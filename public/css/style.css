@@ -74,3 +74,18 @@ trix-toolbar [data-trix-button-group="file-tools"] {
     color: white;
     text-transform: uppercase;
 }
+
+/* untuk menu dropdown */
+.dropdown-menu-custom {
+    min-width: 100%; /* Agar lebar dropdown sesuai dengan lebar tombol */
+    width: auto; /* Sesuaikan lebar dropdown otomatis */
+    max-width: none; /* Hapus batas lebar maksimum dari dropdown-menu */
+}
+
+@media (max-width: 767.98px) {
+    /* Sesuaikan dengan breakpoint mobile Anda */
+    .dropdown-menu-custom {
+        width: 100%; /* Pastikan lebar dropdown penuh pada mode mobile */
+        position: absolute; /* Pastikan posisi dropdown diatur dengan benar */
+    }
+}

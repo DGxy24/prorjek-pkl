@@ -29,27 +29,6 @@
     <link rel="icon" href="/img/logo.png">
     <title>Dashboard</title>
 
-    {{-- <style>
-        trix-toolbar [data-trix-button-group="file-tools"] {
-            display: none;
-        }
-    </style>
-    <style>
-        /* Menyembunyikan toolbar pada editor */
-        trix-toolbar {
-            display: none;
-        }
-
-        /* Menyembunyikan bagian lain dari editor jika diperlukan */
-        trix-editor {
-            border: 1px;
-            /* Menyembunyikan border jika tidak diinginkan */
-            padding: 0;
-            /* Menyembunyikan padding jika tidak diinginkan */
-        }
-    </style> --}}
-
-
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
