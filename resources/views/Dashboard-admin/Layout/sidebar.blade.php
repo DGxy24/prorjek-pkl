@@ -19,7 +19,8 @@
                         <span data-feather="home"></span>
                         User
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                    <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="userDropdown"
+                        data-bs-display="static">
                         <li><a class="dropdown-item" href="/dashboard-admin/user">User</a></li>
                         <li><a class="dropdown-item" href="/dashboard-admin/admin">Admin</a></li>
                     </ul>
@@ -31,7 +32,8 @@
                         <span data-feather="file"></span>
                         Tiket
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="ticketDropdown">
+                    <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="ticketDropdown"
+                        data-bs-display="static">
                         <li><a class="dropdown-item" href="/dashboard-admin/tiket/masuk">Tiket Masuk</a></li>
                         <li><a class="dropdown-item" href="/dashboard-admin/tiket/proses">Tiket Proses</a></li>
                         <li><a class="dropdown-item" href="/dashboard-admin/tiket/ditolak">Tiket Ditolak</a></li>
