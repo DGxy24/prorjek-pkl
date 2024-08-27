@@ -103,15 +103,15 @@ class DatabaseSeeder extends Seeder
             'user_id' => '2',
             'bagian_id' => '2',
             'permasalahan_id' => '2',
-            'penjelasan' => 'lah',
-            'tindakan' => 'lah',
+            'penjelasan' => 'Tes',
+            'tindakan' => 'Tes',
         ]);
         tiket::create([
             'user_id' => '2',
             'bagian_id' => '2',
             'permasalahan_id' => '1',
-            'penjelasan' => 'wdokawod',
-            'tindakan' => 'wdokawod',
+            'penjelasan' => 'Tes',
+            'tindakan' => 'Tes',
         ]);    tiket::create([
             'user_id' => '2',
             'bagian_id' => '2',

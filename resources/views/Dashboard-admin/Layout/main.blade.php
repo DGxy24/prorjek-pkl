@@ -134,7 +134,7 @@
     </script>
 
     <script>
-        function showTicketProses(id, tindakan, pdfUrl) {
+        function showTicketProses(id , tindakan, pdfUrl) {
             tanda = id;
             document.getElementById('modalTicketId').textContent = id;
             document.getElementById('modalTindakan').textContent = tindakan;

@@ -37,7 +37,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('dashboard/tiket-status/create/{tiket}', [StatusController::class,'create']);
 Route::get('dashboard/tiket-status/selesai/{tiket}', [StatusController::class,'selesai']);
   Route::get('dashboard/tiket-proses/{id}/lanjutan', [StatusController::class,'lanjutan']);
-
+  // 
 
   Route::get('dashboard/ajukan-tiket', [AjukanTiketController::class, 'index']);
   Route::post('dashboard/ajukan-tiket', [AjukanTiketController::class, 'store'])->name('tiket.simpan');

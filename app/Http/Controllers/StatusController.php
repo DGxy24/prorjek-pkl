@@ -48,7 +48,13 @@ class StatusController extends Controller
 
     public function selesai(proses $tiket)
     {
-        //    dd($tiket);
+           
+        // dd(auth()->user()->id);
+        // dd($tiket->tiket->user_id);
+    
+        if($tiket->tiket->user_id !=auth()->user()->id){
+            abort(404);
+        }
 
         $selesai_proses['status'] = 1;
         $selesai_tiket['proses'] = 3;
