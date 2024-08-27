@@ -23,3 +23,38 @@
         width: 40%;
     }
 }
+
+/* CSS tambahan untuk responsivitas */
+
+@media (max-width: 768px) {
+    #sidebarMenu {
+        position: fixed;
+        width: 100%;
+        height: auto;
+        top: 56px;
+        z-index: 1049;
+    }
+
+    .navbar-toggler {
+        margin-right: auto;
+    }
+
+    .navbar-nav .nav-item {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    #sidebarMenu {
+        position: fixed;
+        width: 250px;
+        height: 100vh;
+        top: 0;
+        left: -250px;
+        transition: left 0.3s ease;
+    }
+
+    #sidebarMenu.show {
+        left: 0;
+    }
+}
