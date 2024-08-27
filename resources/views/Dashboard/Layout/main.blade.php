@@ -128,6 +128,26 @@
         });
     </script>
 
+    <!-- JavaScript untuk Toggle Sidebar -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sidebarMenu = document.getElementById('sidebarMenu');
+            const toggleButton = document.querySelector('.navbar-toggler');
+
+            toggleButton.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevents the click from bubbling up
+                sidebarMenu.classList.toggle('show');
+            });
+
+            // Close sidebar when clicking outside of it on mobile
+            document.addEventListener('click', function(e) {
+                if (!sidebarMenu.contains(e.target) && !toggleButton.contains(e.target)) {
+                    sidebarMenu.classList.remove('show');
+                }
+            });
+        });
+    </script>
+
 
     {{-- JS untuk tabel --}}
     <!-- Bootstrap core JavaScript-->

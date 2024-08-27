@@ -29,6 +29,8 @@
     <link rel="icon" href="/img/logo.png">
     <title>Dashboard</title>
 
+
+
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -173,6 +175,26 @@
 
             // Panggil fungsi setiap kali ukuran jendela berubah
             window.addEventListener('resize', updateUserNames);
+        });
+    </script>
+
+    <!-- JavaScript untuk Toggle Sidebar -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sidebarMenu = document.getElementById('sidebarMenu');
+            const toggleButton = document.querySelector('.navbar-toggler');
+
+            toggleButton.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevents the click from bubbling up
+                sidebarMenu.classList.toggle('show');
+            });
+
+            // Close sidebar when clicking outside of it on mobile
+            document.addEventListener('click', function(e) {
+                if (!sidebarMenu.contains(e.target) && !toggleButton.contains(e.target)) {
+                    sidebarMenu.classList.remove('show');
+                }
+            });
         });
     </script>
 
