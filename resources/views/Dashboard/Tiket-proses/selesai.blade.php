@@ -2,6 +2,9 @@
 @extends('dashboard.layout.main')
 
 @section('container')
+@if ($status[0]->tiket->user_id != auth()->user()->id)
+    {{ abort(404) }}
+@endif
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Laporan Penanganan IT</h1>
         <a class="btn btn-danger" href="/dashboard/tiket-proses" role="button"> <i class="bi bi-arrow-left-square-fill"></i>
@@ -58,11 +61,12 @@
                             </div>
                         </div>
 
+                        {{-- dashboard/tiket-status/selesai/{tiket} --}}
 
                         <div class="card-footer mb-3" style="background-color: #85A2A1;">
-                            <a href="/dashboard/tiket-status/{{ $status[0]->tiket_id }}" class="btn"
+                            <a href="/dashboard/tiket-status/selesai/{{ $status[0]->id }}" class="tombol btn"
                                 style="background-color: #374750; color: white;">Selesai</a>
-                            <a href="/dashboard/tiket-proses/{{ $status[0]->id }}/lanjutan" class="btn"
+                            <a href="/dashboard/tiket-proses/{{ $status[0]->id }}/lanjutan" class="tombol btn"
                                 style="background-color: #374750; color: white;">Belum</a>
 
                         </div>

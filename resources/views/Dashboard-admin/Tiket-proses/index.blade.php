@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Tiket Proses</h1>
     </div>
-
+{{-- {{ dD($tiket[0]->user) }} --}}
     <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
@@ -82,6 +82,7 @@
                             <th>ID Tiket</th>
                             <td id="modalTicketId"></td>
                         </tr>
+
                         <tr>
                             <th>Tindakan</th>
                             <td id="modalTindakan"></td>
