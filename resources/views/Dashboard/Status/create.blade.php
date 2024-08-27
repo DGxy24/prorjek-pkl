@@ -1,6 +1,10 @@
 @extends('dashboard.layout.main')
 
 @section('container')
+
+@if ($tiket[0]->user_id != auth()->user()->id)
+    {{ abort(404) }}
+@endif
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Tindak Ulang</h1>
         <a class="btn btn-danger" href="/dashboard/tiket-proses" role="button"> <i class="bi bi-arrow-left-square-fill"></i>
@@ -39,9 +43,38 @@
                             <input id="tindakan" type="hidden" name="tindakan" value="{{ old('tindakan') }}">
                             <trix-editor input="tindakan"></trix-editor>
                         </div>
+
+
                         <div class="mb-3">
+
                             <label for="formFile" class="form-label">Upload File Pdf</label>
                             <div class="d-flex align-items-center mt-2">
+
+                                <input class="form-control  @error('bukti') is-invalid
+                        @enderror"
+                                    value="{{ old('bukti') }}" type="file" id="formFile" accept="application/pdf"
+                                    name="bukti">
+
+                                <button id="viewPdfBtn" class="btn btn-warning ms-3" style="display: none;"
+                                    data-bs-toggle="modal" data-bs-target="#pdfModal1">
+                                    <i class="bi bi-filetype-pdf"></i>
+                                </button>
+                                @error('bukti')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+
+                            </div>
+
+                        </div>
+
+                        {{-- <div class="mb-3">
+                            <label for="formFile" class="form-label">Upload File Pdf</label>
+                            <div class="d-flex align-items-center mt-2">
+                                @error('tindakan')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                                 <input class="form-control"type="file" id="formFile" accept="application/pdf"
                                     name="bukti">
                                 <button id="viewPdfBtn" class="btn btn-warning ms-3" style="display: none;"
@@ -49,7 +82,7 @@
                                     <i class="bi bi-filetype-pdf"></i>
                                 </button>
                             </div>
-                        </div>
+                        </div> --}}
                         <button class="w-100 btn btn-lg btn-primary mb-5" type="submit">SUBMIT</button>
                 </div>
                 </form>

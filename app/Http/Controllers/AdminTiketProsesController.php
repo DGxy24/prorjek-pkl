@@ -50,10 +50,11 @@ class AdminTiketProsesController extends Controller
             'tiket_id' => '',
             'user_id' => '',
             'tindakan' => 'required',
-            'bukti' => 'required',
+            'bukti' => 'required|mimes:pdf',
         ], messages: [
             'tindakan.required' => 'Tindakan Harus Di isi',
             'bukti.required' => 'Bukti harus di sertakan',
+            'bukti.mimes' => 'File harus PDF!',
         ]);
         // Mengubah data file agar bisa disimpan
 
