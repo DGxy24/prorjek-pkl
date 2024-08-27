@@ -74,11 +74,12 @@ class StatusController extends Controller
             'user_id' => '',
             'tiket_id' => '',
             'tindakan' => 'required',
-            'bukti' => 'required',
+            'bukti' => 'required|mimes:pdf',
         ], messages: [
             'tindakan.required' => 'Tindakan Harus Di isi',
             // 'tiket_id.required' => 'Tindakan Harus Di isi',
             'bukti.required' => 'Bukti harus di sertakan',
+            'bukti.mimes' => 'File harus PDF!',
 
         ]);
         // $proses_update['status'] = 2;

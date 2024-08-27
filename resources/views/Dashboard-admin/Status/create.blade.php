@@ -44,8 +44,16 @@
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Upload File Pdf</label>
                             <div class="d-flex align-items-center mt-2">
-                                <input class="form-control"type="file" id="formFile" accept="application/pdf"
+                                <input class="form-control @error('bukti') is-invalid
+                        @enderror"type="file" id="formFile" accept="application/pdf"
                                     name="bukti">
+
+                                    @error('bukti')
+                                <div class="invalid-feedback">
+                                 {{ $message }}
+                                 </div>
+                                 @enderror
+
                                 <button id="viewPdfBtn" class="btn btn-warning ms-3" style="display: none;"
                                     data-bs-toggle="modal" data-bs-target="#pdfModal1">
                                     <i class="bi bi-filetype-pdf"></i>
