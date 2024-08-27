@@ -3,6 +3,11 @@
 @extends('dashboard.layout.main')
 
 @section('container')
+
+{{-- Pengecekan user ID --}}
+@if ($tiket[0]->tiket->user_id != auth()->user()->id)
+    {{ abort(404) }}
+@endif
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">History Tindakan Tiket</h1>
         <a class="btn btn-danger" href="/dashboard/tiket-selesai" role="button"> <i class="bi bi-arrow-left-square-fill"></i>
