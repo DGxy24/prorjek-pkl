@@ -83,6 +83,7 @@ class DatabaseSeeder extends Seeder
 
         //Membuat akun Admin default
         $passwordAdmin =Hash::make('admin123');//Password default untuk login admin
+        $passwordUser =Hash::make('user123');//Password default untuk login admin
         User::create([
             'name'=>'Admin',
             'username' => 'admin',
@@ -93,11 +94,11 @@ class DatabaseSeeder extends Seeder
         ]);
             //membuat akun user Default
         User::create([
-            'name'=>'Doly Boan Tua Gurning',
+            'name'=>'Doly',
             'username' => 'user',
             'bagian_id'=> '2',
             'email' => 'user@user.com',
-            'password'=> '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',//password
+            'password'=> $passwordUser,
             'level' => 0
         ]);
         
@@ -114,27 +115,7 @@ class DatabaseSeeder extends Seeder
             'permasalahan_id' => '1',
             'penjelasan' => 'Tes',
             'tindakan' => 'Tes',
-        ]);    tiket::create([
-            'user_id' => '2',
-            'bagian_id' => '2',
-            'permasalahan_id' => '3',
-            'penjelasan' => 'satu',
-            'tindakan' => 'dua',
-        ]);    tiket::create([
-            'user_id' => '2',
-            'bagian_id' => '2',
-            'permasalahan_id' => '4',
-            'penjelasan' => 'tiga',
-            'tindakan' => 'tiga',
-        ]);
-        tiket::create([
-            'user_id' => '2',
-            'bagian_id' => '3',
-            'permasalahan_id' => '8',
-            'penjelasan' => 'empat',
-            'tindakan' => 'empat',
-        ]);
-   
+        ]); 
         //Untuk tiket, Proses ada 4 
         //Proses 0 = baru dikirim, Proses 1 = Tiket di tolak, Proses 2 = Tiket Diterima
         // Proses 3 = Tiket selesai
