@@ -9,6 +9,7 @@ use App\Models\tiket;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -81,12 +82,13 @@ class DatabaseSeeder extends Seeder
 
 
         //Membuat akun Admin default
+        $passwordAdmin =Hash::make('admin123');//Password default untuk login admin
         User::create([
             'name'=>'Admin',
             'username' => 'admin',
             'bagian_id'=> '2',
             'email' => 'admin@admin.com',
-            'password'=> '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',//password
+            'password'=> $passwordAdmin,
             'level' => 1
         ]);
             //membuat akun user Default
